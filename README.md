@@ -1,36 +1,158 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AccuMaxio – Practice Management System 🚀
+
+A **premium, modern practice management platform** built with Next.js 16, featuring intelligent automation for accounting, legal, and professional services firms. Inspired by industry leaders like TaxDome, KarbonHQ, Ignition, and Canopy.
+
+## ✨ Premium Features
+
+- 🌙 **Full Dark Mode** with smooth theme transitions
+- 💎 **Premium Design System** with gradients, glassmorphism, and shadows
+- 🎨 **Sophisticated Animations** using Framer Motion
+- 📊 **Social Proof Sections** (Stats, Testimonials, Trust Badges)
+- ❓ **FAQ Accordion** for better conversion
+- 📱 **Fully Responsive** mobile-first design
+- ♿ **WCAG Compliant** accessibility
+- ⚡ **Optimized Performance** with lazy loading
+- 🎯 **Premium UI Components** with hover effects and micro-interactions
+
+## 🛠️ Tech Stack
+
+- **Framework:** Next.js 16 (App Router) with React 19
+- **Styling:** Tailwind CSS v4
+- **UI Components:** Custom component library (shadcn-inspired)
+- **Icons:** Lucide React (500+ icons)
+- **Animations:** Framer Motion 12
+- **Typography:** Inter font family (next/font)
+- **Forms:** React Hook Form + Zod validation
+- **Theme:** Custom dark/light mode system
+- **TypeScript:** Full type safety
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- npm, yarn, pnpm, or bun
+
+### Install & Run
 
 ```bash
+# Install dependencies (if not already done)
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+  app/
+    page.tsx          # Homepage
+    layout.tsx        # Root layout (Header, Footer)
+    globals.css       # Design system (colors, theme)
+    features/         # Features page
+    pricing/          # Pricing page
+    about/            # About page
+    contact/          # Contact/Demo page
+    resources/        # Resources/Blog page
+  components/
+    ui/               # Button, Card, Badge, Input
+    layout/           # Header, Footer
+    sections/         # Hero, Features, Testimonials, etc.
+  lib/
+    utils.ts          # cn() and utilities
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Pages
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Page       | Route       | Status        |
+|-----------|-------------|---------------|
+| Homepage  | `/`         | ✅ Complete    |
+| Features  | `/features`  | Placeholder   |
+| Pricing   | `/pricing`   | Placeholder   |
+| About     | `/about`     | Placeholder   |
+| Contact   | `/contact`   | Placeholder   |
+| Resources | `/resources` | Placeholder   |
 
-## Deploy on Vercel
+## Design System
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Primary:** `#2563eb` (blue)
+- **Neutrals:** Gray scale from 50–900
+- **Semantic:** Success, warning, error
+- **Typography:** Inter, bold headings, clear hierarchy
+- **Spacing:** Container `max-w-7xl`, section `py-16 md:py-24`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📚 Documentation
+
+- **[ENHANCEMENTS.md](./ENHANCEMENTS.md)** - Complete list of v2.0 improvements and implementation details
+- **[DESIGN_SYSTEM_GUIDE.md](./DESIGN_SYSTEM_GUIDE.md)** - Quick reference for using the design system
+- **[DEPLOYMENT_CHECKLIST.md](./DEPLOYMENT_CHECKLIST.md)** - Pre-launch checklist and deployment guide
+- **[IMPROVEMENTS.md](./IMPROVEMENTS.md)** - Original improvement suggestions (reference)
+
+## 🎯 Next Steps
+
+### Phase 2 - Content & Conversion (Weeks 1-2)
+1. Replace dashboard mockup with real product screenshots
+2. Add customer testimonials with photos and logos
+3. Build interactive pricing page with calculator
+4. Create 3-5 detailed case studies
+5. Implement contact form with validation
+
+### Phase 3 - Features & Pages (Weeks 3-4)
+1. Full **Features** page with category tabs
+2. Enhanced **Pricing** with comparison table
+3. **About** page with team and mission
+4. **Resources** section with blog articles
+5. Security & compliance page
+
+### Phase 4 - Optimization (Month 2)
+1. SEO implementation (structured data, sitemap)
+2. Analytics integration
+3. Performance optimization
+4. A/B testing setup
+5. Marketing automation
+
+## 🔧 Development Commands
+
+```bash
+# Development
+npm run dev          # Start dev server at localhost:3000
+
+# Production
+npm run build        # Build for production
+npm run start        # Run production build
+
+# Code Quality
+npm run lint         # Lint code
+```
+
+## 🎓 Learning Resources
+
+- **Next.js 16**: https://nextjs.org/docs
+- **Tailwind CSS v4**: https://tailwindcss.com/docs
+- **Framer Motion**: https://www.framer.com/motion/
+- **Accessibility**: https://www.w3.org/WAI/WCAG21/quickref/
+
+## 👥 Contributing
+
+This is a private project. For team members:
+
+1. Create feature branch from `main`
+2. Make changes following design system
+3. Test thoroughly (light/dark mode, mobile, accessibility)
+4. Submit PR with clear description
+5. Wait for review and approval
+
+## 📝 License
+
+Private / All rights reserved © 2026 AccuMaxio
