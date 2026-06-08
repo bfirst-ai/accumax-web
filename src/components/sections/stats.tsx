@@ -1,14 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { TrendingUp, Users, LayoutDashboard, Award, FileCheck } from "lucide-react";
+import { Boxes, LayoutDashboard, ShieldCheck, FileCheck, Cloud } from "lucide-react";
 
 const stats = [
   {
-    icon: Users,
-    value: "4,600+",
-    label: "Accounts Managed",
-    description: "Scale with confidence",
+    icon: Boxes,
+    value: "All-in-One",
+    label: "Portals · AI · Billing",
+    description: "One platform, no silos",
   },
   {
     icon: LayoutDashboard,
@@ -17,19 +17,19 @@ const stats = [
     description: "Self-service for every role",
   },
   {
-    icon: TrendingUp,
+    icon: ShieldCheck,
     value: "RBAC",
     label: "Role-Based Access",
     description: "Security by design",
   },
   {
     icon: FileCheck,
-    value: "Audit Ready",
+    value: "Audit-Ready",
     label: "Logs & eSignatures",
     description: "Compliance built in",
   },
   {
-    icon: Award,
+    icon: Cloud,
     value: "Online-First",
     label: "No Local DB",
     description: "Always in sync",
@@ -62,7 +62,7 @@ export function StatsSection() {
           viewport={{ once: true }}
           className="grid grid-cols-2 lg:grid-cols-5 gap-8 md:gap-12"
         >
-          {stats.map((stat, index) => (
+          {stats.map((stat) => (
             <motion.div
               key={stat.label}
               variants={item}

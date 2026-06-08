@@ -83,7 +83,7 @@ export function PricingTeaser() {
               {plan.popular && (
                 <div className="absolute top-0 right-0 z-10">
                   <Badge variant="default" className="rounded-none rounded-bl-lg bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] text-white border-0 px-4 py-1.5 font-semibold">
-                    Most Popular
+                    Recommended
                   </Badge>
                 </div>
               )}
@@ -126,7 +126,7 @@ export function PricingTeaser() {
                     plan.popular ? "shadow-lg shadow-[var(--primary)]/30" : ""
                   }`}
                 >
-                  {plan.name === "Business" ? "Contact Sales" : "Start Free Trial"}
+                  {plan.name === "Business" ? "Contact Sales" : "Get Early Access"}
                 </ButtonLink>
               </CardContent>
             </Card>
@@ -139,7 +139,7 @@ export function PricingTeaser() {
           viewport={{ once: true }}
           className="text-center text-sm text-[var(--muted-foreground)] mt-8"
         >
-          All plans include a 14-day free trial. No credit card required.
+          Introductory pricing for early-access firms. No credit card required to get started.
         </motion.p>
       </div>
     </section>

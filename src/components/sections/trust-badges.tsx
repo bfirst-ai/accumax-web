@@ -1,28 +1,28 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Shield, Lock, Award, CheckCircle } from "lucide-react";
+import { Lock, ShieldCheck, FileCheck, Building2 } from "lucide-react";
 
 const badges = [
   {
-    icon: Shield,
-    title: "SOC 2 Type II",
-    description: "Certified",
-  },
-  {
     icon: Lock,
-    title: "256-bit SSL",
-    description: "Encryption",
+    title: "Encryption",
+    description: "In transit & at rest",
   },
   {
-    icon: Award,
-    title: "GDPR",
-    description: "Compliant",
+    icon: ShieldCheck,
+    title: "RBAC",
+    description: "Role-based access",
   },
   {
-    icon: CheckCircle,
-    title: "99.9%",
-    description: "Uptime SLA",
+    icon: FileCheck,
+    title: "Audit logs",
+    description: "Every action tracked",
+  },
+  {
+    icon: Building2,
+    title: "Multi-tenant",
+    description: "Isolated per firm",
   },
 ];
 
@@ -37,10 +37,11 @@ export function TrustBadges() {
           className="text-center max-w-2xl mx-auto mb-10"
         >
           <h2 className="text-xl md:text-2xl font-bold text-[var(--foreground)] mb-2">
-            Enterprise-grade security and compliance
+            Security and compliance by design
           </h2>
           <p className="text-sm md:text-base text-[var(--muted-foreground)]">
-            Your data is protected with bank-level encryption, role-based access, and audit trails. Built for firms that need to meet strict regulatory requirements.
+            Built with encryption, role-based access (RBAC), searchable audit logs, and per-firm
+            data isolation—designed for firms with strict regulatory needs.
           </p>
         </motion.div>
 

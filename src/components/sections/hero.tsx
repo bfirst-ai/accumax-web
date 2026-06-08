@@ -47,7 +47,7 @@ export function Hero() {
                   size="xl"
                   className="shadow-xl shadow-[var(--primary)]/20"
                 >
-                  Start Free Trial
+                  Get Early Access
                 </ButtonLink>
                 <ButtonLink
                   href="/contact#demo"
@@ -56,7 +56,7 @@ export function Hero() {
                   className="gap-2 bg-white/50 backdrop-blur-sm"
                 >
                   <Play className="h-5 w-5" aria-hidden />
-                  Watch Demo
+                  Request a Demo
                 </ButtonLink>
               </div>
             </motion.div>
@@ -174,10 +174,10 @@ export function Hero() {
                 Built for modern accounting and professional services firms
               </p>
               <p className="text-center text-sm text-[var(--muted-foreground)] mb-6 max-w-2xl mx-auto">
-                One platform for client management, workflows, and billing—trusted by firms who demand reliability and compliance.
+                One platform for client management, workflows, and billing—designed for firms that demand reliability and compliance.
               </p>
               <div className="flex flex-wrap justify-center items-center gap-x-10 gap-y-4 text-[var(--gray-500)]">
-                {["QuickBooks", "Xero", "Stripe", "DocuSign", "Slack"].map(
+                {["QuickBooks", "DocuSign", "Zoho Sign", "Microsoft 365", "SharePoint"].map(
                   (name) => (
                     <span
                       key={name}

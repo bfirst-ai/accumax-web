@@ -77,14 +77,15 @@ const whyAccumaxItems = [
 
 type NavItem =
   | { href: string; label: string }
-  | { label: string; dropdown: string[] };
+  | { label: string; dropdown: string[]; dropdownHref: string };
 
 const navItems: NavItem[] = [
-  { label: "Product", dropdown: productItems },
-  { label: "Services", dropdown: serviceItems },
+  { href: "/", label: "Home" },
+  { label: "Product", dropdown: productItems, dropdownHref: "/features" },
+  { label: "Services", dropdown: serviceItems, dropdownHref: "/features" },
   { href: "/pricing", label: "Pricing" },
-  { label: "Resources", dropdown: resourcesItems },
-  { label: "Why Accumax", dropdown: whyAccumaxItems },
+  { label: "Resources", dropdown: resourcesItems, dropdownHref: "/resources" },
+  { label: "Why Accumax", dropdown: whyAccumaxItems, dropdownHref: "/about" },
 ];
 
 export function Header() {
@@ -130,9 +131,9 @@ export function Header() {
             aria-label="Accumax Home"
           >
             <img
-              src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/Logo.png`}
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/Accumax-icon.ico`}
               alt="Accumax"
-              className="h-10 w-auto max-w-[140px] object-contain object-left transition-transform duration-300 group-hover:scale-105"
+              className="h-10 w-10 object-contain transition-transform duration-300 group-hover:scale-105"
             />
             <span className="hidden sm:block text-xl md:text-2xl font-bold tracking-tight bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent group-hover:from-[var(--primary)] group-hover:via-[var(--primary-dark)] group-hover:to-[var(--accent)] transition-all duration-300">
               Accumax
@@ -199,12 +200,14 @@ export function Header() {
                       >
                         <div className="grid grid-cols-2 gap-2">
                           {item.dropdown.map((point) => (
-                            <span
+                            <Link
                               key={point}
-                              className="block px-3 py-2.5 rounded-lg border border-[var(--border)] bg-gray-50/80 text-sm text-gray-700 hover:border-[var(--primary)]/30 hover:bg-[var(--primary)]/5 hover:text-[var(--primary)] cursor-default transition-colors"
+                              href={item.dropdownHref}
+                              onClick={() => setOpenDropdown(null)}
+                              className="block px-3 py-2.5 rounded-lg border border-[var(--border)] bg-gray-50/80 text-sm text-gray-700 hover:border-[var(--primary)]/30 hover:bg-[var(--primary)]/5 hover:text-[var(--primary)] transition-colors"
                             >
                               {point}
-                            </span>
+                            </Link>
                           ))}
                         </div>
                       </motion.div>
@@ -215,19 +218,12 @@ export function Header() {
             })}
           </nav>
 
-          {/* Desktop CTAs */}
+          {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-3">
-            <ButtonLink 
-              href="/login" 
-              variant="ghost" 
-              className="font-semibold text-[13px] px-5 py-2.5 hover:bg-gray-50/80 transition-all duration-200"
-            >
-              Login
-            </ButtonLink>
-            <ButtonLink 
-              href="/contact" 
-              variant="primary" 
-              size="default" 
+            <ButtonLink
+              href="/contact"
+              variant="primary"
+              size="default"
               className="font-semibold text-[13px] px-6 py-2.5 bg-gradient-to-r from-[var(--primary)] to-[var(--primary-dark)] hover:from-[var(--primary-dark)] hover:to-[var(--accent)] shadow-lg shadow-[var(--primary)]/30 hover:shadow-xl hover:shadow-[var(--primary)]/40 transition-all duration-300 hover:scale-105 relative overflow-hidden group"
             >
               <span className="relative z-10 flex items-center gap-2">
@@ -328,12 +324,14 @@ export function Header() {
                         >
                           <div className="py-2 px-2 max-h-64 overflow-y-auto grid grid-cols-2 gap-2">
                             {item.dropdown.map((point) => (
-                              <span
+                              <Link
                                 key={point}
-                                className="block py-2.5 px-3 text-sm text-gray-700 rounded-lg border border-[var(--border)] bg-white"
+                                href={item.dropdownHref}
+                                onClick={() => setMobileOpen(false)}
+                                className="block py-2.5 px-3 text-sm text-gray-700 rounded-lg border border-[var(--border)] bg-white hover:border-[var(--primary)]/30 hover:text-[var(--primary)] transition-colors"
                               >
                                 {point}
-                              </span>
+                              </Link>
                             ))}
                           </div>
                         </motion.div>
@@ -343,14 +341,6 @@ export function Header() {
                 );
               })}
               <div className="flex flex-col gap-3 pt-4 mt-2 border-t border-gray-100/50">
-                <ButtonLink
-                  href="/login"
-                  variant="outline"
-                  className="w-full justify-center font-semibold py-3 rounded-xl border-2 hover:border-[var(--primary)] hover:text-[var(--primary)] hover:bg-[var(--primary)]/5 transition-all duration-200"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  Login
-                </ButtonLink>
                 <ButtonLink
                   href="/contact"
                   variant="primary"

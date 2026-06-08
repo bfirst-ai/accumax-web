@@ -34,8 +34,8 @@ export function Cta() {
             Your Practice with AI?
           </h2>
           <p className="mt-6 text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
-            Start your free trial. No credit card required. Experience augmented
-            intelligence, self-service portals, and streamlined operations.
+            Join our early-access program. No credit card required. Be among the first to
+            experience augmented intelligence, self-service portals, and streamlined operations.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center">
             <ButtonLink
@@ -43,7 +43,7 @@ export function Cta() {
               size="xl"
               className="bg-white text-[var(--primary)] hover:bg-white/90 hover:scale-105 transition-transform border-0 shadow-2xl font-semibold"
             >
-              Start Free Trial →
+              Get Early Access →
             </ButtonLink>
             <ButtonLink
               href="/contact#demo"
@@ -51,11 +51,11 @@ export function Cta() {
               variant="outline"
               className="border-2 border-white text-white hover:bg-white/20 backdrop-blur-sm font-semibold"
             >
-              Watch Demo
+              Request a Demo
             </ButtonLink>
           </div>
           <p className="mt-6 text-sm text-white/70">
-            ✓ 14-day free trial &nbsp;•&nbsp; ✓ No credit card required &nbsp;•&nbsp; ✓ Cancel anytime
+            ✓ Early access &nbsp;•&nbsp; ✓ No credit card required &nbsp;•&nbsp; ✓ Personalized onboarding
           </p>
         </motion.div>
 

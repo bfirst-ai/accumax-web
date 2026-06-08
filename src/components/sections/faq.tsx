@@ -20,10 +20,10 @@ const faqs = [
     answer:
       "Yes. We support migration of accounts, contacts, templates (as resources), client- and firm-uploaded documents, and team docs. Our team will work with you to map data and handle exceptions. Export from your current system (e.g. as PDFs for invoices) and we’ll help you go live.",
   },
-  {
-    question: "Is AccuMaxio secure and compliant?",
+    {
+    question: "How does AccuMaxio approach security?",
     answer:
-      "Yes. The platform is online-first with no local database, uses role-based access (RBAC) as a core principle, and provides organized, searchable audit logs for key events including signatures and approvals. We use bank-level encryption and meet common compliance requirements.",
+      "Security is built into the architecture: the platform is online-first with no local database, uses role-based access (RBAC) as a core principle, isolates each firm's data, encrypts data in transit and at rest, and provides organized, searchable audit logs for key events including signatures and approvals.",
   },
   {
     question: "What billing and payment options are included?",
@@ -33,7 +33,7 @@ const faqs = [
   {
     question: "Can we try AccuMaxio before committing?",
     answer:
-      "Yes. Start with a free trial—no credit card required. You’ll have access to portals, workflows, and core features. Our team can walk you through setup, RBAC, and dashboards so you can evaluate fit for your firm.",
+      "Yes. Join our early-access program—no credit card required. You’ll get hands-on with portals, workflows, and core features, and our team will walk you through setup, RBAC, and dashboards so you can evaluate fit for your firm.",
   },
 ];
 

@@ -6,15 +6,10 @@ import { ArrowRight } from "lucide-react";
 
 const integrations = [
   "QuickBooks",
-  "Xero",
-  "Stripe",
   "DocuSign",
   "Zoho Sign",
-  "Slack",
   "Microsoft 365",
-  "Google Workspace",
-  "Dropbox",
-  "HubSpot",
+  "SharePoint",
 ];
 
 export function Integrations() {
@@ -31,8 +26,8 @@ export function Integrations() {
             Connects With Your Stack
           </h2>
           <p className="mt-4 text-lg text-[var(--muted-foreground)]">
-            Integrate with the tools you already use—accounting, payments,
-            storage, and CRM.
+            Works with the accounting, eSignature, and document tools your firm
+            already relies on—with more integrations on the way.
           </p>
         </motion.div>
 
