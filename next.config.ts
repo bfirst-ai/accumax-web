@@ -1,10 +1,10 @@
 import type { NextConfig } from "next";
 
-// Deployed to GitHub Pages at https://bfirst-ai.github.io/accumax-home/.
+// Deployed to GitHub Pages at https://bfirst-ai.github.io/accumax-web/.
 // A basePath is required so assets and routes resolve under the repo sub-path.
 // Only applied in production builds so `next dev` stays at localhost:3000/.
 const isProd = process.env.NODE_ENV === "production";
-const basePath = isProd ? "/accumax-home" : "";
+const basePath = isProd ? "/accumax-web" : "";
 
 const nextConfig: NextConfig = {
   output: "export", // static HTML export -> /out, served by GitHub Pages
