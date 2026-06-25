@@ -34,7 +34,7 @@ const resourceLinks = [
 ];
 
 const legalLinks = [
-  { href: "#", label: "Privacy Policy" },
+  { href: "/privacy-policy", label: "Privacy Policy" },
   { href: "#", label: "Terms of Service" },
   { href: "#", label: "Cookie Policy" },
 ];
