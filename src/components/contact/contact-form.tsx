@@ -63,10 +63,10 @@ export function ContactForm() {
         <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-[var(--success)]/10 text-[var(--success)]">
           <CheckCircle2 className="h-8 w-8" aria-hidden />
         </div>
-        <h3 className="text-2xl font-bold text-[var(--foreground)]">Thanks — we'll be in touch!</h3>
+        <h3 className="text-2xl font-bold text-[var(--foreground)]">Thanks — we&apos;ll be in touch!</h3>
         <p className="mt-3 text-[var(--muted-foreground)] max-w-md mx-auto">
-          A member of our team will reach out within one business day to schedule your
-          personalized demo of AccuMaxio.
+          A member of our team will reach out within one business day to
+          schedule your personalized 30-minute demo of AccuMax.
         </p>
       </motion.div>
     );
@@ -141,11 +141,11 @@ export function ContactForm() {
             <Loader2 className="h-5 w-5 animate-spin" aria-hidden /> Sending…
           </>
         ) : (
-          "Request my demo"
+          "Book my demo"
         )}
       </Button>
       <p className="mt-3 text-center text-xs text-[var(--muted-foreground)]">
-        By submitting, you agree to be contacted about AccuMaxio. We never share your information.
+        By submitting, you agree to be contacted about AccuMax. We never share your information.
       </p>
     </form>
   );

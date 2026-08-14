@@ -13,9 +13,9 @@ import { ButtonLink } from "@/components/ui/button-link";
 import { Cta } from "@/components/sections/cta";
 
 export const metadata: Metadata = {
-  title: "Resources | AccuMaxio",
+  title: "Resources | AccuMax",
   description:
-    "Guides, case studies, webinars, and documentation to help your firm get the most out of AccuMaxio. Coming soon.",
+    "Guides, case studies, webinars, and documentation to help your firm get the most out of AccuMax. Coming soon.",
 };
 
 const categories = [
@@ -24,7 +24,7 @@ const categories = [
   { icon: GraduationCap, title: "Guides & Tutorials", description: "Step-by-step setup for workflows, RBAC, and billing." },
   { icon: Video, title: "Webinars", description: "Live and on-demand sessions with product experts." },
   { icon: BookOpen, title: "Documentation", description: "Reference for every feature across all portals." },
-  { icon: Code2, title: "API Reference", description: "Integrate AccuMaxio with the tools you already use." },
+  { icon: Code2, title: "API Reference", description: "Integrate AccuMax with the tools you already use." },
   { icon: Video, title: "Video Library", description: "Short walkthroughs for clients and team members." },
   { icon: LifeBuoy, title: "Support Center", description: "Answers, troubleshooting, and best practices." },
 ];
@@ -48,8 +48,8 @@ export default function ResourcesPage() {
             <span className="gradient-text">on the way</span>
           </h1>
           <p className="mt-6 text-lg text-[var(--muted-foreground)] leading-relaxed">
-            We're building guides, case studies, webinars, and documentation to help your firm
-            get the most out of AccuMaxio. Here's what's coming.
+            We&apos;re building guides, case studies, webinars, and documentation to help your firm
+            get the most out of AccuMax. Here&apos;s what&apos;s coming.
           </p>
         </div>
       </section>
@@ -89,7 +89,7 @@ export default function ResourcesPage() {
             </h2>
             <p className="mt-3 text-[var(--muted-foreground)] max-w-xl mx-auto">
               Want early access and a heads-up when our guides and documentation go live?
-              Get in touch and we'll keep you posted.
+              Get in touch and we&apos;ll keep you posted.
             </p>
             <div className="mt-7 flex flex-wrap gap-3 justify-center">
               <ButtonLink href="/contact" variant="primary" size="lg">Get Early Access</ButtonLink>

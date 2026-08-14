@@ -1,47 +1,56 @@
 "use client";
 
-import Link from "next/link";
 import { ButtonLink } from "@/components/ui/button-link";
 import { motion } from "framer-motion";
-import { Check } from "lucide-react";
+import { Check, Sparkles } from "lucide-react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 const plans = [
   {
-    name: "Starter",
-    price: 29,
-    description: "Solo practitioners and small teams",
+    name: "Essentials",
+    tier: "Access",
+    description: "Solo / micro firm",
     features: [
-      "Client portal & team portal",
-      "Basic workflows & templates",
-      "Document storage 10GB",
-      "eSignatures & approvals",
+      "Practice OS + AI Reviewer, Researcher & triage",
+      "Client intake & engagement",
+      "eSignatures, approvals & invoices",
+      "The on-ramp that beats incumbents' mid-tier",
     ],
   },
   {
     name: "Professional",
-    price: 59,
+    tier: "Volume · Hero",
     popular: true,
-    description: "Growing firms",
+    description: "Everyday working firm",
     features: [
-      "All portals (Client, Team, Admin)",
-      "Workflow automation & RBAC",
-      "AI CoPilot (onboarding & CPA)",
-      "Invoices, payments, ACH",
-      "Chat, notifications, audit logs",
+      "Everything in Essentials, plus:",
+      "AI Tax Preparer & full agent suite",
+      "Entry-level Tax Planning",
+      "Payments, AR aging & reconciliation",
+      "The volume tier most firms buy",
     ],
   },
   {
-    name: "Business",
-    price: 99,
-    description: "Established practices",
+    name: "Advisory",
+    tier: "Expansion",
+    description: "Multi-preparer firm",
     features: [
-      "Unlimited users & accounts",
-      "Firm-wide dashboards & reports",
-      "Intelligent forms & data extraction",
-      "Partial payments, scheduled invoices",
-      "Priority support",
+      "Everything in Professional, plus:",
+      "High-end Tax Planning & IRS Audit Defense",
+      "Firm-grade governance & dashboards",
+      "Unlimited usage allowance",
+    ],
+  },
+  {
+    name: "Enterprise",
+    tier: "Category",
+    description: "PE roll-ups · offshore · multi-entity",
+    features: [
+      "Everything in Advisory, plus:",
+      "Offshore-delivery governance layer",
+      "Platform fee + usage, sold not self-served",
+      "Dedicated Success Team, white-glove SLA",
     ],
   },
 ];
@@ -57,11 +66,11 @@ export function PricingTeaser() {
           className="text-center max-w-3xl mx-auto mb-14"
         >
           <h2 id="pricing-heading" className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl md:text-5xl">
-            Simple, Transparent Pricing
+            Priced for Land-and-Expand
           </h2>
           <p className="mt-4 text-lg text-[var(--muted-foreground)]">
-            Plans that scale with your practice. Start free, upgrade when you
-            need more.
+            Tiers + usage + platform. We don&apos;t compete on price—we compete on
+            the AI doing the work.
           </p>
         </motion.div>
 
@@ -69,9 +78,9 @@ export function PricingTeaser() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="grid md:grid-cols-3 gap-6 lg:gap-8"
+          className="grid md:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8"
         >
-          {plans.map((plan, index) => (
+          {plans.map((plan) => (
             <Card
               key={plan.name}
               className={`relative overflow-hidden hover-lift group bg-white ${
@@ -83,26 +92,25 @@ export function PricingTeaser() {
               {plan.popular && (
                 <div className="absolute top-0 right-0 z-10">
                   <Badge variant="default" className="rounded-none rounded-bl-lg bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] text-white border-0 px-4 py-1.5 font-semibold">
-                    Recommended
+                    <Sparkles className="h-3 w-3 mr-1" aria-hidden />
+                    Most Popular
                   </Badge>
                 </div>
               )}
               <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary)]/5 to-[var(--accent)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <CardHeader className="pb-2 relative">
+                <p className="text-[11px] font-bold uppercase tracking-widest text-[var(--primary)] mb-1">
+                  {plan.tier}
+                </p>
                 <h3 className="text-2xl font-bold text-[var(--gray-900)] mb-2">
                   {plan.name}
                 </h3>
                 <p className="text-sm text-[var(--muted-foreground)] mb-4">
                   {plan.description}
                 </p>
-                <div className="flex items-baseline gap-1">
-                  <span className="text-5xl font-extrabold text-[var(--gray-900)]">
-                    ${plan.price}
-                  </span>
-                  <span className="text-[var(--muted-foreground)] text-base">
-                    /user/month
-                  </span>
-                </div>
+                <p className="text-sm font-semibold text-[var(--gray-700)]">
+                  Annual plans · AI bundled as a baseline allowance
+                </p>
               </CardHeader>
               <CardContent className="space-y-4 relative">
                 <ul className="space-y-3">
@@ -111,11 +119,19 @@ export function PricingTeaser() {
                       key={f}
                       className="flex items-start gap-3 text-sm text-[var(--gray-700)]"
                     >
-                      <Check
-                        className="h-5 w-5 shrink-0 text-[var(--success)] mt-0.5"
-                        aria-hidden
-                      />
-                      <span>{f}</span>
+                      {f.endsWith("plus:") ? (
+                        <span className="font-semibold text-[var(--foreground)]">
+                          {f}
+                        </span>
+                      ) : (
+                        <>
+                          <Check
+                            className="h-5 w-5 shrink-0 text-[var(--success)] mt-0.5"
+                            aria-hidden
+                          />
+                          <span>{f}</span>
+                        </>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -126,7 +142,7 @@ export function PricingTeaser() {
                     plan.popular ? "shadow-lg shadow-[var(--primary)]/30" : ""
                   }`}
                 >
-                  {plan.name === "Business" ? "Contact Sales" : "Get Early Access"}
+                  {plan.name === "Enterprise" ? "Contact Sales" : "Start Free Trial"}
                 </ButtonLink>
               </CardContent>
             </Card>
@@ -139,7 +155,9 @@ export function PricingTeaser() {
           viewport={{ once: true }}
           className="text-center text-sm text-[var(--muted-foreground)] mt-8"
         >
-          Introductory pricing for early-access firms. No credit card required to get started.
+          AI is bundled as a baseline allowance and metered as credits—returns
+          &amp; usage. Revenue grows with the work; margins hold as models get
+          cheaper.
         </motion.p>
       </div>
     </section>

@@ -13,36 +13,36 @@ const goals = [
   {
     icon: TrendingUp,
     title: "Scale",
-    short: "Scale to 10X",
-    description: "Grow clients, revenues, and profitability non-linearly.",
+    short: "Scale to 10X, non-linearly",
+    description: "Grow clients, revenues, and profitability without linear headcount.",
     accent: "from-blue-500/20 to-blue-600/5",
   },
   {
     icon: Sparkles,
     title: "Leverage",
-    short: "Leverage AI",
-    description: "Reinvent marketing, operations, and customer service with AI.",
+    short: "Reinvent everything with AI",
+    description: "Apply AI across marketing, operations, and customer service.",
     accent: "from-violet-500/20 to-violet-600/5",
   },
   {
     icon: Heart,
     title: "Increase",
-    short: "Increase loyalty",
+    short: "Loyalty & ARPU",
     description: "Boost client satisfaction—longer tenure, higher value per client.",
     accent: "from-rose-500/20 to-rose-600/5",
   },
   {
     icon: Layers,
     title: "Create",
-    short: "Create new services",
-    description: "More self-service and new delivery methods.",
+    short: "New services & delivery",
+    description: "More self-service for clients and new delivery methods.",
     accent: "from-emerald-500/20 to-emerald-600/5",
   },
   {
     icon: Zap,
     title: "Kindle",
-    short: "Operational transformation",
-    description: "Compliance-first efficiency and lower costs.",
+    short: "Transformation with compliance",
+    description: "A nimble culture backed by strict, audit-ready compliance.",
     accent: "from-amber-500/20 to-amber-600/5",
   },
 ];
@@ -81,17 +81,16 @@ export function GoalsSection() {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <span className="inline-flex items-center rounded-full border border-[var(--primary)]/20 bg-[var(--primary)]/5 px-4 py-1.5 text-sm font-medium text-[var(--primary)] mb-6">
-            How we help you grow
+            Where CPA practices want to go
           </span>
           <h2
             id="goals-heading"
             className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl md:text-5xl"
           >
-            Strategic Goals for Your Firm
+            Towards a Scalable, Smarter, More Client-Centric Firm
           </h2>
           <p className="mt-5 text-lg text-[var(--muted-foreground)] leading-relaxed">
-            AccuMaxio is built to help accounting and professional services firms
-            achieve growth, efficiency, and client success.
+            Five strategic imperatives guide how AccuMax helps your firm grow.
           </p>
         </motion.div>
 

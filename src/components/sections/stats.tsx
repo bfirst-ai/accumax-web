@@ -1,38 +1,38 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Boxes, LayoutDashboard, ShieldCheck, FileCheck, Cloud } from "lucide-react";
+import { Boxes, Bot, TrendingUp, CalendarClock, ShieldCheck } from "lucide-react";
 
 const stats = [
   {
-    icon: Boxes,
-    value: "All-in-One",
-    label: "Portals · AI · Billing",
-    description: "One platform, no silos",
+    icon: Bot,
+    value: "6 AI",
+    label: "Tax-Domain Agents",
+    description: "Researcher → Preparer → Reviewer",
   },
   {
-    icon: LayoutDashboard,
-    value: "3 Portals",
-    label: "Client, Team, Admin",
-    description: "Self-service for every role",
+    icon: Boxes,
+    value: "1 OS",
+    label: "Complete Practice Platform",
+    description: "Intake → Bill → Govern",
+  },
+  {
+    icon: TrendingUp,
+    value: ">30%",
+    label: "Gross Margin Lift",
+    description: "Less labor, better mix, more advisory",
+  },
+  {
+    icon: CalendarClock,
+    value: "90-Day",
+    label: "Free Trial",
+    description: "Full platform access",
   },
   {
     icon: ShieldCheck,
-    value: "RBAC",
-    label: "Role-Based Access",
-    description: "Security by design",
-  },
-  {
-    icon: FileCheck,
     value: "Audit-Ready",
-    label: "Logs & eSignatures",
-    description: "Compliance built in",
-  },
-  {
-    icon: Cloud,
-    value: "Online-First",
-    label: "No Local DB",
-    description: "Always in sync",
+    label: "Compliance Built In",
+    description: "Traceable & defensible",
   },
 ];
 

@@ -6,34 +6,34 @@ import { Plus, Minus } from "lucide-react";
 
 const faqs = [
   {
-    question: "What portals does AccuMaxio offer?",
+    question: "What is AccuMax?",
     answer:
-      "AccuMaxio provides self-service portals for every role: Client Portal (clients upload docs, view workflow status, see approvers), Team Portal (manage assigned accounts, workflows, chat, notifications), and Admin Portal (firm-wide settings, dashboards, RBAC). Each portal is tailored so users see only what they need.",
+      "AccuMax is an AI-powered practice platform that elevates the CPA. It combines a workforce of tax-domain AI agents—Tax Researcher, 1040 Preparer, 1040 Reviewer, Tax Planner, IRS Audit Defense, and AccuBridge—inside a complete practice operating system covering intake, approvals, invoicing, payments, and governance.",
   },
   {
-    question: "How does the AI CoPilot work?",
+    question: "How is AccuMax different from other practice platforms?",
     answer:
-      "We offer an Onboarding CoPilot (QuickT) and a CPA & CSR CoPilot (CPAL) with conversation tracking and natural language search. The platform also includes intelligent forms with ID and data extraction and tax organizer generation. These tools augment your team without replacing judgment.",
+      "Practice platforms like TaxDome, Canopy, and Karbon give breadth but treat AI as a bolt-on. Point AI tools like TaxGPT or Holistiplan go deep in one function—and nothing else. AccuMax is alone top-right: deep AI across the full platform, plus orchestration. Five separately-licensed tools collapse into one system of record.",
   },
   {
-    question: "Can we migrate from our current practice management system?",
+    question: "What does the AI agent workforce do?",
     answer:
-      "Yes. We support migration of accounts, contacts, templates (as resources), client- and firm-uploaded documents, and team docs. Our team will work with you to map data and handle exceptions. Export from your current system (e.g. as PDFs for invoices) and we’ll help you go live.",
-  },
-    {
-    question: "How does AccuMaxio approach security?",
-    answer:
-      "Security is built into the architecture: the platform is online-first with no local database, uses role-based access (RBAC) as a core principle, isolates each firm's data, encrypts data in transit and at rest, and provides organized, searchable audit logs for key events including signatures and approvals.",
+      "Agents cover the entire tax pipeline: Tax Researcher answers contextual questions on prior- and current-year facts; the 1040 Preparer drafts federal returns in minutes from source documents; the 1040 Reviewer checks for gaps, errors, and cross-form validations; the Tax Planner runs multi-year what-if scenarios; IRS Audit Defense evaluates and responds to IRS notices in one click; and AccuBridge extracts data from uploaded forms into TaxPrep software—ours or theirs.",
   },
   {
-    question: "What billing and payment options are included?",
+    question: "How does the AI handle compliance?",
     answer:
-      "Plans include price lists, agreements, invoices, and payments. Features include ACH as a payment option, per-account payment method override, partial payments, invoice notes, and export to Excel. Scheduled invoices and close-invoice workflows are on the roadmap.",
+      "Compliance is a core pillar. Everything is audit-ready, traceable, and defensible—immutable audit logs, document provenance, eSignatures via DocuSign or Zoho Sign, entity-level governance, and secure, predictable workflows. AI is a partner that augments judgment, never a replacement.",
   },
   {
-    question: "Can we try AccuMaxio before committing?",
+    question: "How does AccuMax pricing work?",
     answer:
-      "Yes. Join our early-access program—no credit card required. You’ll get hands-on with portals, workflows, and core features, and our team will walk you through setup, RBAC, and dashboards so you can evaluate fit for your firm.",
+      "Accessible entry, value-based expansion—not a discount play. Annual plans are pre-purchased, AI is bundled as a baseline allowance, and usage beyond that is metered as credits (returns & usage). Revenue grows with the work and margins hold as models get cheaper.",
+  },
+  {
+    question: "Can we try AccuMax before committing?",
+    answer:
+      "Yes. Start a 90-day free trial with full platform access and a dedicated success manager from day one—no credit card required. Or book a personalized 30-minute demo to see AccuMax working in a firm just like yours.",
   },
 ];
 
@@ -65,12 +65,12 @@ export function FaqSection() {
             Frequently Asked Questions
           </h2>
           <p className="mt-4 text-lg text-[var(--muted-foreground)]">
-            Everything you need to know about AccuMaxio. Can't find an answer?{" "}
+            Everything you need to know about AccuMax. Can&apos;t find an answer?{" "}
             <a
               href="/contact"
               className="text-[var(--primary)] hover:underline font-medium"
             >
-              Contact our team
+              Talk to our team
             </a>
             .
           </p>

@@ -56,20 +56,21 @@ export function Footer() {
             <Link
               href="/"
               className="inline-flex items-center gap-2 mb-4 group"
-              aria-label="Accumax Home"
+              aria-label="AccuMax Home"
             >
               <img
                 src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/Logo.png`}
-                alt="Accumax"
+                alt="AccuMax"
                 className="h-9 w-auto max-w-[120px] object-contain object-left transition-opacity group-hover:opacity-90"
               />
               <span className="text-2xl font-extrabold text-[var(--foreground)] group-hover:text-[var(--primary)] transition-colors">
-                AccuMaxio
+                AccuMax
               </span>
             </Link>
             <p className="text-[var(--muted-foreground)] text-sm max-w-xs mb-6">
-              One platform for client management, workflows, and billing. Built
-              for modern accounting and professional services firms.
+              CPA Practice Management Reinvented with AI. A workforce of
+              tax-domain AI agents inside a complete practice operating
+              system. Work smarter. Serve better. Stay compliant.
             </p>
             <p className="text-sm font-medium text-[var(--foreground)] mb-2">
               Stay updated
@@ -152,14 +153,14 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-[var(--muted-foreground)]">
               <li>
                 <a
-                  href="mailto:support@accumaxio.com"
+                  href="mailto:nagesh@bfirst.ai"
                   className="inline-flex items-center gap-2 hover:text-[var(--primary)] transition-colors"
                 >
                   <Mail className="h-4 w-4" />
-                  support@accumaxio.com
+                  nagesh@bfirst.ai
                 </a>
               </li>
-              <li>Sales: +1 (555) 123-4567</li>
+              <li>Founder &amp; CEO: Nagesh Pabbisetty</li>
             </ul>
           </div>
         </div>
@@ -191,7 +192,7 @@ export function Footer() {
           </div>
         </div>
         <p className="mt-6 text-center sm:text-left text-sm text-[var(--muted-foreground)]">
-          &copy; {new Date().getFullYear()} AccuMaxio. All rights reserved.
+          &copy; {new Date().getFullYear()} AccuMax. All rights reserved.
         </p>
       </div>
     </footer>

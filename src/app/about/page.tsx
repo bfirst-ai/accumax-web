@@ -1,53 +1,61 @@
 import { Metadata } from "next";
 import {
   Target,
-  Cloud,
-  ShieldCheck,
   Sparkles,
+  Eye,
+  ShieldCheck,
+  TrendingUp,
   HeartHandshake,
   Layers,
 } from "lucide-react";
 import { ButtonLink } from "@/components/ui/button-link";
 import { GoalsSection } from "@/components/sections/goals";
 import { StatsSection } from "@/components/sections/stats";
+import { Pillars } from "@/components/sections/pillars";
 import { Cta } from "@/components/sections/cta";
 
 export const metadata: Metadata = {
-  title: "About | AccuMaxio",
+  title: "About | AccuMax",
   description:
-    "Our mission: leverage AI to empower accounting professionals with tools that enhance client relationships, streamline operations, and drive growth.",
+    "The AccuMax Promise: transform practice management from a system of tasks into a system of intelligence, insight, and client value—delivering >30% increase in Gross Margins.",
 };
 
 const values = [
   {
-    icon: Cloud,
-    title: "Online-first",
-    description: "A cloud platform with no local database—your firm is always in sync, anywhere.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Compliance built-in",
-    description: "Role-based access, searchable audit logs, and eSignatures designed for regulated work.",
+    icon: TrendingUp,
+    title: "The AccuMax Promise",
+    description:
+      "A system of intelligence, insight, and client value—delivering >30% increase in Gross Margins.",
   },
   {
     icon: Sparkles,
-    title: "AI that augments",
-    description: "Co-pilots that enhance your team's judgment and speed—never replace it.",
+    title: "Ambient Intelligence",
+    description:
+      "Intelligence is everywhere, not in one feature. The system anticipates, guides, and clarifies—CPAs stay in control.",
+  },
+  {
+    icon: Eye,
+    title: "Effortless Clarity",
+    description:
+      "Simplicity without dumbing down. Streamlined workflows and reduced cognitive load with visual and conceptual clarity.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Trusted Compliance",
+    description:
+      "Audit-ready, traceable, defensible, secure, and predictable. Accuracy you can defend, on every return.",
   },
   {
     icon: HeartHandshake,
     title: "Client-centric",
-    description: "Self-service portals that make clients feel cared for and keep them longer.",
+    description:
+      "Self-service portals and faster answers that make clients feel cared for—longer tenure, higher ARPU.",
   },
   {
     icon: Layers,
     title: "One platform",
-    description: "Portals, workflows, documents, chat, and billing—unified, not bolted together.",
-  },
-  {
-    icon: Target,
-    title: "Built to scale",
-    description: "Multi-tenant architecture and automation that grows with your firm to 10X.",
+    description:
+      "Deep AI across the full practice OS plus orchestration—five tools collapse into one system of record.",
   },
 ];
 
@@ -66,20 +74,31 @@ export default function AboutPage() {
             Our mission
           </div>
           <h1 className="text-4xl font-bold tracking-tight text-[var(--foreground)] sm:text-5xl md:text-6xl leading-tight">
-            Empowering firms with{" "}
-            <span className="gradient-text">augmented intelligence</span>
+            Elevating the CPA.{" "}
+            <span className="gradient-text">Not the AI, not the process.</span>
           </h1>
           <p className="mt-6 text-lg text-[var(--muted-foreground)] leading-relaxed">
-            We leverage state-of-the-art AI to empower accounting professionals with
-            tools that enhance client relationships, streamline operations, and drive
-            sustainable growth—so firms can deliver unparalleled value and insightful
-            financial guidance, more efficiently than ever.
+            AccuMax transforms practice management from a system of tasks into
+            a system of intelligence, insight, and client value—delivering a{" "}
+            <strong className="text-[var(--foreground)]">
+              &gt;30% increase in Gross Margins
+            </strong>{" "}
+            through less labor per return, a cheaper labor mix, and more
+            advisory revenue.
           </p>
+          <div className="mt-8">
+            <ButtonLink href="/contact#demo" variant="primary" size="lg" className="shadow-lg shadow-[var(--primary)]/20">
+              Book a Demo
+            </ButtonLink>
+          </div>
         </div>
       </section>
 
       {/* Strategic goals (reused polished section) */}
       <GoalsSection />
+
+      {/* Pillars */}
+      <Pillars />
 
       {/* Values */}
       <section className="py-16 md:py-24 bg-white">
@@ -89,10 +108,11 @@ export default function AboutPage() {
               What we believe
             </span>
             <h2 className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl md:text-5xl">
-              The principles behind AccuMaxio
+              The principles behind AccuMax
             </h2>
             <p className="mt-4 text-lg text-[var(--muted-foreground)]">
-              How we design the platform for modern accounting and professional services firms.
+              How we design the platform for the AI-augmented accounting
+              profession.
             </p>
           </div>
 
@@ -120,15 +140,15 @@ export default function AboutPage() {
       <section className="py-16 md:py-20 bg-gradient-to-b from-white to-gray-50/50">
         <div className="container max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-[var(--foreground)]">
-            Built for the way modern firms work
+            The operating system for the AI-augmented accounting profession
           </h2>
           <p className="mt-4 text-[var(--muted-foreground)] leading-relaxed">
-            AccuMaxio combines an online-first platform, role-based access, and AI-augmented
-            workflows so you can scale, stay compliant, and deliver more value to clients.
+            Every firm, everywhere. Work smarter. Serve better. Stay
+            compliant.
           </p>
           <div className="mt-8 flex flex-wrap gap-4 justify-center">
             <ButtonLink href="/features" variant="primary" size="lg">Explore Features</ButtonLink>
-            <ButtonLink href="/contact" variant="outline" size="lg">Contact Us</ButtonLink>
+            <ButtonLink href="/contact" variant="outline" size="lg">Talk to Us</ButtonLink>
           </div>
         </div>
       </section>

@@ -5,42 +5,39 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { ButtonLink } from "@/components/ui/button-link";
 import { cn } from "@/lib/utils";
 
 const productItems = [
-  "Client Portal",
-  "Team Portal",
-  "Admin Portal",
-  "Workflows & Automation",
-  "Document Management",
-  "eSignatures & Approvals",
-  "AI CoPilot (QuickT & CPAL)",
-  "Intelligent Forms & Data Extraction",
-  "Tax Organizer Generation",
-  "Chat & Notifications",
-  "Audit Logs",
-  "Dashboards & Reports",
-  "RBAC & OBT",
-  "Price Lists & Agreements",
-  "Invoices & Payments",
-  "Batch Automations",
+  "AI Tax Researcher",
+  "AI 1040 Preparer",
+  "AI 1040 Reviewer",
+  "AI Tax Planner",
+  "AI IRS Audit Defense",
+  "AccuBridge — Forms Data Extraction",
+  "AI Account Profiler & Tax Organizer",
+  "AI AccuWriter & Letter Generation",
+  "Knowledge Hub — SOPs & Training",
+  "Client Intake & Engagement",
+  "Approvals, Invoicing & Payments",
+  "Dashboards, Audit Logs & Governance",
+  "Workflow Automations",
+  "Migration in & out",
 ];
 
 const serviceItems = [
-  "Practice Management",
-  "Client Onboarding",
-  "Workflow Design",
-  "Compliance & Audit",
-  "Billing & Invoicing",
-  "Document Workflows",
-  "Multi-Service Support",
-  "Team Collaboration",
+  "Practice OS — Intake → Bill → Govern",
+  "Client Intake & Onboarding",
+  "Workflow Design & Automation",
+  "Compliance & Audit-Ready",
+  "Billing, Payments & AR Aging",
+  "Document Workflows & eSign",
+  "Tax Organizer Generation",
+  "Offshore Delivery Orchestration",
   "Self-Service Portals",
-  "API & Integrations",
-  "Migration Support",
-  "Training & Onboarding",
+  "Outlook / Gmail / QuickBooks Integration",
+  "Export to Drake, UltraTax, Lacerte",
+  "Migration Support & Training",
 ];
 
 const resourcesItems = [
@@ -61,14 +58,14 @@ const resourcesItems = [
 ];
 
 const whyAccumaxItems = [
-  "Our Mission",
-  "Strategic Goals",
+  "The AccuMax Promise",
+  "Ambient Intelligence",
+  "Effortless Clarity",
+  "Trusted Compliance",
   "Scale to 10X",
   "Leverage AI",
   "Client Loyalty",
-  "Operational Transformation",
-  "Online-First Platform",
-  "Compliance Built-In",
+  "Competitive Position",
   "Customer Stories",
   "Security & Privacy",
   "Why Choose Us",
@@ -85,7 +82,7 @@ const navItems: NavItem[] = [
   { label: "Services", dropdown: serviceItems, dropdownHref: "/features" },
   { href: "/pricing", label: "Pricing" },
   { label: "Resources", dropdown: resourcesItems, dropdownHref: "/resources" },
-  { label: "Why Accumax", dropdown: whyAccumaxItems, dropdownHref: "/about" },
+  { label: "Why AccuMax", dropdown: whyAccumaxItems, dropdownHref: "/about" },
 ];
 
 export function Header() {
@@ -128,15 +125,15 @@ export function Header() {
           <Link
             href="/"
             className="flex items-center gap-3 group"
-            aria-label="Accumax Home"
+            aria-label="AccuMax Home"
           >
             <img
               src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/Accumax-icon.ico`}
-              alt="Accumax"
+              alt="AccuMax"
               className="h-10 w-10 object-contain transition-transform duration-300 group-hover:scale-105"
             />
             <span className="hidden sm:block text-xl md:text-2xl font-bold tracking-tight bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent group-hover:from-[var(--primary)] group-hover:via-[var(--primary-dark)] group-hover:to-[var(--accent)] transition-all duration-300">
-              Accumax
+              AccuMax
             </span>
           </Link>
 
@@ -227,7 +224,7 @@ export function Header() {
               className="font-semibold text-[13px] px-6 py-2.5 bg-gradient-to-r from-[var(--primary)] to-[var(--primary-dark)] hover:from-[var(--primary-dark)] hover:to-[var(--accent)] shadow-lg shadow-[var(--primary)]/30 hover:shadow-xl hover:shadow-[var(--primary)]/40 transition-all duration-300 hover:scale-105 relative overflow-hidden group"
             >
               <span className="relative z-10 flex items-center gap-2">
-                Request Demo
+                Book a Demo
                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
@@ -348,7 +345,7 @@ export function Header() {
                   onClick={() => setMobileOpen(false)}
                 >
                   <span className="relative z-10 flex items-center gap-2">
-                    Request Demo
+                    Book a Demo
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>

@@ -1,94 +1,132 @@
 import { Metadata } from "next";
 import {
-  LayoutDashboard,
   Bot,
-  Workflow,
-  FileText,
-  MessageSquare,
-  CreditCard,
   Check,
   Users,
   UserCog,
   Shield,
   ArrowRight,
+  BookOpenText,
+  FileSpreadsheet,
+  SearchCheck,
+  CalendarRange,
+  ShieldAlert,
+  ArrowRightLeft,
+  FileSignature,
+  Boxes,
+  UserPlus,
+  LayoutDashboard,
+  Sparkles,
 } from "lucide-react";
 import Link from "next/link";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Cta } from "@/components/sections/cta";
 
 export const metadata: Metadata = {
-  title: "Features | AccuMaxio",
+  title: "Features | AccuMax",
   description:
-    "Self-service portals, AI co-pilots, workflows, documents, approvals, chat, and billing for accounting and professional services firms.",
+    "A workforce of tax-domain AI agents—Tax Researcher, 1040 Preparer, 1040 Reviewer, Tax Planner, IRS Audit Defense, AccuBridge—inside a complete practice operating system.",
 };
+
+const agents = [
+  {
+    icon: BookOpenText,
+    title: "Tax Researcher",
+    description:
+      "Contextual, comprehensive answers on prior- and current-year facts.",
+  },
+  {
+    icon: FileSpreadsheet,
+    title: "1040 Preparer",
+    description: "Prepares federal returns in minutes from source documents.",
+  },
+  {
+    icon: SearchCheck,
+    title: "1040 Reviewer",
+    description:
+      "Reviews returns for gaps—errors, warnings, cross-form validations.",
+  },
+  {
+    icon: CalendarRange,
+    title: "Tax Planner",
+    description:
+      "Multi-year goal-oriented opportunities, what-if scenario planning.",
+  },
+  {
+    icon: ShieldAlert,
+    title: "IRS Audit Defense",
+    description: "One-click evaluation and response to IRS notices.",
+  },
+  {
+    icon: ArrowRightLeft,
+    title: "AccuBridge",
+    description:
+      "Recognizes uploaded forms, extracts data, and bridges it into TaxPrep software—ours or theirs.",
+  },
+];
+
+const aiFeatures = [
+  "AI AccuWriter—everywhere input is provided",
+  "Letter and doc generation",
+  "Forms data extraction with manual over-ride",
+  "Duplicate detection",
+  "Forms comparison",
+  "AI Account Profiler",
+  "AI Tax Organizer",
+  "Knowledge Hub—your SOPs, training, audio-video-text",
+  "Flexible workflow automations—before and after each step",
+  "Ambient AI & automation for accelerated workflows (CPAL)",
+];
 
 const featureAreas = [
   {
+    icon: UserPlus,
+    title: "Client Intake & Engagement",
+    description: "Best-in-class intake from lead to draft return.",
+    items: [
+      "Mobile client & lead management",
+      "InTakePro customizable onboarding",
+      "Tax organizer generation",
+      "Zip / composite doc inputs + Forms Intelligence",
+      "Draft returns & account-summary triage",
+      "Doc list templates & bulk account creation",
+      "Outlook and Gmail integration",
+      "QuickBooks integration",
+      "Export to Drake, UltraTax, Lacerte",
+      "Chat and effective client engagement, broadcasts",
+    ],
+  },
+  {
+    icon: FileSignature,
+    title: "Approvals, Invoicing & Payments",
+    description: "Everything your business needs to get paid.",
+    items: [
+      "DocuSign / Zoho Sign—eSignature, all, any",
+      "Letter Gen templates—variable data merge, PDF, attachments, eSign",
+      "Send for approval: Approve, Reject, …",
+      "Immutable audit logs & document provenance",
+      "Agreements folder",
+      "Invoice templates with revision history",
+      "Full, partial, recurring payments—credit card, ACH",
+      "Discount %, discount $$, write-offs",
+      "AR aging & account reconciliation",
+    ],
+  },
+  {
     icon: LayoutDashboard,
-    title: "Self-Service Portals",
-    description: "Tailored experiences for clients, your team, and admins—everyone sees only what they need.",
+    title: "Visibility, Control & Governance",
+    description: "Unmatched out-of-the-box visibility and control.",
     items: [
-      "Client Portal: upload docs, view workflow status, see approvers, rich-text updates",
-      "Team Portal: assigned accounts, workflows, to-dos, chat, notifications",
-      "Admin Portal: firm-wide settings, dashboards, RBAC & OBT",
-      "Role-based access control across every persona",
-    ],
-  },
-  {
-    icon: Bot,
-    title: "Augmented Intelligence",
-    description: "AI co-pilots and intelligent forms that enhance your team—never replace their judgment.",
-    items: [
-      "QuickT: guided onboarding CoPilot for clients",
-      "CPAL: CPA & CSR CoPilot with conversation tracking",
-      "Natural-language search across account context",
-      "Intelligent forms with ID & data extraction",
-      "Tax organizer generation & document intelligence",
-    ],
-  },
-  {
-    icon: Workflow,
-    title: "Workflows & Operations",
-    description: "Model every service as a configurable workflow, then automate the busywork.",
-    items: [
-      "Multiple services & configurable stages",
-      "Templates, to-dos, and batch automations",
-      "Account priority, complexity, due dates",
-      "Dashboards: firm-wide (OBT/Admin) & assigned-accounts (team)",
-      "Reports by status: NEW, Assigned, On Hold, Completed",
-    ],
-  },
-  {
-    icon: FileText,
-    title: "Documents & Approvals",
-    description: "One secure home for every document, signature, and approval—fully audited.",
-    items: [
-      "Resources, client-, firm-, and team-uploaded docs",
-      "eSignatures via DocuSign & Zoho Sign",
-      "Built-in approvals, letters, notepads & notes",
-      "Organized, searchable audit logs for signatures & approvals",
-    ],
-  },
-  {
-    icon: MessageSquare,
-    title: "Chat, Notifications & Broadcasts",
-    description: "Keep clients and team in sync with collaboration and event-driven alerts.",
-    items: [
-      "In-app chat: reply-with-quote, edit/delete, search, pin",
-      "Message counters & unread badges in real time",
-      "Notifications for new accounts, uploads, workflow events",
-      "Firm-wide broadcasts to the right people via portal & email",
-    ],
-  },
-  {
-    icon: CreditCard,
-    title: "Billing & Payments",
-    description: "From price lists to paid invoices—billing that fits how your firm works.",
-    items: [
-      "Price lists, agreements, invoices & payments",
-      "ACH and per-account payment method override",
-      "Partial payments, invoice notes, export to Excel",
-      "QuickBooks sync for accounting workflows",
+      "Firm-wide dashboards on where the business is",
+      "Workflow-level view of progress",
+      "Performance by person / group / service / workflow",
+      "Bills, invoices, ageing, lead management",
+      "All info exported with drilldowns",
+      "Entity-level provenance & system-wide audit logs with fine-grain filters",
+      "Notifications as alerts and emails—both with drilldowns",
+      "Self-service streamlined migration and validation",
+      "Export of data tables, metadata, and files",
+      "Enterprise-class admin settings flexibility",
     ],
   },
 ];
@@ -104,7 +142,7 @@ const portals = [
     icon: UserCog,
     title: "Team Portal",
     tagline: "For CPAs & CSRs",
-    points: ["Manage assigned accounts", "Run workflows & to-dos", "AI co-pilots & search", "Notifications & chat"],
+    points: ["Manage assigned accounts", "Run workflows & to-dos", "AI agents & search", "Notifications & chat"],
   },
   {
     icon: Shield,
@@ -115,7 +153,7 @@ const portals = [
 ];
 
 const integrations = [
-  "QuickBooks", "DocuSign", "Zoho Sign", "Microsoft 365", "SharePoint",
+  "QuickBooks", "Outlook", "Gmail", "DocuSign", "Zoho Sign", "Microsoft 365", "SharePoint", "Drake", "UltraTax", "Lacerte",
 ];
 
 export default function FeaturesPage() {
@@ -130,23 +168,91 @@ export default function FeaturesPage() {
         <div className="container relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center rounded-full border border-[var(--primary)]/20 bg-[var(--primary)]/5 px-3 py-1 text-sm font-medium text-[var(--primary)] mb-6">
             <span className="flex h-2 w-2 rounded-full bg-[var(--primary)] mr-2 animate-pulse" />
-            Everything your firm needs
+            Product depth & breadth
           </div>
           <h1 className="text-4xl font-bold tracking-tight text-[var(--foreground)] sm:text-5xl md:text-6xl">
-            One platform for{" "}
-            <span className="gradient-text">portals, AI & operations</span>
+            Deep AI.{" "}
+            <span className="gradient-text">Full practice OS.</span>
           </h1>
           <p className="mt-6 text-lg text-[var(--muted-foreground)] leading-relaxed">
-            Self-service portals, augmented intelligence, workflows, documents, chat, and
-            billing—optimized for accounting and professional services firms.
+            A workforce of tax-domain AI agents, not a chatbot bolt-on—inside
+            a complete practice operating system. The only platform that is
+            alone top-right: deep AI plus orchestration.
           </p>
           <div className="mt-9 flex flex-wrap gap-4 justify-center">
-            <ButtonLink href="/contact" variant="primary" size="lg" className="shadow-lg shadow-[var(--primary)]/20">
-              Request Demo
+            <ButtonLink href="/contact#demo" variant="primary" size="lg" className="shadow-lg shadow-[var(--primary)]/20">
+              Book a Demo
             </ButtonLink>
             <ButtonLink href="/pricing" variant="outline" size="lg">
               View Pricing
             </ButtonLink>
+          </div>
+        </div>
+      </section>
+
+      {/* AI Agent workforce */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="inline-flex items-center rounded-full border border-[var(--primary)]/20 bg-[var(--primary)]/5 px-4 py-1.5 text-sm font-medium text-[var(--primary)] mb-6">
+              <Bot className="h-3.5 w-3.5 mr-2" aria-hidden />
+              AI Agent Workforce
+            </span>
+            <h2 className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl">
+              Product Depth
+            </h2>
+            <p className="mt-3 text-[var(--muted-foreground)]">
+              Six specialized tax-domain agents covering the entire pipeline.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {agents.map((agent) => (
+              <div
+                key={agent.title}
+                className="group rounded-2xl border border-[var(--border)] bg-white p-7 shadow-sm hover-lift hover:shadow-xl hover:border-[var(--primary)]/25 transition-all duration-300"
+              >
+                <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-[var(--primary)]/10 to-[var(--accent)]/10 text-[var(--primary)] mb-5 group-hover:scale-110 transition-transform duration-300">
+                  <agent.icon className="h-7 w-7" aria-hidden />
+                </div>
+                <h3 className="text-xl font-bold text-[var(--foreground)]">{agent.title}</h3>
+                <p className="mt-2 text-[var(--muted-foreground)] leading-relaxed">{agent.description}</p>
+              </div>
+            ))}
+          </div>
+          <p className="text-center text-sm text-[var(--muted-foreground)] mt-8">
+            . . . Stay Tuned for More!
+          </p>
+        </div>
+      </section>
+
+      {/* Ambient AI + feature list */}
+      <section className="py-16 md:py-24 bg-gradient-to-b from-white to-gray-50/50">
+        <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-10 items-center">
+            <div>
+              <div className="inline-flex items-center rounded-full border border-[var(--primary)]/20 bg-[var(--primary)]/5 px-3 py-1 text-sm font-medium text-[var(--primary)] mb-5">
+                <Sparkles className="h-3.5 w-3.5 mr-2" aria-hidden />
+                Ambient Intelligence
+              </div>
+              <h2 className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl">
+                Intelligence everywhere, not in one feature
+              </h2>
+              <p className="mt-4 text-[var(--muted-foreground)] leading-relaxed">
+                The system anticipates, guides, and clarifies. CPAs stay in
+                control—AI is a partner, not a replacement. Ambient AI and
+                automation accelerate every workflow.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-[var(--border)] bg-white p-7 md:p-9 shadow-sm">
+              <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-3">
+                {aiFeatures.map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-[var(--gray-700)]">
+                    <Check className="h-5 w-5 shrink-0 text-[var(--success)] mt-0.5" aria-hidden />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -187,15 +293,20 @@ export default function FeaturesPage() {
         </div>
       </section>
 
-      {/* Feature areas */}
+      {/* Practice OS feature areas */}
       <section className="py-16 md:py-24 bg-gradient-to-b from-white to-gray-50/50">
         <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-14">
+            <span className="inline-flex items-center rounded-full border border-[var(--primary)]/20 bg-[var(--primary)]/5 px-4 py-1.5 text-sm font-medium text-[var(--primary)] mb-6">
+              <Boxes className="h-3.5 w-3.5 mr-2" aria-hidden />
+              Product Breadth
+            </span>
             <h2 className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl">
-              Explore the platform
+              The complete practice operating system
             </h2>
             <p className="mt-3 text-[var(--muted-foreground)]">
-              Deep capabilities across six core areas, built for compliance and efficiency.
+              Every workflow your firm runs—from first client touch to final
+              reconciliation—in one platform.
             </p>
           </div>
 
@@ -237,8 +348,8 @@ export default function FeaturesPage() {
             Connects with your stack
           </h2>
           <p className="mt-3 text-[var(--muted-foreground)] max-w-2xl mx-auto">
-            Works with the accounting, eSignature, and document tools your firm already
-            relies on—with more integrations on the way.
+            Accounting, email, eSignature, and TaxPrep software—with exports to
+            Drake, UltraTax, and Lacerte.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4 md:gap-5">
             {integrations.map((name) => (

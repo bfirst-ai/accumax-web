@@ -1,8 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
-import { Play } from "lucide-react";
+import { CalendarCheck, Sparkles } from "lucide-react";
 import { ButtonLink } from "@/components/ui/button-link";
 
 export function Hero() {
@@ -29,40 +28,46 @@ export function Hero() {
             >
               <div className="inline-flex items-center rounded-full border border-[var(--primary)]/20 bg-[var(--primary)]/5 px-3 py-1 text-sm font-medium text-[var(--primary)] mb-6">
                 <span className="flex h-2 w-2 rounded-full bg-[var(--primary)] mr-2 animate-pulse"></span>
-                AI-Powered Practice Management
+                CPA Practice Management Reinvented with AI
               </div>
               <h1 className="text-4xl font-bold tracking-tight text-[var(--foreground)] sm:text-5xl md:text-6xl leading-tight">
-                Empower Your Firm with{" "}
+                From System of Tasks to{" "}
                 <span className="gradient-text">
-                  Augmented Intelligence
+                  System of Intelligence
                 </span>
               </h1>
               <p className="mt-6 text-lg md:text-xl text-[var(--muted-foreground)] max-w-xl leading-relaxed">
-                State-of-the-art AI tools that enhance client relationships, streamline operations, and drive growth. One platform for portals, workflows, documents, and billing—delivering unparalleled value and insightful guidance.
+                A workforce of tax-domain AI agents inside a complete practice
+                operating system—intake, approvals, invoicing, payments, and
+                governance. Work smarter. Serve better. Stay compliant.
               </p>
               <div className="mt-10 flex flex-wrap gap-4">
                 <ButtonLink
-                  href="/contact"
+                  href="/contact#demo"
                   variant="primary"
                   size="xl"
                   className="shadow-xl shadow-[var(--primary)]/20"
                 >
-                  Get Early Access
+                  <CalendarCheck className="h-5 w-5" aria-hidden />
+                  Book a Demo
                 </ButtonLink>
                 <ButtonLink
-                  href="/contact#demo"
+                  href="/pricing"
                   variant="outline"
                   size="xl"
                   className="gap-2 bg-white/50 backdrop-blur-sm"
                 >
-                  <Play className="h-5 w-5" aria-hidden />
-                  Request a Demo
+                  <Sparkles className="h-5 w-5" aria-hidden />
+                  Start Free Trial
                 </ButtonLink>
               </div>
+              <p className="mt-5 text-sm text-[var(--muted-foreground)]">
+                ✓ 90-day free trial, full platform access &nbsp;•&nbsp; ✓ Dedicated success manager
+              </p>
             </motion.div>
           </div>
 
-          {/* Hero visual - Detailed Dashboard Mockup */}
+          {/* Hero visual - AI Agent Dashboard Mockup */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95, rotateY: -10 }}
             animate={{ opacity: 1, scale: 1, rotateY: 0 }}
@@ -97,17 +102,20 @@ export function Hero() {
                 <div className="flex-1 p-6 overflow-hidden">
                   <div className="flex justify-between items-center mb-6">
                     <div className="h-8 w-32 rounded-lg bg-[var(--gray-200)]" />
-                    <div className="h-8 w-24 rounded-lg bg-[var(--primary)]" />
+                    <div className="h-8 w-40 rounded-lg bg-[var(--primary)]" />
                   </div>
 
                   <div className="grid grid-cols-3 gap-4 mb-6">
-                    {[1, 2, 3].map((i) => (
+                    {["1040 Preparer", "Tax Researcher", "Tax Planner"].map((agent) => (
                       <div
-                        key={i}
+                        key={agent}
                         className="h-24 rounded-xl border border-[var(--border)] bg-white p-4 shadow-sm"
                       >
                         <div className="h-8 w-8 rounded-full bg-[var(--primary)]/10 mb-2" />
                         <div className="h-2 w-16 rounded bg-[var(--gray-100)]" />
+                        <p className="text-[10px] font-semibold text-[var(--primary)] mt-1.5">
+                          {agent}
+                        </p>
                       </div>
                     ))}
                   </div>
@@ -132,7 +140,7 @@ export function Hero() {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.8, duration: 0.5 }}
-              className="absolute -bottom-6 -left-6 z-20 rounded-lg border border-white/20 bg-white/80 backdrop-blur-md p-4 shadow-xl max-w-[200px]"
+              className="absolute -bottom-6 -left-6 z-20 rounded-lg border border-white/20 bg-white/80 backdrop-blur-md p-4 shadow-xl max-w-[220px]"
             >
               <div className="flex items-center gap-3">
                 <div className="h-10 w-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
@@ -140,9 +148,9 @@ export function Hero() {
                 </div>
                 <div>
                   <p className="text-xs text-[var(--muted-foreground)]">
-                    Task Completed
+                    Return prepared in minutes
                   </p>
-                  <p className="font-semibold text-sm">Monthly Return</p>
+                  <p className="font-semibold text-sm">AI 1040 Preparer</p>
                 </div>
               </div>
             </motion.div>
@@ -155,7 +163,7 @@ export function Hero() {
             >
               <div className="flex items-center gap-2">
                 <div className="h-2 w-2 rounded-full bg-[var(--primary)] animate-pulse" />
-                <p className="text-xs font-semibold">Live Real-time Sync</p>
+                <p className="text-xs font-semibold">{">30% Gross Margin Lift"}</p>
               </div>
             </motion.div>
           </motion.div>
@@ -171,13 +179,13 @@ export function Hero() {
           <div className="rounded-2xl border border-[var(--border)] bg-white/80 backdrop-blur-sm shadow-sm overflow-hidden">
             <div className="px-6 py-5 md:px-8 md:py-6">
               <p className="text-center text-base md:text-lg font-semibold text-[var(--foreground)] mb-1">
-                Built for modern accounting and professional services firms
+                One platform. Every tool your firm already uses.
               </p>
               <p className="text-center text-sm text-[var(--muted-foreground)] mb-6 max-w-2xl mx-auto">
-                One platform for client management, workflows, and billing—designed for firms that demand reliability and compliance.
+                Deep AI across the full platform, plus orchestration—the best of both worlds.
               </p>
               <div className="flex flex-wrap justify-center items-center gap-x-10 gap-y-4 text-[var(--gray-500)]">
-                {["QuickBooks", "DocuSign", "Zoho Sign", "Microsoft 365", "SharePoint"].map(
+                {["QuickBooks", "DocuSign", "Zoho Sign", "Outlook", "Gmail", "Drake", "UltraTax", "Lacerte"].map(
                   (name) => (
                     <span
                       key={name}

@@ -3,9 +3,9 @@ import { PricingContent } from "@/components/pricing/pricing-content";
 import { Cta } from "@/components/sections/cta";
 
 export const metadata: Metadata = {
-  title: "Pricing | AccuMaxio",
+  title: "Pricing | AccuMax",
   description:
-    "Simple, transparent per-user pricing for accounting and professional services firms. Client portal users are always free. Introductory early-access pricing, no credit card to get started.",
+    "Priced for land-and-expand: tiers + usage + platform. Essentials, Professional, Advisory, and Enterprise. Annual plans pre-purchased, AI metered as credits. Start a 90-day free trial.",
 };
 
 export default function PricingPage() {
@@ -23,12 +23,14 @@ export default function PricingPage() {
             Pricing
           </div>
           <h1 className="text-4xl font-bold tracking-tight text-[var(--foreground)] sm:text-5xl md:text-6xl">
-            Pricing that scales with{" "}
-            <span className="gradient-text">your practice</span>
+            Land-and-expand.{" "}
+            <span className="gradient-text">Not a discount play.</span>
           </h1>
           <p className="mt-6 text-lg text-[var(--muted-foreground)] leading-relaxed">
-            Pay per team member. Invite unlimited clients to the Client Portal for free.
-            Introductory pricing for early-access firms—no credit card required to get started.
+            Tiers + usage + platform. Accessible entry, value-based expansion.
+            Annual plans pre-purchased; AI bundled as a baseline allowance and
+            metered as credits (returns &amp; usage). We don&apos;t compete on
+            price—we compete on the AI doing the work.
           </p>
         </div>
       </section>

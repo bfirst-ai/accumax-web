@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import {
   Mail,
-  Phone,
   CalendarClock,
   ShieldCheck,
   Sparkles,
@@ -10,14 +9,14 @@ import {
 import { ContactForm } from "@/components/contact/contact-form";
 
 export const metadata: Metadata = {
-  title: "Contact & Demo | AccuMaxio",
+  title: "Contact & Demo | AccuMax",
   description:
-    "Request a personalized demo of AccuMaxio or get in touch with our team. See how portals, AI co-pilots, workflows, and billing work for your firm.",
+    "Book a personalized 30-minute demo, start a 90-day free trial, or talk to our CPA specialist team. See AccuMax's AI agents and practice OS working for your firm.",
 };
 
 const expect = [
-  "A 30-minute walkthrough tailored to your firm",
-  "Live look at portals, workflows, and AI co-pilots",
+  "A personalized 30-minute demo—see AccuMax working in a firm just like yours",
+  "Live look at the AI agent workforce and full practice OS",
   "Migration & onboarding plan for your data",
   "Pricing guidance for your team size",
 ];
@@ -26,17 +25,16 @@ const contacts = [
   {
     icon: Mail,
     label: "Email us",
-    value: "support@accumaxio.com",
-    href: "mailto:support@accumaxio.com",
-  },
-  {
-    icon: Phone,
-    label: "Call sales",
-    value: "+1 (555) 123-4567",
-    href: "tel:+15551234567",
+    value: "nagesh@bfirst.ai",
+    href: "mailto:nagesh@bfirst.ai",
   },
   {
     icon: CalendarClock,
+    label: "Book a demo",
+    value: "30 minutes, personalized",
+  },
+  {
+    icon: ShieldCheck,
     label: "Response time",
     value: "Within 1 business day",
   },
@@ -60,12 +58,13 @@ export default function ContactPage() {
                 Request a demo
               </div>
               <h1 className="text-4xl font-bold tracking-tight text-[var(--foreground)] sm:text-5xl leading-tight">
-                See AccuMaxio in action for{" "}
-                <span className="gradient-text">your firm</span>
+                See It Live. See AccuMax{" "}
+                <span className="gradient-text">working for your firm.</span>
               </h1>
               <p className="mt-6 text-lg text-[var(--muted-foreground)] leading-relaxed max-w-xl">
-                Tell us a little about your practice and we'll put together a personalized
-                walkthrough—portals, AI co-pilots, workflows, documents, and billing, all in one place.
+                Book a personalized 30-minute demo and see AccuMax working in
+                a firm just like yours—AI agents, intake, approvals, payments,
+                and governance, all in one platform.
               </p>
 
               <ul className="mt-8 space-y-3">
@@ -100,7 +99,7 @@ export default function ContactPage() {
 
               <div className="mt-8 flex items-center gap-2 text-sm text-[var(--muted-foreground)]">
                 <ShieldCheck className="h-4 w-4 text-[var(--success)]" aria-hidden />
-                Bank-level encryption · RBAC · audit-ready
+                Audit-ready · Traceable · Defensible
               </div>
             </div>
 

@@ -12,13 +12,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "AccuMaxio | Practice Management for Accounting & Legal Firms",
+  title: "AccuMax | CPA Practice Management Reinvented with AI",
   description:
-    "One platform for client management, workflows, documents, and billing. Transform your practice with intelligent automation.",
+    "A workforce of tax-domain AI agents inside a complete practice operating system. Tax Researcher, 1040 Preparer & Reviewer, Tax Planner, IRS Audit Defense. Work smarter. Serve better. Stay compliant.",
   openGraph: {
-    title: "AccuMaxio | Practice Management for Accounting & Legal Firms",
+    title: "AccuMax | CPA Practice Management Reinvented with AI",
     description:
-      "One platform for client management, workflows, documents, and billing.",
+      "Deep AI across the full practice platform, plus orchestration. Deliver >30% gross margin improvement.",
   },
 };
 

@@ -6,10 +6,15 @@ import { ArrowRight } from "lucide-react";
 
 const integrations = [
   "QuickBooks",
+  "Outlook",
+  "Gmail",
   "DocuSign",
   "Zoho Sign",
   "Microsoft 365",
   "SharePoint",
+  "Drake",
+  "UltraTax",
+  "Lacerte",
 ];
 
 export function Integrations() {
@@ -26,8 +31,9 @@ export function Integrations() {
             Connects With Your Stack
           </h2>
           <p className="mt-4 text-lg text-[var(--muted-foreground)]">
-            Works with the accounting, eSignature, and document tools your firm
-            already relies on—with more integrations on the way.
+            Works with the accounting, email, eSignature, and TaxPrep software
+            your firm already relies on—plus exports to Drake, UltraTax, and
+            Lacerte.
           </p>
         </motion.div>
 

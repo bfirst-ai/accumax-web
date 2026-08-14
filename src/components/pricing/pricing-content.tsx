@@ -8,7 +8,7 @@ import { Badge } from "@/components/ui/badge";
 
 type Plan = {
   name: string;
-  monthly: number | null;
+  tier: string;
   description: string;
   cta: string;
   href: string;
@@ -18,63 +18,61 @@ type Plan = {
 
 const plans: Plan[] = [
   {
-    name: "Starter",
-    monthly: 29,
-    description: "Solo practitioners and small teams getting organized.",
-    cta: "Get Early Access",
+    name: "Essentials",
+    tier: "Access",
+    description: "Solo / micro firm",
+    cta: "Start Free Trial",
     href: "/contact",
     features: [
-      "Client & Team portals",
-      "Basic workflows & templates",
-      "Document storage (10 GB)",
-      "eSignatures & approvals",
-      "In-app chat & notifications",
+      "Practice OS + AI Reviewer, Researcher & triage",
+      "Client intake & engagement",
+      "Tax organizer generation",
+      "eSignatures, approvals & invoices",
+      "The on-ramp that already beats incumbents' mid-tier",
     ],
   },
   {
     name: "Professional",
-    monthly: 59,
+    tier: "Volume · Hero",
     popular: true,
-    description: "Growing firms that need automation and AI.",
-    cta: "Get Early Access",
+    description: "Everyday working firm",
+    cta: "Start Free Trial",
     href: "/contact",
     features: [
-      "Everything in Starter, plus:",
-      "Admin portal, RBAC & OBT",
-      "Workflow automation & batch actions",
-      "AI CoPilot — QuickT onboarding & CPAL",
-      "Invoices, payments & ACH",
-      "Audit logs & broadcasts",
+      "Everything in Essentials, plus:",
+      "AI Tax Preparer & full agent suite",
+      "Entry-level Tax Planning",
+      "Payments, AR aging & account reconciliation",
+      "Dashboards, audit logs & governance",
+      "The volume tier most firms buy",
     ],
   },
   {
-    name: "Business",
-    monthly: 99,
-    description: "Established practices running at scale.",
-    cta: "Get Early Access",
+    name: "Advisory",
+    tier: "Expansion",
+    description: "Multi-preparer firm",
+    cta: "Start Free Trial",
     href: "/contact",
     features: [
       "Everything in Professional, plus:",
-      "Unlimited accounts & contacts",
-      "Firm-wide dashboards & reports",
-      "Intelligent forms & data extraction",
-      "Partial & scheduled invoices",
-      "Priority support",
+      "High-end Tax Planning",
+      "IRS Audit Defense",
+      "Firm-grade governance & dashboards",
+      "Unlimited usage allowance",
     ],
   },
   {
     name: "Enterprise",
-    monthly: null,
-    description: "Multi-office firms with custom requirements.",
+    tier: "Category",
+    description: "PE roll-ups · offshore · multi-entity",
     cta: "Contact Sales",
     href: "/contact",
     features: [
-      "Everything in Business, plus:",
-      "Custom domains & SSO",
-      "Dedicated tenant & data residency",
-      "Onboarding & migration support",
-      "SLA & dedicated success manager",
-      "Custom integrations & API access",
+      "Everything in Advisory, plus:",
+      "Offshore-delivery governance & standardization layer",
+      "Platform fee + usage, sold not self-served",
+      "Dedicated Success Team, white-glove SLA",
+      "Custom domains, SSO & data residency",
     ],
   },
 ];
@@ -82,100 +80,73 @@ const plans: Plan[] = [
 type Row = { label: string; values: (boolean | string)[] };
 type Group = { title: string; rows: Row[] };
 
-// Columns map to: Starter, Professional, Business, Enterprise
+// Columns map to: Essentials, Professional, Advisory, Enterprise
 const comparison: Group[] = [
   {
-    title: "Portals & Access",
+    title: "AI Agent Workforce",
     rows: [
-      { label: "Client Portal", values: [true, true, true, true] },
-      { label: "Team Portal", values: [true, true, true, true] },
-      { label: "Admin Portal", values: [false, true, true, true] },
-      { label: "RBAC & OBT (owner-based teams)", values: [false, true, true, true] },
-      { label: "Single Sign-On (SSO)", values: [false, false, false, true] },
+      { label: "AI Tax Researcher", values: [true, true, true, true] },
+      { label: "AI 1040 Reviewer", values: [true, true, true, true] },
+      { label: "AI 1040 Preparer", values: [false, true, true, true] },
+      { label: "AI Tax Planner (entry-level)", values: [false, true, true, true] },
+      { label: "AI Tax Planner (high-end, multi-year, what-if)", values: [false, false, true, true] },
+      { label: "IRS Audit Defense", values: [false, false, true, true] },
+      { label: "AccuBridge forms extraction", values: [false, true, true, true] },
     ],
   },
   {
-    title: "Workflows & Automation",
+    title: "Practice OS",
     rows: [
-      { label: "Configurable workflows & stages", values: [true, true, true, true] },
-      { label: "Templates & to-dos", values: [true, true, true, true] },
-      { label: "Batch automations", values: [false, true, true, true] },
-      { label: "Firm-wide dashboards & reports", values: [false, false, true, true] },
+      { label: "Client intake & engagement", values: [true, true, true, true] },
+      { label: "Tax organizer generation", values: [true, true, true, true] },
+      { label: "Workflows & automations", values: [true, true, true, true] },
+      { label: "eSignatures (DocuSign / Zoho Sign)", values: [true, true, true, true] },
+      { label: "Invoices, payments & ACH", values: [true, true, true, true] },
+      { label: "AR aging & reconciliation", values: [false, true, true, true] },
+      { label: "Firm-wide dashboards & drilldowns", values: [false, false, true, true] },
+      { label: "Offshore-delivery orchestration", values: [false, false, false, true] },
     ],
   },
   {
-    title: "Augmented Intelligence",
+    title: "Governance & Support",
     rows: [
-      { label: "QuickT onboarding CoPilot", values: [false, true, true, true] },
-      { label: "CPAL CPA & CSR CoPilot", values: [false, true, true, true] },
-      { label: "Intelligent forms & data extraction", values: [false, false, true, true] },
-      { label: "Tax organizer generation", values: [false, false, true, true] },
-    ],
-  },
-  {
-    title: "Documents & eSign",
-    rows: [
-      { label: "Document storage", values: ["10 GB", "100 GB", "1 TB", "Custom"] },
-      { label: "eSignatures (DocuSign / Zoho)", values: [true, true, true, true] },
-      { label: "Letters & approvals", values: [true, true, true, true] },
-      { label: "Audit logs", values: [false, true, true, true] },
-    ],
-  },
-  {
-    title: "Billing & Payments",
-    rows: [
-      { label: "Price lists & agreements", values: [true, true, true, true] },
-      { label: "Invoices & payments (ACH)", values: [false, true, true, true] },
-      { label: "Partial & scheduled invoices", values: [false, false, true, true] },
-      { label: "Export to Excel", values: [false, true, true, true] },
-    ],
-  },
-  {
-    title: "Security & Support",
-    rows: [
-      { label: "Bank-level encryption", values: [true, true, true, true] },
-      { label: "Data residency & dedicated tenant", values: [false, false, false, true] },
-      { label: "Support", values: ["Email", "Email", "Priority", "Dedicated CSM"] },
+      { label: "Immutable audit logs & provenance", values: [true, true, true, true] },
+      { label: "Entity-level governance", values: [false, true, true, true] },
+      { label: "AI usage allowance", values: ["Baseline", "Baseline", "Unlimited", "Custom"] },
+      { label: "Support", values: ["Email", "Email", "Priority", "Dedicated Success Team"] },
+      { label: "White-glove SLA", values: [false, false, false, true] },
     ],
   },
 ];
 
 const faqs = [
   {
-    q: "Can I try AccuMaxio before it launches?",
-    a: "Yes — join the early-access program to get hands-on with portals, workflows, and core features, with help from our team. No credit card required.",
+    q: "Can I try AccuMax before committing?",
+    a: "Yes — start a 90-day free trial with full platform access and a dedicated success manager from day one. No credit card required.",
   },
   {
-    q: "How does per-user pricing work?",
-    a: "Pricing is per team member, per month. Clients using the Client Portal are never charged — invite as many client users as you need at no extra cost.",
+    q: "How does AI usage / credits work?",
+    a: "AI is bundled as a baseline allowance in every plan and metered as credits beyond it (returns & usage). Packs of credits are added per user, so revenue grows with the work and margins hold as models get cheaper.",
   },
   {
-    q: "Can I switch plans later?",
-    a: "Absolutely. Upgrade or downgrade at any time; changes are prorated. Annual plans can switch to a higher tier mid-term with the difference applied.",
+    q: "Are plans billed annually?",
+    a: "Yes — annual plans are pre-purchased. We're an accessible entry with value-based expansion, not a discount play.",  },
+  {
+    q: "Which tier should a firm like mine pick?",
+    a: "Solo and micro firms start with Essentials. Most everyday working firms land in Professional — the volume tier. Multi-preparer firms choose Advisory, and PE roll-ups or offshore teams go Enterprise.",
   },
   {
     q: "What's included in migration?",
-    a: "We help migrate accounts, contacts, templates, and documents from your current system. Business and Enterprise plans include hands-on migration support.",
-  },
-  {
-    q: "Do you offer discounts for annual billing?",
-    a: "Yes — annual billing saves roughly two months versus paying monthly. Enterprise pricing is custom; contact sales for a quote.",
+    a: "We help migrate accounts, contacts, templates, and documents from your current system. Self-service streamlined migration with validation, export of data tables, metadata, and files is built into the platform.",
   },
 ];
 
-function PriceDisplay({ plan, annual }: { plan: Plan; annual: boolean }) {
-  if (plan.monthly === null) {
-    return (
-      <div className="flex items-baseline gap-1">
-        <span className="text-4xl font-extrabold text-[var(--foreground)]">Custom</span>
-      </div>
-    );
-  }
-  const display = annual ? Math.round((plan.monthly * 10) / 12) : plan.monthly;
+function PlanPrice() {
   return (
     <div className="flex items-baseline gap-1">
-      <span className="text-5xl font-extrabold text-[var(--foreground)]">${display}</span>
-      <span className="text-[var(--muted-foreground)] text-base">/user/mo</span>
+      <span className="text-3xl font-extrabold text-[var(--foreground)]">
+        Annual plan
+      </span>
     </div>
   );
 }
@@ -195,46 +166,21 @@ function Cell({ value }: { value: boolean | string }) {
 }
 
 export function PricingContent() {
-  const [annual, setAnnual] = useState(true);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   return (
     <>
-      {/* Billing toggle */}
-      <div className="flex flex-col items-center gap-3 mb-12">
-        <div className="inline-flex items-center gap-3 rounded-full border border-[var(--border)] bg-white p-1.5 shadow-sm">
-          <button
-            type="button"
-            onClick={() => setAnnual(false)}
-            className={`px-5 py-2 rounded-full text-sm font-semibold transition-colors ${
-              !annual ? "bg-[var(--primary)] text-white shadow" : "text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
-            }`}
-            aria-pressed={!annual}
-          >
-            Monthly
-          </button>
-          <button
-            type="button"
-            onClick={() => setAnnual(true)}
-            className={`px-5 py-2 rounded-full text-sm font-semibold transition-colors flex items-center gap-2 ${
-              annual ? "bg-[var(--primary)] text-white shadow" : "text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
-            }`}
-            aria-pressed={annual}
-          >
-            Annual
-            <span
-              className={`text-[11px] px-1.5 py-0.5 rounded-full ${
-                annual ? "bg-white/20 text-white" : "bg-[var(--success)]/10 text-[var(--success)]"
-              }`}
-            >
-              Save 17%
-            </span>
-          </button>
-        </div>
+      {/* Intro note */}
+      <div className="text-center max-w-2xl mx-auto mb-12">
+        <p className="text-[var(--muted-foreground)]">
+          Annual plans pre-purchased · AI bundled as a baseline allowance and
+          metered as credits (returns &amp; usage) · Packs of credits, added
+          per user
+        </p>
       </div>
 
       {/* Tier cards */}
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-6">
         {plans.map((plan, index) => (
           <motion.div
             key={plan.name}
@@ -252,19 +198,20 @@ export function PricingContent() {
               <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                 <Badge className="bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] border-0 px-3 py-1 font-semibold shadow-lg">
                   <Sparkles className="h-3 w-3 mr-1" aria-hidden />
-                  Recommended
+                  Most Popular
                 </Badge>
               </div>
             )}
-            <h3 className="text-xl font-bold text-[var(--foreground)]">{plan.name}</h3>
+            <p className="text-[11px] font-bold uppercase tracking-widest text-[var(--primary)]">
+              {plan.tier}
+            </p>
+            <h3 className="text-xl font-bold text-[var(--foreground)] mt-1">{plan.name}</h3>
             <p className="mt-1 text-sm text-[var(--muted-foreground)] min-h-[40px]">{plan.description}</p>
-            <div className="mt-5 min-h-[56px]">
-              <PriceDisplay plan={plan} annual={annual} />
-              {plan.monthly !== null && (
-                <p className="mt-1 text-xs text-[var(--muted-foreground)]">
-                  {annual ? "billed annually" : "billed monthly"}
-                </p>
-              )}
+            <div className="mt-4">
+              <PlanPrice />
+              <p className="mt-1 text-xs text-[var(--muted-foreground)]">
+                per user · annual pre-purchased
+              </p>
             </div>
             <ButtonLink
               href={plan.href}
@@ -298,8 +245,8 @@ export function PricingContent() {
       </div>
 
       <p className="text-center text-sm text-[var(--muted-foreground)] mt-8">
-        Introductory pricing for early-access firms. No credit card required to get started.
-        Client portal users are always free.
+        Revenue grows with the work and with every acquisition, and margin
+        holds as models get cheaper.
       </p>
 
       {/* Comparison table */}
@@ -309,7 +256,7 @@ export function PricingContent() {
             Compare every plan
           </h2>
           <p className="mt-3 text-[var(--muted-foreground)]">
-            A complete breakdown of what's included in each tier.
+            A complete breakdown of what&apos;s included in each tier.
           </p>
         </div>
 
