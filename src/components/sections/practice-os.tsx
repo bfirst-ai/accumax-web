@@ -19,7 +19,7 @@ const areas = [
       "Zip / composite doc inputs + Forms Intelligence",
       "Draft returns & account-summary triage",
       "Outlook / Gmail / QuickBooks integration",
-      "Export to Drake, UltraTax, Lacerte",
+      "Transfer to TaxPrep SW",
     ],
   },
   {

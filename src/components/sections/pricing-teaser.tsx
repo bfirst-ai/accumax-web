@@ -10,47 +10,37 @@ const plans = [
   {
     name: "Essentials",
     tier: "Access",
+    price: 799,
     description: "Solo / micro firm",
     features: [
-      "Practice OS + AI Reviewer, Researcher & triage",
-      "Client intake & engagement",
-      "eSignatures, approvals & invoices",
-      "The on-ramp that beats incumbents' mid-tier",
+      "Practice OS, 1040 Review, forms recognition & letters — all unlimited",
+      "AI Researcher, 1040 Preparer & TaxPrep transfer — 10 accounts each",
+      "The on-ramp that already beats incumbents' mid-tier",
     ],
   },
   {
     name: "Professional",
     tier: "Volume · Hero",
-    popular: true,
+    price: 999,
     description: "Everyday working firm",
     features: [
       "Everything in Essentials, plus:",
-      "AI Tax Preparer & full agent suite",
-      "Entry-level Tax Planning",
-      "Payments, AR aging & reconciliation",
-      "The volume tier most firms buy",
+      "Forms Data eXtraction — unlimited",
+      "IRS Audit Defense & AI Tax Planner — 10 accounts each",
+      "Researcher, 1040 Preparer & TaxPrep transfer — 20 accounts each",
     ],
   },
   {
-    name: "Advisory",
-    tier: "Expansion",
-    description: "Multi-preparer firm",
+    name: "Business",
+    tier: "Scale",
+    price: 1199,
+    popular: true,
+    description: "Scaling teams & high volume — the tier most firms buy",
     features: [
       "Everything in Professional, plus:",
-      "High-end Tax Planning & IRS Audit Defense",
-      "Firm-grade governance & dashboards",
-      "Unlimited usage allowance",
-    ],
-  },
-  {
-    name: "Enterprise",
-    tier: "Category",
-    description: "PE roll-ups · offshore · multi-entity",
-    features: [
-      "Everything in Advisory, plus:",
-      "Offshore-delivery governance layer",
-      "Platform fee + usage, sold not self-served",
-      "Dedicated Success Team, white-glove SLA",
+      "IRS Audit Defense — unlimited",
+      "AI Tax Planner — 20 accounts",
+      "Researcher, 1040 Preparer & TaxPrep transfer — 40 accounts each",
     ],
   },
 ];
@@ -69,8 +59,9 @@ export function PricingTeaser() {
             Priced for Land-and-Expand
           </h2>
           <p className="mt-4 text-lg text-[var(--muted-foreground)]">
-            Tiers + usage + platform. We don&apos;t compete on price—we compete on
-            the AI doing the work.
+            From $699 per seat, per year — practice management prices for an
+            entire AI workforce. We don&apos;t compete on price; we compete on the
+            AI doing the work.
           </p>
         </motion.div>
 
@@ -78,7 +69,7 @@ export function PricingTeaser() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="grid md:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8"
+          className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto"
         >
           {plans.map((plan) => (
             <Card
@@ -108,8 +99,17 @@ export function PricingTeaser() {
                 <p className="text-sm text-[var(--muted-foreground)] mb-4">
                   {plan.description}
                 </p>
-                <p className="text-sm font-semibold text-[var(--gray-700)]">
-                  Annual plans · AI bundled as a baseline allowance
+                <div className="flex items-baseline gap-1">
+                  <span className="text-xl font-bold text-[var(--foreground)]">$</span>
+                  <span className="text-4xl font-extrabold tracking-tight text-[var(--foreground)]">
+                    {plan.price.toLocaleString()}
+                  </span>
+                  <span className="text-sm font-medium text-[var(--muted-foreground)] ml-1">
+                    /seat per year
+                  </span>
+                </div>
+                <p className="text-xs text-[var(--muted-foreground)] mt-1">
+                  Billed up front · save up to 12.5% on multi-year terms
                 </p>
               </CardHeader>
               <CardContent className="space-y-4 relative">
@@ -142,7 +142,7 @@ export function PricingTeaser() {
                     plan.popular ? "shadow-lg shadow-[var(--primary)]/30" : ""
                   }`}
                 >
-                  {plan.name === "Enterprise" ? "Contact Sales" : "Start Free Trial"}
+                  Start Free Trial
                 </ButtonLink>
               </CardContent>
             </Card>
@@ -155,9 +155,9 @@ export function PricingTeaser() {
           viewport={{ once: true }}
           className="text-center text-sm text-[var(--muted-foreground)] mt-8"
         >
-          AI is bundled as a baseline allowance and metered as credits—returns
-          &amp; usage. Revenue grows with the work; margins hold as models get
-          cheaper.
+          Unlimited 1040 review, forms recognition and letter generation on every
+          tier. Heavier agents carry an account allowance, then meter at a flat
+          per-account rate that falls as your tier rises.
         </motion.p>
       </div>
     </section>

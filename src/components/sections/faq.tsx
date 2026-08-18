@@ -13,7 +13,7 @@ const faqs = [
   {
     question: "How is AccuMax different from other practice platforms?",
     answer:
-      "Practice platforms like TaxDome, Canopy, and Karbon give breadth but treat AI as a bolt-on. Point AI tools like TaxGPT or Holistiplan go deep in one function—and nothing else. AccuMax is alone top-right: deep AI across the full platform, plus orchestration. Five separately-licensed tools collapse into one system of record.",
+      "Broad practice platforms give breadth but treat AI as a bolt-on. Single-function AI tools go deep in one area—research, planning, or prep—and nothing else. AccuMax is alone top-right: deep AI across the full platform, plus orchestration. Five separately-licensed tools collapse into one system of record.",
   },
   {
     question: "What does the AI agent workforce do?",
@@ -28,7 +28,7 @@ const faqs = [
   {
     question: "How does AccuMax pricing work?",
     answer:
-      "Accessible entry, value-based expansion—not a discount play. Annual plans are pre-purchased, AI is bundled as a baseline allowance, and usage beyond that is metered as credits (returns & usage). Revenue grows with the work and margins hold as models get cheaper.",
+      "Three per-seat tiers—Essentials at $799, Professional at $999, and Business at $1,199 per seat, per year, with up to 12.5% off on multi-year terms. That's at or below what firms already pay for practice management alone. Unlimited 1040 review, forms recognition and letter generation come with every tier; heavier agents carry an allowance in activated accounts and meter at a flat per-account rate that falls as your tier rises. Revenue grows with the work and margins hold as models get cheaper.",
   },
   {
     question: "Can we try AccuMax before committing?",

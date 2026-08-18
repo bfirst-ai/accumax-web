@@ -27,13 +27,16 @@ export function Integrations() {
           viewport={{ once: true }}
           className="text-center max-w-3xl mx-auto mb-14"
         >
+          <span className="inline-flex items-center rounded-full border border-[var(--primary)]/20 bg-[var(--primary)]/5 px-4 py-1.5 text-sm font-medium text-[var(--primary)] mb-6">
+            Integrations
+          </span>
           <h2 id="integrations-heading" className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl md:text-5xl">
             Connects With Your Stack
           </h2>
           <p className="mt-4 text-lg text-[var(--muted-foreground)]">
-            Works with the accounting, email, eSignature, and TaxPrep software
-            your firm already relies on—plus exports to Drake, UltraTax, and
-            Lacerte.
+            AccuMax integrates with the accounting, email, eSignature and
+            TaxPrep software your firm already relies on—plus Transfer to
+            TaxPrep SW built in.
           </p>
         </motion.div>
 

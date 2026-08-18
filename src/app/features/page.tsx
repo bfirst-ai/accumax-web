@@ -92,7 +92,7 @@ const featureAreas = [
       "Doc list templates & bulk account creation",
       "Outlook and Gmail integration",
       "QuickBooks integration",
-      "Export to Drake, UltraTax, Lacerte",
+      "Transfer to TaxPrep SW",
       "Chat and effective client engagement, broadcasts",
     ],
   },
@@ -344,12 +344,15 @@ export default function FeaturesPage() {
       {/* Integrations */}
       <section className="py-16 md:py-20 bg-white">
         <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <span className="inline-flex items-center rounded-full border border-[var(--primary)]/20 bg-[var(--primary)]/5 px-4 py-1.5 text-sm font-medium text-[var(--primary)] mb-6">
+            Integrations
+          </span>
           <h2 className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl">
             Connects with your stack
           </h2>
           <p className="mt-3 text-[var(--muted-foreground)] max-w-2xl mx-auto">
-            Accounting, email, eSignature, and TaxPrep software—with exports to
-            Drake, UltraTax, and Lacerte.
+            AccuMax integrates with accounting, email, eSignature and TaxPrep
+            software—with Transfer to TaxPrep SW built in.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4 md:gap-5">
             {integrations.map((name) => (

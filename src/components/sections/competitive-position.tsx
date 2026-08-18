@@ -15,21 +15,21 @@ import {
 const quadrantDots = [
   {
     label: "Practice platforms",
-    tools: "TaxDome · Canopy · Karbon",
+    tools: "broad workflow coverage, AI bolted on",
     top: "28%",
     left: "27%",
     kind: "dot" as const,
   },
   {
     label: "Traditional prep",
-    tools: "UltraTax · Drake · CCH · Intuit ProSeries, LaCerte",
+    tools: "return calculation, no practice layer",
     top: "78%",
     left: "22%",
     kind: "dot" as const,
   },
   {
     label: "Point AI tools",
-    tools: "research: TaxGPT · CoCounsel · planning: Holistiplan · TaxPlanIQ · prep: Basis · Accrual",
+    tools: "deep in one function, nothing either side",
     top: "70%",
     left: "68%",
     kind: "box" as const,
@@ -56,27 +56,27 @@ const comparison = [
   {
     icon: Briefcase,
     title: "Tax research",
-    tools: "TaxGPT · Thomson Reuters CoCounsel",
+    tools: "Separate login · answers live outside the client file",
   },
   {
     icon: Calculator,
     title: "Tax planning",
-    tools: "Holistiplan · TaxPlanIQ",
+    tools: "Separate login · re-key the client's numbers to model",
   },
   {
     icon: FileSpreadsheet,
     title: "Return prep",
-    tools: "Basis · Accrual · UltraTax · Drake",
+    tools: "Separate login · export, import, then reconcile",
   },
   {
     icon: Layers,
     title: "Practice management",
-    tools: "TaxDome · Canopy · Karbon",
+    tools: "Separate login · the system of record, without the AI",
   },
   {
     icon: Puzzle,
     title: "Offshore coordination",
-    tools: "Spreadsheets · email · ad hoc",
+    tools: "No system at all · spreadsheets and email threads",
   },
 ];
 
@@ -282,7 +282,7 @@ export function CompetitivePosition() {
                 </div>
               ))}
               <p className="text-xs text-[var(--muted-foreground)] px-1 pt-1">
-                Five tools collapse into one system of record.
+                Five tools collapse into one system of record — one copy of the client file, no re-keying between tools, one audit trail.
               </p>
             </div>
           </div>

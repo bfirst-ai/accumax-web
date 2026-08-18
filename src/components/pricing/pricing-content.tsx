@@ -2,9 +2,24 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, Minus, Plus, Sparkles } from "lucide-react";
+import { Check, Infinity as InfinityIcon, Minus, Plus, Sparkles } from "lucide-react";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Badge } from "@/components/ui/badge";
+import { ValueStory } from "@/components/pricing/value-story";
+
+/* ------------------------------------------------------------------ *
+ * Two pricing dimensions:
+ *   1. Per user, per year — the seat licence, discounted by term length.
+ *   2. Per activated account — AI capability allowances, metered beyond.
+ * ------------------------------------------------------------------ */
+
+type TermId = "1yr" | "2yr" | "3yr";
+
+const terms: { id: TermId; label: string; short: string; save: string | null }[] = [
+  { id: "1yr", label: "One-year", short: "1-year", save: null },
+  { id: "2yr", label: "Two-year", short: "2-year", save: "Save up to 6.25%" },
+  { id: "3yr", label: "Three-year", short: "3-year", save: "Save up to 12.5%" },
+];
 
 type Plan = {
   name: string;
@@ -13,6 +28,11 @@ type Plan = {
   cta: string;
   href: string;
   popular?: boolean;
+  /** Per user, per year. Billed up front for the full term. */
+  price: Record<TermId, number>;
+  /** Advertised discount vs. the one-year rate. */
+  discount: Record<TermId, string | null>;
+  headline: string;
   features: string[];
 };
 
@@ -20,101 +40,200 @@ const plans: Plan[] = [
   {
     name: "Essentials",
     tier: "Access",
-    description: "Solo / micro firm",
+    description: "Solo & micro firms getting off the process treadmill",
     cta: "Start Free Trial",
     href: "/contact",
+    price: { "1yr": 799, "2yr": 749, "3yr": 699 },
+    discount: { "1yr": null, "2yr": "6.25%", "3yr": "12.5%" },
+    headline: "Everything a solo practice needs, with real AI included",
     features: [
-      "Practice OS + AI Reviewer, Researcher & triage",
-      "Client intake & engagement",
-      "Tax organizer generation",
-      "eSignatures, approvals & invoices",
-      "The on-ramp that already beats incumbents' mid-tier",
+      "Complete Practice OS — unlimited (intake, approvals, eSignatures, invoices, payments & audit logs)",
+      "AI 1040 Reviewer — unlimited",
+      "Forms Recognition — unlimited",
+      "AI Letter Generation — unlimited",
+      "AI Tax Researcher — 10 accounts",
+      "AI 1040 Preparer — 10 accounts",
+      "Transfer to TaxPrep SW — 10 accounts",
     ],
   },
   {
     name: "Professional",
     tier: "Volume · Hero",
-    popular: true,
-    description: "Everyday working firm",
+    description: "The everyday working firm, with advisory agents unlocked",
     cta: "Start Free Trial",
     href: "/contact",
+    price: { "1yr": 999, "2yr": 949, "3yr": 899 },
+    discount: { "1yr": null, "2yr": "5%", "3yr": "10%" },
+    headline: "Double the AI allowances, plus the agents that win advisory work",
     features: [
       "Everything in Essentials, plus:",
-      "AI Tax Preparer & full agent suite",
-      "Entry-level Tax Planning",
-      "Payments, AR aging & account reconciliation",
-      "Dashboards, audit logs & governance",
-      "The volume tier most firms buy",
+      "Forms Data eXtraction — unlimited",
+      "AI IRS Audit Defense — 10 accounts",
+      "AI Tax Planner — 10 accounts",
+      "AI Tax Researcher — 20 accounts (up from 10)",
+      "AI 1040 Preparer — 20 accounts (up from 10)",
+      "Transfer to TaxPrep SW — 20 accounts (up from 10)",
     ],
   },
   {
-    name: "Advisory",
-    tier: "Expansion",
-    description: "Multi-preparer firm",
+    name: "Business",
+    tier: "Scale · Hero",
+    popular: true,
+    description: "Scaling teams and high client volume — the tier most firms buy",
     cta: "Start Free Trial",
     href: "/contact",
+    price: { "1yr": 1199, "2yr": 1149, "3yr": 1099 },
+    discount: { "1yr": null, "2yr": "4.2%", "3yr": "8.3%" },
+    headline: "Unlimited Audit Defense and the deepest allowances we offer",
     features: [
       "Everything in Professional, plus:",
-      "High-end Tax Planning",
-      "IRS Audit Defense",
-      "Firm-grade governance & dashboards",
-      "Unlimited usage allowance",
-    ],
-  },
-  {
-    name: "Enterprise",
-    tier: "Category",
-    description: "PE roll-ups · offshore · multi-entity",
-    cta: "Contact Sales",
-    href: "/contact",
-    features: [
-      "Everything in Advisory, plus:",
-      "Offshore-delivery governance & standardization layer",
-      "Platform fee + usage, sold not self-served",
-      "Dedicated Success Team, white-glove SLA",
-      "Custom domains, SSO & data residency",
+      "AI IRS Audit Defense — unlimited",
+      "AI Tax Planner — 20 accounts (up from 10)",
+      "AI Tax Researcher — 40 accounts (up from 20)",
+      "AI 1040 Preparer — 40 accounts (up from 20)",
+      "Transfer to TaxPrep SW — 40 accounts (up from 20)",
     ],
   },
 ];
 
-type Row = { label: string; values: (boolean | string)[] };
-type Group = { title: string; rows: Row[] };
+/* ---------------- Per activated account allowances ---------------- */
 
-// Columns map to: Essentials, Professional, Advisory, Enterprise
-const comparison: Group[] = [
+type Allowance = {
+  agent: string;
+  note: string;
+  /** Per tier: "unlimited", not-included (null), or an included count. */
+  included: ("unlimited" | null | number)[];
+  /** Overage per extra activated account, where metered. */
+  overage: (number | null)[];
+};
+
+const allowances: Allowance[] = [
   {
-    title: "AI Agent Workforce",
-    rows: [
-      { label: "AI Tax Researcher", values: [true, true, true, true] },
-      { label: "AI 1040 Reviewer", values: [true, true, true, true] },
-      { label: "AI 1040 Preparer", values: [false, true, true, true] },
-      { label: "AI Tax Planner (entry-level)", values: [false, true, true, true] },
-      { label: "AI Tax Planner (high-end, multi-year, what-if)", values: [false, false, true, true] },
-      { label: "IRS Audit Defense", values: [false, false, true, true] },
-      { label: "AccuBridge forms extraction", values: [false, true, true, true] },
+    agent: "AI 1040 Reviewer",
+    note: "Reviews returns for gaps — errors, warnings, cross-form validations",
+    included: ["unlimited", "unlimited", "unlimited"],
+    overage: [null, null, null],
+  },
+  {
+    agent: "Forms Recognition",
+    note: "Recognizes uploaded forms from zip and composite document inputs",
+    included: ["unlimited", "unlimited", "unlimited"],
+    overage: [null, null, null],
+  },
+  {
+    agent: "Letter Generation",
+    note: "AccuWriter drafts letters wherever input is provided",
+    included: ["unlimited", "unlimited", "unlimited"],
+    overage: [null, null, null],
+  },
+  {
+    agent: "Practice OS",
+    note: "Intake, approvals, invoicing, payments & governance",
+    included: ["unlimited", "unlimited", "unlimited"],
+    overage: [null, null, null],
+  },
+  {
+    agent: "Forms Data eXtraction",
+    note: "Extracts data from recognized forms, with manual override",
+    included: [null, "unlimited", "unlimited"],
+    overage: [null, null, null],
+  },
+  {
+    agent: "AI Tax Researcher",
+    note: "Contextual answers on prior- and current-year facts",
+    included: [10, 20, 40],
+    overage: [20, 15, 10],
+  },
+  {
+    agent: "AI 1040 Preparer",
+    note: "Prepares federal returns in minutes from source documents",
+    included: [10, 20, 40],
+    overage: [20, 20, 20],
+  },
+  {
+    agent: "Transfer to TaxPrep SW",
+    note: "Bridges extracted data into popular tax prep software",
+    included: [10, 20, 40],
+    overage: [25, 15, 10],
+  },
+  {
+    agent: "AI IRS Audit Defense",
+    note: "One-click evaluation and response to IRS notices",
+    included: [null, 10, "unlimited"],
+    overage: [null, 25, null],
+  },
+  {
+    agent: "AI Tax Planner",
+    note: "Multi-year, goal-oriented opportunities & what-if scenarios",
+    included: [null, 10, 20],
+    overage: [null, 125, 100],
+  },
+];
+
+/* ---------------- Practice OS ----------------
+ * Practice OS is unlimited on every tier, so this is presented as one
+ * capability set rather than a tier-by-tier matrix. Sourced from the
+ * AccuMax deck's platform slides.
+ * --------------------------------------------- */
+
+type PlatformGroup = { title: string; items: string[] };
+
+const platform: PlatformGroup[] = [
+  {
+    title: "Client Intake & Engagement",
+    items: [
+      "InTakePro customizable onboarding",
+      "Tax organizer generation",
+      "Zip / composite document inputs",
+      "Forms intelligence & draft returns",
+      "Account summary triage",
+      "Doc list templates & bulk account creation",
+      "Outlook, Gmail & QuickBooks integration",
+      "Transfer to TaxPrep SW",
+      "Chat, broadcast & client engagement",
+      "Mobile client & lead management",
     ],
   },
   {
-    title: "Practice OS",
-    rows: [
-      { label: "Client intake & engagement", values: [true, true, true, true] },
-      { label: "Tax organizer generation", values: [true, true, true, true] },
-      { label: "Workflows & automations", values: [true, true, true, true] },
-      { label: "eSignatures (DocuSign / Zoho Sign)", values: [true, true, true, true] },
-      { label: "Invoices, payments & ACH", values: [true, true, true, true] },
-      { label: "AR aging & reconciliation", values: [false, true, true, true] },
-      { label: "Firm-wide dashboards & drilldowns", values: [false, false, true, true] },
-      { label: "Offshore-delivery orchestration", values: [false, false, false, true] },
+    title: "Approvals, Invoicing & Payments",
+    items: [
+      "DocuSign, Zoho Sign — any eSignature",
+      "Letter templates with variable data merge",
+      "Send-for-approval, reject & approve workflows",
+      "Immutable audit logs & document provenance",
+      "Agreements folder",
+      "Invoice templates with revision history",
+      "Full, partial & recurring payments",
+      "Credit card & ACH with defaults and overrides",
+      "Discounts, write-offs & AR aging",
+      "Account reconciliation",
     ],
   },
   {
-    title: "Governance & Support",
-    rows: [
-      { label: "Immutable audit logs & provenance", values: [true, true, true, true] },
-      { label: "Entity-level governance", values: [false, true, true, true] },
-      { label: "AI usage allowance", values: ["Baseline", "Baseline", "Unlimited", "Custom"] },
-      { label: "Support", values: ["Email", "Email", "Priority", "Dedicated Success Team"] },
-      { label: "White-glove SLA", values: [false, false, false, true] },
+    title: "Visibility, Control & Governance",
+    items: [
+      "Firm-wide dashboards on where the business is",
+      "Workflow-level view of progress",
+      "Performance by person, group, service & workflow",
+      "Bills, invoices & ageing",
+      "All info exported with drilldowns",
+      "Entity-level provenance",
+      "System-wide audit logs with fine-grain filters",
+      "Notifications as alerts and emails, with drilldowns",
+      "Self-service migration in and out",
+      "Enterprise-class admin settings flexibility",
+    ],
+  },
+  {
+    title: "Ambient AI & Automation",
+    items: [
+      "Letter and document generation",
+      "Forms data extraction with manual override",
+      "Duplicate detection & forms comparison",
+      "AI Account Profiler",
+      "AI Tax Organizer",
+      "Knowledge Hub — SOPs, training, audio/video/text",
+      "Flexible workflow automations before and after each step",
     ],
   },
 ];
@@ -125,15 +244,28 @@ const faqs = [
     a: "Yes — start a 90-day free trial with full platform access and a dedicated success manager from day one. No credit card required.",
   },
   {
-    q: "How does AI usage / credits work?",
-    a: "AI is bundled as a baseline allowance in every plan and metered as credits beyond it (returns & usage). Packs of credits are added per user, so revenue grows with the work and margins hold as models get cheaper.",
+    q: "How does pricing work — seats or accounts?",
+    a: "Both, and they do different jobs. The seat licence is per user, per year and covers the whole platform: practice OS, unlimited 1040 Review, forms recognition, letter generation and more. On top of that, the heavier AI agents carry an allowance measured in activated accounts, which scales with your tier. You only pay more when you do more work.",
   },
   {
-    q: "Are plans billed annually?",
-    a: "Yes — annual plans are pre-purchased. We're an accessible entry with value-based expansion, not a discount play.",  },
+    q: "What is an activated account?",
+    a: "An activated account is a client account for which a particular AI tool has been activated. Activation is per tool, so each tool draws on its own allowance — activating both the 1040 Preparer and the Tax Planner for the same client counts once against each. Accounts you simply store, invoice or communicate with are unlimited on every tier and never metered.",
+  },
+  {
+    q: "What happens when I use up an allowance?",
+    a: "Nothing stops. You continue at a flat per-account rate, and that rate falls as your tier rises — Transfer to TaxPrep SW runs $25 per extra account on Essentials, $15 on Professional and $10 on Business. Revenue grows with the work and margin holds as models get cheaper.",
+  },
+  {
+    q: "Why commit to two or three years?",
+    a: "Longer terms carry a lower rate: two-year and three-year commitments save up to 6.25% and 12.5% respectively, with the deepest discount on Essentials. All plans are billed up front for the full term.",
+  },
   {
     q: "Which tier should a firm like mine pick?",
-    a: "Solo and micro firms start with Essentials. Most everyday working firms land in Professional — the volume tier. Multi-preparer firms choose Advisory, and PE roll-ups or offshore teams go Enterprise.",
+    a: "Solo and micro firms start with Essentials. Professional doubles every allowance and unlocks Audit Defense, Tax Planner and forms data extraction. Most firms end up on Business — unlimited Audit Defense, 4× allowances and the lowest overage rates across every agent, which is why it is the tier most firms buy.",
+  },
+  {
+    q: "Can I add seats or upgrade mid-term?",
+    a: "Yes. Seats can be added at any point and are prorated to your renewal date, and you can move up a tier at any time. Your unified renewal date stays fixed so billing never fragments.",
   },
   {
     q: "What's included in migration?",
@@ -141,131 +273,222 @@ const faqs = [
   },
 ];
 
-function PlanPrice() {
+function UnlimitedPill() {
   return (
-    <div className="flex items-baseline gap-1">
-      <span className="text-3xl font-extrabold text-[var(--foreground)]">
-        Annual plan
-      </span>
-    </div>
+    <span className="inline-flex items-center gap-1.5 rounded-full bg-[var(--success)]/10 px-2.5 py-1 text-xs font-bold text-[var(--success)]">
+      <InfinityIcon className="h-3.5 w-3.5" aria-hidden />
+      Unlimited
+    </span>
   );
 }
 
-function Cell({ value }: { value: boolean | string }) {
-  if (value === true) {
-    return (
-      <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[var(--success)]/10 text-[var(--success)]">
-        <Check className="h-4 w-4" aria-hidden />
-      </span>
-    );
-  }
-  if (value === false) {
-    return <Minus className="h-4 w-4 text-[var(--gray-300)] mx-auto" aria-hidden />;
-  }
-  return <span className="text-sm font-medium text-[var(--foreground)]">{value}</span>;
+function NotIncluded() {
+  return (
+    <>
+      <Minus className="h-4 w-4 text-[var(--gray-300)] mx-auto" aria-hidden />
+      <span className="sr-only">Not included</span>
+    </>
+  );
 }
 
 export function PricingContent() {
+  const [term, setTerm] = useState<TermId>("3yr");
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+
+  const activeTerm = terms.find((t) => t.id === term)!;
 
   return (
     <>
-      {/* Intro note */}
-      <div className="text-center max-w-2xl mx-auto mb-12">
-        <p className="text-[var(--muted-foreground)]">
-          Annual plans pre-purchased · AI bundled as a baseline allowance and
-          metered as credits (returns &amp; usage) · Packs of credits, added
-          per user
+      {/* Commitment term selector */}
+      <div className="flex flex-col items-center gap-3 mb-10">
+        <div
+          role="radiogroup"
+          aria-label="Commitment term"
+          className="inline-flex items-center rounded-full border border-[var(--border)] bg-white p-1 shadow-sm"
+        >
+          {terms.map((t) => (
+            <button
+              key={t.id}
+              role="radio"
+              aria-checked={term === t.id}
+              onClick={() => setTerm(t.id)}
+              className={`relative rounded-full px-4 sm:px-5 py-2 text-sm font-semibold transition-colors ${
+                term === t.id
+                  ? "bg-[var(--primary)] text-white shadow"
+                  : "text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
+              }`}
+            >
+              {t.label}
+            </button>
+          ))}
+        </div>
+        <p className="text-sm h-5">
+          {activeTerm.save ? (
+            <span className="font-semibold text-[var(--success)]">
+              {activeTerm.save} vs. the one-year rate
+            </span>
+          ) : (
+            <span className="text-[var(--muted-foreground)]">
+              Billed up front · longer commitments cost less
+            </span>
+          )}
         </p>
       </div>
 
       {/* Tier cards */}
-      <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-6">
-        {plans.map((plan, index) => (
-          <motion.div
-            key={plan.name}
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.06, duration: 0.4 }}
-            className={`relative flex flex-col rounded-2xl border bg-white p-6 transition-all duration-300 ${
-              plan.popular
-                ? "border-2 border-[var(--primary)] shadow-2xl shadow-[var(--primary)]/15 lg:-mt-2 lg:mb-2"
-                : "border-[var(--border)] shadow-sm hover:shadow-xl hover:border-[var(--primary)]/25"
-            }`}
-          >
-            {plan.popular && (
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                <Badge className="bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] border-0 px-3 py-1 font-semibold shadow-lg">
-                  <Sparkles className="h-3 w-3 mr-1" aria-hidden />
-                  Most Popular
-                </Badge>
-              </div>
-            )}
-            <p className="text-[11px] font-bold uppercase tracking-widest text-[var(--primary)]">
-              {plan.tier}
-            </p>
-            <h3 className="text-xl font-bold text-[var(--foreground)] mt-1">{plan.name}</h3>
-            <p className="mt-1 text-sm text-[var(--muted-foreground)] min-h-[40px]">{plan.description}</p>
-            <div className="mt-4">
-              <PlanPrice />
-              <p className="mt-1 text-xs text-[var(--muted-foreground)]">
-                per user · annual pre-purchased
-              </p>
-            </div>
-            <ButtonLink
-              href={plan.href}
-              variant={plan.popular ? "primary" : "outline"}
-              className={`w-full justify-center mt-6 ${
-                plan.popular ? "shadow-lg shadow-[var(--primary)]/30" : ""
+      <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
+        {plans.map((plan, index) => {
+          const annual = plan.price[term];
+          const discount = plan.discount[term];
+          const monthly = Math.round(annual / 12);
+          return (
+            <motion.div
+              key={plan.name}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.06, duration: 0.4 }}
+              className={`relative flex flex-col rounded-2xl border bg-white p-6 transition-all duration-300 ${
+                plan.popular
+                  ? "border-2 border-[var(--primary)] shadow-2xl shadow-[var(--primary)]/15 lg:-mt-2 lg:mb-2"
+                  : "border-[var(--border)] shadow-sm hover:shadow-xl hover:border-[var(--primary)]/25"
               }`}
             >
-              {plan.cta}
-            </ButtonLink>
-            <ul className="mt-6 space-y-3 border-t border-[var(--border)] pt-6">
-              {plan.features.map((f) => {
-                const isHeader = f.endsWith("plus:");
-                return (
-                  <li
-                    key={f}
-                    className={`flex items-start gap-2.5 text-sm ${
-                      isHeader ? "font-semibold text-[var(--foreground)]" : "text-[var(--gray-700)]"
-                    }`}
+              {plan.popular && (
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                  <Badge className="bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] border-0 px-3 py-1 font-semibold shadow-lg whitespace-nowrap">
+                    <Sparkles className="h-3 w-3 mr-1" aria-hidden />
+                    Most Popular
+                  </Badge>
+                </div>
+              )}
+              <p className="text-[11px] font-bold uppercase tracking-widest text-[var(--primary)]">
+                {plan.tier}
+              </p>
+              <h3 className="text-xl font-bold text-[var(--foreground)] mt-1">
+                {plan.name}
+              </h3>
+              <p className="mt-1 text-sm text-[var(--muted-foreground)] min-h-[40px]">
+                {plan.description}
+              </p>
+
+              <div className="mt-4">
+                <div className="flex items-baseline gap-1">
+                  <span className="text-2xl font-bold text-[var(--foreground)]">$</span>
+                  <motion.span
+                    key={`${plan.name}-${term}`}
+                    initial={{ opacity: 0, y: -6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.25 }}
+                    className="text-5xl font-extrabold tracking-tight text-[var(--foreground)]"
                   >
-                    {!isHeader && (
-                      <Check className="h-4 w-4 shrink-0 text-[var(--success)] mt-0.5" aria-hidden />
-                    )}
-                    <span>{f}</span>
-                  </li>
-                );
-              })}
-            </ul>
-          </motion.div>
+                    {annual.toLocaleString()}
+                  </motion.span>
+                  <span className="text-sm font-medium text-[var(--muted-foreground)] ml-1">
+                    /seat per year
+                  </span>
+                </div>
+                <p className="mt-1.5 text-xs text-[var(--muted-foreground)]">
+                  ≈ ${monthly}/user per month · {activeTerm.short} commitment
+                </p>
+                <div className="h-6 mt-1.5">
+                  {discount && (
+                    <Badge variant="success" className="font-semibold">
+                      Save {discount}
+                    </Badge>
+                  )}
+                </div>
+              </div>
+
+              <ButtonLink
+                href={plan.href}
+                variant={plan.popular ? "primary" : "outline"}
+                className={`w-full justify-center mt-5 ${
+                  plan.popular ? "shadow-lg shadow-[var(--primary)]/30" : ""
+                }`}
+              >
+                {plan.cta}
+              </ButtonLink>
+
+              <p className="mt-6 text-sm font-semibold text-[var(--foreground)] leading-snug">
+                {plan.headline}
+              </p>
+
+              <ul className="mt-4 space-y-3 border-t border-[var(--border)] pt-5">
+                {plan.features.map((f) => {
+                  const isHeader = f.endsWith("plus:");
+                  return (
+                    <li
+                      key={f}
+                      className={`flex items-start gap-2.5 text-sm ${
+                        isHeader
+                          ? "font-semibold text-[var(--foreground)]"
+                          : "text-[var(--gray-700)]"
+                      }`}
+                    >
+                      {!isHeader && (
+                        <Check
+                          className="h-4 w-4 shrink-0 text-[var(--success)] mt-0.5"
+                          aria-hidden
+                        />
+                      )}
+                      <span>{f}</span>
+                    </li>
+                  );
+                })}
+              </ul>
+            </motion.div>
+          );
+        })}
+      </div>
+
+      {/* Billing footnotes */}
+      <div className="max-w-3xl mx-auto mt-10 space-y-1.5 text-center">
+        <p className="text-xs text-[var(--muted-foreground)]">
+          *All plans are billed up front for the full commitment term. Seats can be
+          added mid-term and are prorated to your unified renewal date.
+        </p>
+        <p className="text-xs text-[var(--muted-foreground)]">
+          **Seat pricing covers the whole platform. The AI agents below carry an
+          allowance measured in activated accounts; beyond it you continue at a flat
+          per-account rate that falls as your tier rises.
+        </p>
+      </div>
+
+      {/* Trust strip */}
+      <div className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm font-medium text-[var(--muted-foreground)]">
+        {[
+          "90-day free trial, full platform access",
+          "Dedicated success manager",
+          "No credit card required",
+          "Free guided migration",
+        ].map((item) => (
+          <span key={item} className="inline-flex items-center gap-2">
+            <Check className="h-4 w-4 text-[var(--success)]" aria-hidden />
+            {item}
+          </span>
         ))}
       </div>
 
-      <p className="text-center text-sm text-[var(--muted-foreground)] mt-8">
-        Revenue grows with the work and with every acquisition, and margin
-        holds as models get cheaper.
-      </p>
-
-      {/* Comparison table */}
+      {/* Per activated account allowances */}
       <div className="mt-24">
         <div className="text-center max-w-2xl mx-auto mb-10">
           <h2 className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl">
-            Compare every plan
+            AI included with every seat
           </h2>
           <p className="mt-3 text-[var(--muted-foreground)]">
-            A complete breakdown of what&apos;s included in each tier.
+            Four capabilities are unlimited on every tier. The heavier agents carry an
+            allowance in activated accounts that doubles at Professional and doubles
+            again at Business — while the overage rate falls.
           </p>
         </div>
 
         <div className="overflow-x-auto rounded-2xl border border-[var(--border)] bg-white shadow-sm">
-          <table className="w-full min-w-[720px] border-collapse">
+          <table className="w-full min-w-[760px] border-collapse">
             <thead>
-              <tr className="border-b border-[var(--border)]">
-                <th className="text-left p-4 md:p-5 text-sm font-semibold text-[var(--muted-foreground)] w-[34%]">
-                  Features
+              <tr className="border-b border-[var(--border)] bg-[var(--gray-50)]">
+                <th className="text-left p-4 md:p-5 text-sm font-semibold text-[var(--muted-foreground)] w-[36%]">
+                  Capability
                 </th>
                 {plans.map((p) => (
                   <th key={p.name} className="p-4 md:p-5 text-center">
@@ -281,12 +504,117 @@ export function PricingContent() {
               </tr>
             </thead>
             <tbody>
-              {comparison.map((group) => (
-                <FragmentGroup key={group.title} group={group} />
+              {allowances.map((a) => (
+                <tr
+                  key={a.agent}
+                  className="border-b border-[var(--border)] last:border-0 hover:bg-[var(--gray-50)]/50"
+                >
+                  <td className="px-4 md:px-5 py-4">
+                    <p className="text-sm font-semibold text-[var(--foreground)]">
+                      {a.agent}
+                    </p>
+                    <p className="text-xs text-[var(--muted-foreground)] mt-0.5">
+                      {a.note}
+                    </p>
+                  </td>
+                  {a.included.map((inc, i) => (
+                    <td key={i} className="px-4 md:px-5 py-4 text-center align-middle">
+                      {inc === null ? (
+                        <NotIncluded />
+                      ) : inc === "unlimited" ? (
+                        <UnlimitedPill />
+                      ) : (
+                        <>
+                          <span className="text-sm font-bold text-[var(--foreground)]">
+                            {inc} accounts
+                          </span>
+                          {a.overage[i] !== null && (
+                            <p className="text-xs text-[var(--muted-foreground)] mt-1">
+                              then ${a.overage[i]}/account
+                            </p>
+                          )}
+                        </>
+                      )}
+                    </td>
+                  ))}
+                </tr>
               ))}
             </tbody>
           </table>
         </div>
+
+        <p className="text-center text-xs text-[var(--muted-foreground)] mt-4 max-w-3xl mx-auto">
+          An activated account is a client account for which a particular AI tool has
+          been activated — each tool draws on its own allowance. Storing, invoicing and
+          communicating with accounts is unlimited on every tier.
+        </p>
+      </div>
+
+      {/* Positioning / value story */}
+      <ValueStory />
+
+      {/* Practice OS — included on every tier */}
+      <div className="mt-24">
+        <div className="text-center max-w-2xl mx-auto mb-10">
+          <Badge variant="success" className="mb-4 font-semibold">
+            Included on every tier
+          </Badge>
+          <h2 className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl">
+            The complete practice operating system
+          </h2>
+          <p className="mt-3 text-[var(--muted-foreground)]">
+            Not an upsell ladder. The whole practice OS ships with every seat, on
+            every plan — the tiers differ only in how much AI you run.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-6">
+          {platform.map((group, index) => (
+            <motion.div
+              key={group.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.06, duration: 0.4 }}
+              className="rounded-2xl border border-[var(--border)] bg-white shadow-sm overflow-hidden"
+            >
+              <div className="px-5 py-3.5 border-b border-[var(--border)] bg-[var(--gray-50)]">
+                <p className="text-xs font-bold uppercase tracking-widest text-[var(--muted-foreground)]">
+                  {group.title}
+                </p>
+              </div>
+              <ul className="px-5 py-4 space-y-2.5">
+                {group.items.map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-start gap-2.5 text-sm text-[var(--gray-700)]"
+                  >
+                    <Check
+                      className="h-4 w-4 shrink-0 text-[var(--success)] mt-0.5"
+                      aria-hidden
+                    />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* Large-firm / custom quote strip */}
+      <div className="mt-16 rounded-2xl border border-[var(--border)] bg-gradient-to-br from-[var(--primary)]/5 to-[var(--accent)]/5 p-8 md:p-10 text-center">
+        <h3 className="text-2xl font-bold text-[var(--foreground)]">
+          25+ seats, offshore delivery, or a PE roll-up?
+        </h3>
+        <p className="mt-3 text-[var(--muted-foreground)] max-w-2xl mx-auto">
+          Multi-entity firms get a custom platform agreement — offshore-delivery
+          governance and standardization, white-glove SLA, SSO, custom domains, and
+          data residency, with a dedicated success team.
+        </p>
+        <ButtonLink href="/contact" variant="primary" className="mt-6">
+          Request a quote
+        </ButtonLink>
       </div>
 
       {/* Pricing FAQ */}
@@ -311,7 +639,11 @@ export function PricingContent() {
                   {faq.q}
                 </span>
                 <span className="shrink-0 w-7 h-7 flex items-center justify-center rounded-full bg-[var(--primary)]/10 text-[var(--primary)] group-hover:bg-[var(--primary)] group-hover:text-white transition-colors">
-                  {openFaq === index ? <Minus className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
+                  {openFaq === index ? (
+                    <Minus className="h-4 w-4" />
+                  ) : (
+                    <Plus className="h-4 w-4" />
+                  )}
                 </span>
               </button>
               <AnimatePresence initial={false}>
@@ -323,7 +655,9 @@ export function PricingContent() {
                     transition={{ duration: 0.25, ease: "easeInOut" }}
                     className="overflow-hidden"
                   >
-                    <p className="px-5 pb-5 text-[var(--muted-foreground)] leading-relaxed">{faq.a}</p>
+                    <p className="px-5 pb-5 text-[var(--muted-foreground)] leading-relaxed">
+                      {faq.a}
+                    </p>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -331,31 +665,6 @@ export function PricingContent() {
           ))}
         </div>
       </div>
-    </>
-  );
-}
-
-function FragmentGroup({ group }: { group: Group }) {
-  return (
-    <>
-      <tr className="bg-[var(--gray-50)]">
-        <td
-          colSpan={5}
-          className="px-4 md:px-5 py-2.5 text-xs font-bold uppercase tracking-wide text-[var(--muted-foreground)]"
-        >
-          {group.title}
-        </td>
-      </tr>
-      {group.rows.map((row) => (
-        <tr key={row.label} className="border-b border-[var(--border)] last:border-0 hover:bg-[var(--gray-50)]/50">
-          <td className="px-4 md:px-5 py-3.5 text-sm text-[var(--gray-700)]">{row.label}</td>
-          {row.values.map((v, i) => (
-            <td key={i} className="px-4 md:px-5 py-3.5 text-center">
-              <Cell value={v} />
-            </td>
-          ))}
-        </tr>
-      ))}
     </>
   );
 }

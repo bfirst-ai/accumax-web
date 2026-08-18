@@ -36,7 +36,7 @@ const serviceItems = [
   "Offshore Delivery Orchestration",
   "Self-Service Portals",
   "Outlook / Gmail / QuickBooks Integration",
-  "Export to Drake, UltraTax, Lacerte",
+  "Transfer to TaxPrep SW",
   "Migration Support & Training",
 ];
 
@@ -54,7 +54,6 @@ const resourcesItems = [
   "FAQ",
   "Support Center",
   "Community",
-  "Partners",
 ];
 
 const whyAccumaxItems = [
