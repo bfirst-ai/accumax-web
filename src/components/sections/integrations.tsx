@@ -30,7 +30,7 @@ export function Integrations() {
           <span className="inline-flex items-center rounded-full border border-[var(--primary)]/20 bg-[var(--primary)]/5 px-4 py-1.5 text-sm font-medium text-[var(--primary)] mb-6">
             Integrations
           </span>
-          <h2 id="integrations-heading" className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl md:text-5xl">
+          <h2 id="integrations-heading" className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl md:text-5xl text-balance">
             Connects With Your Stack
           </h2>
           <p className="mt-4 text-lg text-[var(--muted-foreground)]">

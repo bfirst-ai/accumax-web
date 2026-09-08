@@ -57,9 +57,9 @@ export default function ContactPage() {
                 <Sparkles className="h-3.5 w-3.5 mr-2" aria-hidden />
                 Request a demo
               </div>
-              <h1 className="text-4xl font-bold tracking-tight text-[var(--foreground)] sm:text-5xl leading-tight">
-                See It Live. See AccuMax{" "}
-                <span className="gradient-text">working for your firm.</span>
+              <h1 className="text-4xl font-bold tracking-tight text-[var(--foreground)] sm:text-5xl leading-tight text-balance">
+                <span className="block">See it live.</span>
+                <span className="block gradient-text leading-[1.25] pb-[0.1em]">See AccuMax working for your firm.</span>
               </h1>
               <p className="mt-6 text-lg text-[var(--muted-foreground)] leading-relaxed max-w-xl">
                 Book a personalized 30-minute demo and see AccuMax working in

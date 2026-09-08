@@ -89,7 +89,7 @@ export function Footer() {
 
           {/* Product */}
           <div>
-            <h3 className="font-semibold text-[var(--foreground)] mb-4">
+            <h3 className="font-semibold text-[var(--foreground)] mb-4 text-balance">
               Product
             </h3>
             <ul className="space-y-3">
@@ -108,7 +108,7 @@ export function Footer() {
 
           {/* Company */}
           <div>
-            <h3 className="font-semibold text-[var(--gray-900)] mb-4">
+            <h3 className="font-semibold text-[var(--gray-900)] mb-4 text-balance">
               Company
             </h3>
             <ul className="space-y-3">
@@ -127,7 +127,7 @@ export function Footer() {
 
           {/* Resources */}
           <div>
-            <h3 className="font-semibold text-[var(--gray-900)] mb-4">
+            <h3 className="font-semibold text-[var(--gray-900)] mb-4 text-balance">
               Resources
             </h3>
             <ul className="space-y-3">
@@ -146,7 +146,7 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="font-semibold text-[var(--gray-900)] mb-4">
+            <h3 className="font-semibold text-[var(--gray-900)] mb-4 text-balance">
               Contact
             </h3>
             <ul className="space-y-3 text-sm text-[var(--muted-foreground)]">

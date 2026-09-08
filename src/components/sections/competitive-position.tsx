@@ -112,10 +112,10 @@ export function CompetitivePosition() {
           </span>
           <h2
             id="competitive-heading"
-            className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl md:text-5xl"
+            className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl md:text-5xl text-balance"
           >
-            An entire stack of integrated tools.{" "}
-            <span className="gradient-text">One platform.</span>
+            <span className="block">An entire stack of integrated tools.</span>
+            <span className="block gradient-text leading-[1.25] pb-[0.1em]">One platform.</span>
           </h2>
           <p className="mt-5 text-lg text-[var(--muted-foreground)] leading-relaxed">
             Breadth or intelligence—everyone else picks one. AccuMax delivers
@@ -221,7 +221,7 @@ export function CompetitivePosition() {
                 <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-[var(--gray-200)] text-[var(--gray-600)]">
                   <X className="h-5 w-5" aria-hidden />
                 </div>
-                <h3 className="text-lg font-bold text-[var(--gray-600)]">
+                <h3 className="text-lg font-bold text-[var(--gray-600)] text-balance">
                   What a firm assembles today
                 </h3>
               </div>
@@ -260,7 +260,7 @@ export function CompetitivePosition() {
               <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br from-[var(--primary)] to-[var(--accent)] text-white">
                 <Sparkles className="h-5 w-5" aria-hidden />
               </div>
-              <h3 className="text-lg font-bold text-[var(--foreground)]">
+              <h3 className="text-lg font-bold text-[var(--foreground)] text-balance">
                 AccuMax
               </h3>
             </div>

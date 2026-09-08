@@ -43,7 +43,7 @@ export default function ResourcesPage() {
             <span className="flex h-2 w-2 rounded-full bg-[var(--primary)] mr-2 animate-pulse" />
             Coming soon
           </div>
-          <h1 className="text-4xl font-bold tracking-tight text-[var(--foreground)] sm:text-5xl md:text-6xl">
+          <h1 className="text-4xl font-bold tracking-tight text-[var(--foreground)] sm:text-5xl md:text-6xl text-balance">
             Resources are{" "}
             <span className="gradient-text">on the way</span>
           </h1>
@@ -69,7 +69,7 @@ export default function ResourcesPage() {
                 <div className="rounded-xl bg-gradient-to-br from-[var(--primary)]/10 to-[var(--accent)]/10 w-12 h-12 flex items-center justify-center mb-4 text-[var(--primary)] group-hover:scale-110 transition-transform duration-300">
                   <cat.icon className="h-6 w-6" aria-hidden />
                 </div>
-                <h3 className="text-lg font-semibold text-[var(--foreground)]">{cat.title}</h3>
+                <h3 className="text-lg font-semibold text-[var(--foreground)] text-balance">{cat.title}</h3>
                 <p className="mt-1.5 text-sm text-[var(--muted-foreground)] leading-relaxed">{cat.description}</p>
               </div>
             ))}
@@ -84,7 +84,7 @@ export default function ResourcesPage() {
             <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[var(--primary)]/10 to-[var(--accent)]/10 text-[var(--primary)]">
               <Mail className="h-7 w-7" aria-hidden />
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-[var(--foreground)]">
+            <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-[var(--foreground)] text-balance">
               Be the first to know
             </h2>
             <p className="mt-3 text-[var(--muted-foreground)] max-w-xl mx-auto">

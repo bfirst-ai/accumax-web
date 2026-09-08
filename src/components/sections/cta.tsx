@@ -29,7 +29,7 @@ export function Cta() {
             <span className="flex h-2 w-2 rounded-full bg-white mr-2 animate-pulse"></span>
             Join CPA firms across the Pacific Northwest already working smarter
           </div>
-          <h2 id="cta-heading" className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl leading-tight">
+          <h2 id="cta-heading" className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl leading-tight text-balance">
             Ready to Elevate <br className="hidden sm:block" />
             Your Practice?
           </h2>
@@ -44,7 +44,7 @@ export function Cta() {
               <div className="flex items-center justify-center w-12 h-12 rounded-full bg-white/15 mb-4">
                 <CalendarCheck className="h-6 w-6" aria-hidden />
               </div>
-              <h3 className="text-lg font-bold mb-1">See It Live</h3>
+              <h3 className="text-lg font-bold mb-1 text-balance">See It Live</h3>
               <p className="text-sm text-white/80 mb-5">
                 Book a personalized 30-minute demo and see AccuMax working in a
                 firm just like yours.
@@ -65,7 +65,7 @@ export function Cta() {
               <div className="flex items-center justify-center w-12 h-12 rounded-full bg-white/15 mb-4">
                 <Rocket className="h-6 w-6" aria-hidden />
               </div>
-              <h3 className="text-lg font-bold mb-1">Try It Free</h3>
+              <h3 className="text-lg font-bold mb-1 text-balance">Try It Free</h3>
               <p className="text-sm text-white/80 mb-5">
                 Start a 90-day free trial with full platform access and a
                 dedicated success manager from day one.
@@ -83,7 +83,7 @@ export function Cta() {
               <div className="flex items-center justify-center w-12 h-12 rounded-full bg-white/15 mb-4">
                 <MessageCircle className="h-6 w-6" aria-hidden />
               </div>
-              <h3 className="text-lg font-bold mb-1">Talk to Us</h3>
+              <h3 className="text-lg font-bold mb-1 text-balance">Talk to Us</h3>
               <p className="text-sm text-white/80 mb-5">
                 Speak directly with our CPA specialist team—no scripts, just
                 honest conversations.

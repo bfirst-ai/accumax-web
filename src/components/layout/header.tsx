@@ -8,80 +8,54 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { ButtonLink } from "@/components/ui/button-link";
 import { cn } from "@/lib/utils";
 
-const productItems = [
-  "AccuTax Research",
-  "AccuTax Prepare",
-  "AccuTax Review",
-  "AccuTax Plan",
-  "AccuTax Defense",
-  "AccuTax Bridge",
-  "AccuTax Profile & Tax Organizer",
-  "AccuTax Compose",
-  "Knowledge Hub — SOPs & Training",
-  "Client Intake & Engagement",
-  "Approvals, Invoicing & Payments",
-  "Dashboards, Audit Logs & Governance",
-  "Workflow Automations",
-  "Migration in & out",
+type DropdownEntry = { label: string; href: string; desc?: string };
+
+const productItems: DropdownEntry[] = [
+  {
+    label: "AccuTax CoPilots",
+    href: "/copilots",
+    desc: "The 14 AI CoPilots, intake through compose",
+  },
+  {
+    label: "Practice OS",
+    href: "/features",
+    desc: "Intake, approvals, billing, dashboards, governance",
+  },
+  {
+    label: "Integrations",
+    href: "/features#integrations",
+    desc: "QuickBooks, Outlook, Gmail, eSignature, tax prep",
+  },
 ];
 
-const serviceItems = [
-  "Practice OS — Intake → Bill → Govern",
-  "Client Intake & Onboarding",
-  "Workflow Design & Automation",
-  "Compliance & Audit-Ready",
-  "Billing, Payments & AR Aging",
-  "Document Workflows & eSign",
-  "Tax Organizer Generation",
-  "Offshore Delivery Orchestration",
-  "Self-Service Portals",
-  "Outlook / Gmail / QuickBooks Integration",
-  "AccuTax Bridge",
-  "Migration Support & Training",
-];
-
-const resourcesItems = [
-  "Blog",
-  "Case Studies",
-  "Guides & Tutorials",
-  "Webinars",
-  "Documentation",
-  "API Reference",
-  "Video Library",
-  "Best Practices",
-  "Industry Reports",
-  "Release Notes",
-  "FAQ",
-  "Support Center",
-  "Community",
-];
-
-const whyAccumaxItems = [
-  "The AccuMax Promise",
-  "Ambient Intelligence",
-  "Effortless Clarity",
-  "Trusted Compliance",
-  "Scale to 10X",
-  "Leverage AI",
-  "Client Loyalty",
-  "Competitive Position",
-  "Customer Stories",
-  "Security & Privacy",
-  "Why Choose Us",
-  "Roadmap",
+const whyAccumaxItems: DropdownEntry[] = [
+  {
+    label: "One engine, one truth",
+    href: "/why-accumax",
+    desc: "Every CoPilot on AccuTax, over one client record",
+  },
+  {
+    label: "No rip-and-replace",
+    href: "/why-accumax#no-rip-and-replace",
+    desc: "Runs beside what you already own",
+  },
+  {
+    label: "What it does to your P&L",
+    href: "/why-accumax#unit-economics",
+    desc: "Throughput, ARPU and cost to serve",
+  },
 ];
 
 type NavItem =
   | { href: string; label: string }
-  | { label: string; dropdown: string[]; dropdownHref: string };
+  | { label: string; dropdown: DropdownEntry[] };
 
 const navItems: NavItem[] = [
-  { href: "/", label: "Home" },
-  { label: "Product", dropdown: productItems, dropdownHref: "/features" },
-  { label: "Services", dropdown: serviceItems, dropdownHref: "/features" },
+  { label: "Product", dropdown: productItems },
+  { label: "Why AccuMax", dropdown: whyAccumaxItems },
   { href: "/pricing", label: "Pricing" },
-  { label: "Resources", dropdown: resourcesItems, dropdownHref: "/resources" },
-  { label: "Why AccuMax", dropdown: whyAccumaxItems, dropdownHref: "/about" },
+  { href: "/resources", label: "Resources" },
+  { href: "/about", label: "About" },
 ];
 
 export function Header() {
@@ -194,15 +168,22 @@ export function Header() {
                         transition={{ duration: 0.15 }}
                         className="absolute top-full left-0 mt-1 p-2 w-[28rem] max-h-[70vh] overflow-y-auto rounded-xl border border-[var(--border)] bg-white shadow-xl z-50"
                       >
-                        <div className="grid grid-cols-2 gap-2">
+                        <div className="grid gap-2">
                           {item.dropdown.map((point) => (
                             <Link
-                              key={point}
-                              href={item.dropdownHref}
+                              key={point.label}
+                              href={point.href}
                               onClick={() => setOpenDropdown(null)}
-                              className="block px-3 py-2.5 rounded-lg border border-[var(--border)] bg-gray-50/80 text-sm text-gray-700 hover:border-[var(--primary)]/30 hover:bg-[var(--primary)]/5 hover:text-[var(--primary)] transition-colors"
+                              className="block px-3 py-2.5 rounded-lg border border-[var(--border)] bg-gray-50/80 hover:border-[var(--primary)]/30 hover:bg-[var(--primary)]/5 transition-colors group/item"
                             >
-                              {point}
+                              <span className="block text-sm font-semibold text-gray-800 group-hover/item:text-[var(--primary)]">
+                                {point.label}
+                              </span>
+                              {point.desc && (
+                                <span className="block text-xs text-gray-500 mt-0.5">
+                                  {point.desc}
+                                </span>
+                              )}
                             </Link>
                           ))}
                         </div>
@@ -318,15 +299,15 @@ export function Header() {
                           transition={{ duration: 0.2 }}
                           className="overflow-hidden bg-gray-50/50"
                         >
-                          <div className="py-2 px-2 max-h-64 overflow-y-auto grid grid-cols-2 gap-2">
+                          <div className="py-2 px-2 grid gap-2">
                             {item.dropdown.map((point) => (
                               <Link
-                                key={point}
-                                href={item.dropdownHref}
+                                key={point.label}
+                                href={point.href}
                                 onClick={() => setMobileOpen(false)}
-                                className="block py-2.5 px-3 text-sm text-gray-700 rounded-lg border border-[var(--border)] bg-white hover:border-[var(--primary)]/30 hover:text-[var(--primary)] transition-colors"
+                                className="block py-2.5 px-3 text-sm font-semibold text-gray-700 rounded-lg border border-[var(--border)] bg-white hover:border-[var(--primary)]/30 hover:text-[var(--primary)] transition-colors"
                               >
-                                {point}
+                                {point.label}
                               </Link>
                             ))}
                           </div>

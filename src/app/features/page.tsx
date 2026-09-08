@@ -1,17 +1,10 @@
 import { Metadata } from "next";
 import {
-  Bot,
   Check,
   Users,
   UserCog,
   Shield,
   ArrowRight,
-  BookOpenText,
-  FileSpreadsheet,
-  SearchCheck,
-  CalendarRange,
-  ShieldAlert,
-  ArrowRightLeft,
   FileSignature,
   Boxes,
   UserPlus,
@@ -21,7 +14,6 @@ import {
 import Link from "next/link";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Cta } from "@/components/sections/cta";
-import { CompetitivePosition } from "@/components/sections/competitive-position";
 
 export const metadata: Metadata = {
   title: "Features | AccuMax",
@@ -29,42 +21,6 @@ export const metadata: Metadata = {
     "A workforce of tax-domain AI agents—AccuTax Research, AccuTax Prepare, AccuTax Review, AccuTax Plan, AccuTax Defense, AccuTax Bridge—all running on AccuTax, one AI engine over one client record, inside a complete practice operating system.",
 };
 
-const agents = [
-  {
-    icon: BookOpenText,
-    title: "AccuTax Research",
-    description:
-      "Contextual, comprehensive answers on prior- and current-year facts.",
-  },
-  {
-    icon: FileSpreadsheet,
-    title: "AccuTax Prepare",
-    description: "Prepares federal returns in minutes from source documents.",
-  },
-  {
-    icon: SearchCheck,
-    title: "AccuTax Review",
-    description:
-      "Reviews returns for gaps—errors, warnings, cross-form validations.",
-  },
-  {
-    icon: CalendarRange,
-    title: "AccuTax Plan",
-    description:
-      "Multi-year goal-oriented opportunities, what-if scenario planning.",
-  },
-  {
-    icon: ShieldAlert,
-    title: "AccuTax Defense",
-    description: "One-click evaluation and response to IRS notices.",
-  },
-  {
-    icon: ArrowRightLeft,
-    title: "AccuTax Bridge",
-    description:
-      "Recognizes uploaded forms, extracts data, and bridges it into TaxPrep software—ours or theirs.",
-  },
-];
 
 const aiFeatures = [
   "AccuTax Compose—team, client and IRS communications",
@@ -169,60 +125,27 @@ export default function FeaturesPage() {
         <div className="container relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center rounded-full border border-[var(--primary)]/20 bg-[var(--primary)]/5 px-3 py-1 text-sm font-medium text-[var(--primary)] mb-6">
             <span className="flex h-2 w-2 rounded-full bg-[var(--primary)] mr-2 animate-pulse" />
-            Everything AccuMax does
+            The platform
           </div>
-          <h1 className="text-4xl font-bold tracking-tight text-[var(--foreground)] sm:text-5xl md:text-6xl">
-            Deep AI.{" "}
-            <span className="gradient-text">Full practice OS.</span>
+          <h1 className="text-4xl font-bold tracking-tight text-[var(--foreground)] sm:text-5xl md:text-6xl text-balance">
+            <span className="block">The system your</span>
+            <span className="block gradient-text leading-[1.25] pb-[0.1em]">
+              firm runs on
+            </span>
           </h1>
-          <p className="mt-6 text-lg text-[var(--muted-foreground)] leading-relaxed">
-            A workforce of tax-domain AI agents, not a chatbot bolt-on—inside
-            a complete practice operating system. Every agent runs on AccuTax,
-            one AI engine over one client record, so nothing is ever out of sync.
+          <p className="mt-6 text-lg text-[var(--muted-foreground)] leading-relaxed text-pretty">
+            Client intake through approvals, eSignature, invoicing, payments,
+            dashboards and governance — connected to the software your firm
+            already depends on.
           </p>
           <div className="mt-9 flex flex-wrap gap-4 justify-center">
             <ButtonLink href="/contact#demo" variant="primary" size="lg" className="shadow-lg shadow-[var(--primary)]/20">
               Book a Demo
             </ButtonLink>
-            <ButtonLink href="/pricing" variant="outline" size="lg">
-              View Pricing
+            <ButtonLink href="/copilots" variant="outline" size="lg">
+              See the CoPilots
             </ButtonLink>
           </div>
-        </div>
-      </section>
-
-      {/* AI Agent workforce */}
-      <section className="py-16 md:py-20 bg-white">
-        <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="inline-flex items-center rounded-full border border-[var(--primary)]/20 bg-[var(--primary)]/5 px-4 py-1.5 text-sm font-medium text-[var(--primary)] mb-6">
-              <Bot className="h-3.5 w-3.5 mr-2" aria-hidden />
-              AI Agent Workforce
-            </span>
-            <h2 className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl">
-              Product Depth
-            </h2>
-            <p className="mt-3 text-[var(--muted-foreground)]">
-              Six specialized tax-domain agents covering the entire pipeline.
-            </p>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {agents.map((agent) => (
-              <div
-                key={agent.title}
-                className="group rounded-2xl border border-[var(--border)] bg-white p-7 shadow-sm hover-lift hover:shadow-xl hover:border-[var(--primary)]/25 transition-all duration-300"
-              >
-                <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-[var(--primary)]/10 to-[var(--accent)]/10 text-[var(--primary)] mb-5 group-hover:scale-110 transition-transform duration-300">
-                  <agent.icon className="h-7 w-7" aria-hidden />
-                </div>
-                <h3 className="text-xl font-bold text-[var(--foreground)]">{agent.title}</h3>
-                <p className="mt-2 text-[var(--muted-foreground)] leading-relaxed">{agent.description}</p>
-              </div>
-            ))}
-          </div>
-          <p className="text-center text-sm text-[var(--muted-foreground)] mt-8">
-            . . . Stay Tuned for More!
-          </p>
         </div>
       </section>
 
@@ -235,7 +158,7 @@ export default function FeaturesPage() {
                 <Sparkles className="h-3.5 w-3.5 mr-2" aria-hidden />
                 Ambient Intelligence
               </div>
-              <h2 className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl">
+              <h2 className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl text-balance">
                 Intelligence everywhere, not in one feature
               </h2>
               <p className="mt-4 text-[var(--muted-foreground)] leading-relaxed">
@@ -262,7 +185,7 @@ export default function FeaturesPage() {
       <section className="py-16 md:py-20 bg-white">
         <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <h2 className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl text-balance">
               A portal for every role
             </h2>
             <p className="mt-3 text-[var(--muted-foreground)]">
@@ -279,7 +202,7 @@ export default function FeaturesPage() {
                   <p.icon className="h-7 w-7" aria-hidden />
                 </div>
                 <p className="text-xs font-semibold uppercase tracking-wide text-[var(--primary)]">{p.tagline}</p>
-                <h3 className="text-xl font-bold text-[var(--foreground)] mt-1">{p.title}</h3>
+                <h3 className="text-xl font-bold text-[var(--foreground)] mt-1 text-balance">{p.title}</h3>
                 <ul className="mt-4 space-y-2.5">
                   {p.points.map((pt) => (
                     <li key={pt} className="flex items-start gap-2.5 text-sm text-[var(--gray-700)]">
@@ -302,7 +225,7 @@ export default function FeaturesPage() {
               <Boxes className="h-3.5 w-3.5 mr-2" aria-hidden />
               Product Breadth
             </span>
-            <h2 className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl text-balance">
               The complete practice operating system
             </h2>
             <p className="mt-3 text-[var(--muted-foreground)]">
@@ -322,7 +245,7 @@ export default function FeaturesPage() {
                     <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-[var(--primary)]/10 to-[var(--accent)]/10 text-[var(--primary)] mb-5">
                       <area.icon className="h-7 w-7" aria-hidden />
                     </div>
-                    <h3 className="text-2xl font-bold text-[var(--foreground)]">{area.title}</h3>
+                    <h3 className="text-2xl font-bold text-[var(--foreground)] text-balance">{area.title}</h3>
                     <p className="mt-3 text-[var(--muted-foreground)] leading-relaxed">{area.description}</p>
                   </div>
                   <div className="lg:col-span-2">
@@ -343,12 +266,12 @@ export default function FeaturesPage() {
       </section>
 
       {/* Integrations */}
-      <section className="py-16 md:py-20 bg-white">
+      <section id="integrations" className="py-16 md:py-20 bg-white">
         <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="inline-flex items-center rounded-full border border-[var(--primary)]/20 bg-[var(--primary)]/5 px-4 py-1.5 text-sm font-medium text-[var(--primary)] mb-6">
             Integrations
           </span>
-          <h2 className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl">
+          <h2 className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl text-balance">
             Connects with your stack
           </h2>
           <p className="mt-3 text-[var(--muted-foreground)] max-w-2xl mx-auto">
@@ -373,8 +296,6 @@ export default function FeaturesPage() {
           </div>
         </div>
       </section>
-
-      <CompetitivePosition />
 
       <Cta />
     </>

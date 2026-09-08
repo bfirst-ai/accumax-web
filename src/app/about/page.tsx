@@ -1,13 +1,5 @@
 import { Metadata } from "next";
-import {
-  Target,
-  Sparkles,
-  Eye,
-  ShieldCheck,
-  TrendingUp,
-  HeartHandshake,
-  Layers,
-} from "lucide-react";
+import { Target } from "lucide-react";
 import { ButtonLink } from "@/components/ui/button-link";
 import { GoalsSection } from "@/components/sections/goals";
 import { MarketProblem } from "@/components/sections/market-problem";
@@ -21,44 +13,6 @@ export const metadata: Metadata = {
     "The AccuMax Promise: higher throughput, increased ARPU and reduced cost to serve—delivering >30% increase in Gross Margins.",
 };
 
-const values = [
-  {
-    icon: TrendingUp,
-    title: "The AccuMax Promise",
-    description:
-      "Higher throughput, increased ARPU and lower cost to serve—delivering >30% increase in Gross Margins.",
-  },
-  {
-    icon: Sparkles,
-    title: "Ambient Intelligence",
-    description:
-      "Intelligence is everywhere, not in one feature. The system anticipates, guides, and clarifies—CPAs stay in control.",
-  },
-  {
-    icon: Eye,
-    title: "Effortless Clarity",
-    description:
-      "Simplicity without dumbing down. Streamlined workflows and reduced cognitive load with visual and conceptual clarity.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Trusted Compliance",
-    description:
-      "Audit-ready, traceable, defensible, secure, and predictable. Accuracy you can defend, on every return.",
-  },
-  {
-    icon: HeartHandshake,
-    title: "Client-centric",
-    description:
-      "Self-service portals and faster answers that make clients feel cared for—longer tenure, higher ARPU.",
-  },
-  {
-    icon: Layers,
-    title: "One platform",
-    description:
-      "Deep AI across the full practice OS plus orchestration—five tools collapse into one system of record.",
-  },
-];
 
 export default function AboutPage() {
   return (
@@ -74,9 +28,9 @@ export default function AboutPage() {
             <Target className="h-3.5 w-3.5 mr-2" aria-hidden />
             Our mission
           </div>
-          <h1 className="text-4xl font-bold tracking-tight text-[var(--foreground)] sm:text-5xl md:text-6xl leading-tight">
-            Built around the CPA.{" "}
-            <span className="gradient-text">Not around the AI.</span>
+          <h1 className="text-4xl font-bold tracking-tight text-[var(--foreground)] sm:text-5xl md:text-6xl leading-tight text-balance">
+            <span className="block">Built around the CPA.</span>
+            <span className="block gradient-text leading-[1.25] pb-[0.1em]">Not around the AI.</span>
           </h1>
           <p className="mt-6 text-lg text-[var(--muted-foreground)] leading-relaxed">
             A firm only grows profit three ways: push more work through, earn
@@ -103,46 +57,13 @@ export default function AboutPage() {
       {/* Pillars */}
       <Pillars />
 
-      {/* Values */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="inline-flex items-center rounded-full border border-[var(--primary)]/20 bg-[var(--primary)]/5 px-4 py-1.5 text-sm font-medium text-[var(--primary)] mb-6">
-              What we believe
-            </span>
-            <h2 className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl md:text-5xl">
-              The principles behind AccuMax
-            </h2>
-            <p className="mt-4 text-lg text-[var(--muted-foreground)]">
-              How we design the platform for the AI-augmented accounting
-              profession.
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {values.map((v) => (
-              <div
-                key={v.title}
-                className="group rounded-2xl border border-[var(--border)] bg-white p-7 shadow-sm hover-lift hover:shadow-xl hover:border-[var(--primary)]/25 transition-all duration-300"
-              >
-                <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-[var(--primary)]/10 to-[var(--accent)]/10 text-[var(--primary)] mb-5 group-hover:scale-110 transition-transform duration-300">
-                  <v.icon className="h-7 w-7" aria-hidden />
-                </div>
-                <h3 className="text-xl font-semibold text-[var(--foreground)]">{v.title}</h3>
-                <p className="mt-2 text-[var(--muted-foreground)] leading-relaxed">{v.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Stats (reused) */}
       <StatsSection />
 
       {/* Closing band */}
       <section className="py-16 md:py-20 bg-gradient-to-b from-white to-gray-50/50">
         <div className="container max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-[var(--foreground)]">
+          <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-[var(--foreground)] text-balance">
             The software your firm runs on, with the AI already in it
           </h2>
           <p className="mt-4 text-[var(--muted-foreground)] leading-relaxed">

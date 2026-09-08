@@ -83,7 +83,7 @@ export function PracticeOs() {
           </span>
           <h2
             id="practice-os-heading"
-            className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl md:text-5xl"
+            className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl md:text-5xl text-balance"
           >
             Deep AI inside a{" "}
             <span className="gradient-text">complete practice OS</span>
@@ -113,7 +113,7 @@ export function PracticeOs() {
                   <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-[var(--primary)]/10 to-[var(--accent)]/10 text-[var(--primary)] mb-6 group-hover:scale-110 transition-transform duration-300">
                     <area.icon className="h-7 w-7" aria-hidden />
                   </div>
-                  <h3 className="text-xl font-bold text-[var(--foreground)] mb-5">
+                  <h3 className="text-xl font-bold text-[var(--foreground)] mb-5 text-balance">
                     {area.title}
                   </h3>
                   <ul className="space-y-3">

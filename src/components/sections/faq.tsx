@@ -8,37 +8,27 @@ const faqs = [
   {
     question: "What is AccuMax?",
     answer:
-      "AccuMax is an AI-powered practice platform that elevates the CPA. It combines a workforce of tax-domain AI agents—AccuTax Research, AccuTax Prepare, AccuTax Review, AccuTax Plan, AccuTax Defense, and AccuTax Bridge—inside a complete practice operating system covering intake, approvals, invoicing, payments, and governance.",
-  },
-  {
-    question: "How is AccuMax different from other practice platforms?",
-    answer:
-      "Broad practice platforms give breadth but treat AI as a bolt-on. Single-function AI tools go deep in one area—research, planning, or prep—and nothing else. AccuMax is alone top-right: deep AI across the full platform, plus orchestration. Five separately-licensed tools collapse into one system of record.",
+      "A complete practice management system for CPA firms, with a workforce of AI CoPilots built into it. Client intake, documents, approvals, eSignature, invoicing, payments, dashboards and governance — plus fourteen AccuTax CoPilots that do the tax work alongside your team.",
   },
   {
     question: "What is AccuTax?",
     answer:
-      "AccuTax is the single tax-domain AI engine every AccuMax agent runs on. Research, planning, preparation, review and audit defense are not separate products stitched together—they are one engine working on one client record. A firm assembling the same capability from separate tools ends up with a copy of the client's numbers inside each one: the planner works from one version, the preparer from another, and the two quietly stop agreeing. On AccuTax there is only ever one version of the truth, so what you planned is what you file and what you defend.",
+      "The single tax-domain AI engine every CoPilot runs on. Research, preparation, review, planning and audit defense are not separate products stitched together — they are one engine working on one client record. That is why the plan, the return and the defense can never quietly disagree.",
   },
   {
-    question: "What does the AI agent workforce do?",
+    question: "How is AccuMax different from bolting AI onto what I have?",
     answer:
-      "Agents cover the entire tax pipeline: AccuTax Research answers contextual questions on prior- and current-year facts; the AccuTax Prepare drafts federal returns in minutes from source documents; the AccuTax Review checks for gaps, errors, and cross-form validations; the AccuTax Plan runs multi-year what-if scenarios; AccuTax Defense evaluates and responds to IRS notices in one click; and AccuTax Bridge extracts data from uploaded forms into TaxPrep software—ours or theirs. All of them run on AccuTax, so they share one version of the client’s numbers.",
+      "Broad practice platforms give you breadth, but their AI is an add-on. Single-function AI tools go deep in one area and are blind to everything either side of it. AccuMax is one engine across the whole platform, so every CoPilot works from the same client file instead of its own copy.",
   },
   {
-    question: "How does the AI handle compliance?",
+    question: "Do I have to replace my current tax software?",
     answer:
-      "Compliance is a core pillar. Everything is audit-ready, traceable, and defensible—immutable audit logs, document provenance, eSignatures via DocuSign or Zoho Sign, entity-level governance, and secure, predictable workflows. AI is a partner that augments judgment, never a replacement.",
+      "No. AccuMax runs beside what you already own — AccuTax Bridge hands normalized data straight into your existing tax prep tool. You can also start with a single CoPilot and add the rest as the need shows up; nothing has to be re-platformed later.",
   },
   {
-    question: "How does AccuMax pricing work?",
+    question: "What does it cost?",
     answer:
-      "Three per-seat tiers—Standard at $799, Professional at $999, and Premium at $1,199 per seat, per year, with up to 12.5% off on multi-year terms. That's at or below what firms already pay for practice management alone. Seven AccuTax CoPilots are unlimited on every tier; heavier agents carry an allowance in activated accounts and meter at a flat per-account rate that falls as your tier rises. Revenue grows with the work and margins hold as models get cheaper.",
-  },
-  {
-    question: "Can we try AccuMax before committing?",
-    answer:
-      "Yes. Start a 90-day free trial with full platform access and a dedicated success manager from day one—no credit card required. Or book a personalized 30-minute demo to see AccuMax working in a firm just like yours.",
+      "Three per-seat tiers billed annually, from $699 per seat/year, with most CoPilots unlimited on every tier. Full plans, allowances and terms are on the pricing page.",
   },
 ];
 
@@ -65,7 +55,7 @@ export function FaqSection() {
         >
           <h2
             id="faq-heading"
-            className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl md:text-5xl"
+            className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl md:text-5xl text-balance"
           >
             Frequently Asked Questions
           </h2>

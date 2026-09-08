@@ -97,7 +97,7 @@ export function UnitEconomics() {
           </span>
           <h2
             id="unit-economics-heading"
-            className="text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl"
+            className="text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl text-balance"
           >
             Delivering{" "}
             <span className="text-[var(--success-light)]">&gt;30% margin lift</span>
@@ -123,7 +123,7 @@ export function UnitEconomics() {
             <p className="text-sm font-bold uppercase tracking-widest text-[var(--warning)] mb-1">
               Before
             </p>
-            <h3 className="text-xl font-bold text-white mb-6">
+            <h3 className="text-xl font-bold text-white mb-6 text-balance">
               Fragmented tools, manual handoffs
             </h3>
             <ul className="space-y-4">
@@ -158,7 +158,7 @@ export function UnitEconomics() {
             <p className="text-sm font-bold uppercase tracking-widest text-[var(--success-light)] mb-1">
               After
             </p>
-            <h3 className="text-xl font-bold text-white mb-6">
+            <h3 className="text-xl font-bold text-white mb-6 text-balance">
               One platform, one engine
             </h3>
             <ul className="space-y-4">

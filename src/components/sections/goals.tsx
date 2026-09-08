@@ -85,7 +85,7 @@ export function GoalsSection() {
           </span>
           <h2
             id="goals-heading"
-            className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl md:text-5xl"
+            className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl md:text-5xl text-balance"
           >
             Grow the firm without growing the headcount
           </h2>
@@ -133,7 +133,7 @@ export function GoalsSection() {
                   <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-white border border-[var(--border)] shadow-sm text-[var(--primary)] mb-5 group-hover:scale-110 group-hover:shadow-md transition-all duration-300">
                     <goal.icon className="h-7 w-7" aria-hidden />
                   </div>
-                  <h3 className="font-bold text-lg text-[var(--foreground)] mb-1.5">
+                  <h3 className="font-bold text-lg text-[var(--foreground)] mb-1.5 text-balance">
                     {goal.title}
                   </h3>
                   <p className="text-sm font-semibold text-[var(--primary)] mb-3">

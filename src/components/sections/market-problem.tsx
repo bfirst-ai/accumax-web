@@ -1,135 +1,119 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
-import {
-  Users2,
-  GraduationCap,
-  TrendingUp,
-  Brain,
-  Clock,
-  MessagesSquare,
-  Scale,
-} from "lucide-react";
+import { motion } from "framer-motion";
+import { Users2, Clock, Hourglass } from "lucide-react";
 
-const stats = [
+/* Three beats, in order: the people are leaving, the work keeps growing,
+ * and the window to fix it is closing. Each beat carries its own evidence. */
+
+const beats = [
   {
     icon: Users2,
-    value: "50–75%",
-    label: "of CPAs near retirement",
-  },
-  {
-    icon: GraduationCap,
-    value: "6.6%",
-    label: "fewer accounting graduates in 2023–24",
-  },
-  {
-    icon: TrendingUp,
-    value: "Rising",
-    label: "PE roll-ups—valuations tied to revenue & EBITDA",
-  },
-  {
-    icon: Brain,
-    value: "Confusion",
-    label: "about the most prudent way to leverage AI",
+    step: "First",
+    title: "The people are leaving",
+    body: "The profession is losing capacity faster than it can replace it. You are not imagining the hiring market — the supply of qualified people is genuinely shrinking.",
+    facts: [
+      { value: "50–75%", label: "of CPAs are near retirement" },
+      { value: "−6.6%", label: "accounting graduates in 2023–24" },
+    ],
   },
   {
     icon: Clock,
-    value: "40–60%",
-    label: "of CPA time spent on admin, not advisory",
+    step: "Meanwhile",
+    title: "The work keeps growing",
+    body: "Every remaining person carries more. Most of the extra hours are not the work you bill best — they are the handling, chasing and re-keying around it.",
+    facts: [
+      { value: "40–60%", label: "of CPA time goes to admin, not advisory" },
+      { value: "Stricter", label: "compliance rigor as capacity shrinks" },
+    ],
   },
   {
-    icon: MessagesSquare,
-    value: "Faster",
-    label: "client expectations demand deeper insight",
-  },
-  {
-    icon: Scale,
-    value: "Stricter",
-    label: "compliance rigor while staff capacity shrinks",
+    icon: Hourglass,
+    step: "And",
+    title: "The window is closing",
+    body: "Clients expect faster, deeper answers, and buyers are actively pricing firms on margin. Firms that fix throughput now are the ones being valued well.",
+    facts: [
+      { value: "Faster", label: "client expectations, deeper insight" },
+      { value: "Rising", label: "PE roll-ups, priced on revenue & EBITDA" },
+    ],
   },
 ];
-
-const container: Variants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.08 },
-  },
-};
-
-const item: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 },
-};
 
 export function MarketProblem() {
   return (
     <section
       id="problem"
-      className="relative py-20 md:py-28 overflow-hidden bg-[var(--gray-950)]"
+      className="py-20 md:py-28 bg-white"
       aria-labelledby="problem-heading"
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-[var(--gray-900)] to-[var(--gray-950)]" />
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--gray-800)_1px,transparent_1px),linear-gradient(to_bottom,var(--gray-800)_1px,transparent_1px)] bg-[size:48px_48px] opacity-30" />
-
-      <div className="container relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center max-w-3xl mx-auto mb-16"
-        >
-          <span className="inline-flex items-center rounded-full border border-[var(--accent)]/30 bg-[var(--accent)]/10 px-4 py-1.5 text-sm font-medium text-[var(--accent)] mb-6">
+      <div className="container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <span className="inline-flex items-center rounded-full border border-[var(--primary)]/20 bg-[var(--primary)]/5 px-4 py-1.5 text-sm font-medium text-[var(--primary)] mb-6">
             Why this is so hard right now
           </span>
           <h2
             id="problem-heading"
-            className="text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl"
+            className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl md:text-5xl text-balance"
           >
-            Firms are stuck in a{" "}
-            <span className="text-[var(--accent)]">process treadmill</span>
+            Fewer people. More work. Less time.
           </h2>
-          <p className="mt-5 text-lg text-[var(--gray-400)] leading-relaxed">
-            Too many tools. Too much process. Not enough talent.
+          <p className="mt-5 text-lg text-[var(--muted-foreground)] leading-relaxed text-pretty">
+            Three things are happening at once, and they compound. Hiring your
+            way out of it is no longer on the table.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-40px" }}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5"
-        >
-          {stats.map((stat) => (
+        <div className="grid md:grid-cols-3 gap-6">
+          {beats.map((b, i) => (
             <motion.div
-              key={stat.label}
-              variants={item}
-              className="group rounded-2xl border border-[var(--gray-800)] bg-[var(--gray-900)]/80 p-6 backdrop-blur-sm hover:border-[var(--accent)]/40 hover:shadow-lg hover:shadow-[var(--accent)]/5 transition-all duration-300"
+              key={b.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1, duration: 0.4 }}
+              className="flex flex-col rounded-2xl border border-[var(--border)] bg-white p-7 shadow-sm"
             >
-              <div className="flex items-center justify-center w-12 h-12 rounded-xl border border-[var(--accent)]/30 bg-[var(--accent)]/10 text-[var(--accent)] mb-4 group-hover:scale-110 transition-transform duration-300">
-                <stat.icon className="h-6 w-6" aria-hidden />
+              <div className="flex items-center gap-3 mb-4">
+                <span className="inline-flex items-center justify-center w-11 h-11 shrink-0 rounded-2xl bg-gradient-to-br from-[var(--primary)]/10 to-[var(--accent)]/10 text-[var(--primary)]">
+                  <b.icon className="h-5 w-5" aria-hidden />
+                </span>
+                <span className="text-[11px] font-bold uppercase tracking-widest text-[var(--muted-foreground)]">
+                  {b.step}
+                </span>
               </div>
-              <p className="text-2xl md:text-3xl font-extrabold text-white mb-1.5">
-                {stat.value}
+
+              <p className="text-xl font-bold text-[var(--foreground)] text-pretty">
+                {b.title}
               </p>
-              <p className="text-sm text-[var(--gray-400)] leading-snug">
-                {stat.label}
+              <p className="mt-2 flex-1 text-[var(--muted-foreground)] leading-relaxed text-pretty">
+                {b.body}
               </p>
+
+              <dl className="mt-5 space-y-3 border-t border-[var(--border)] pt-4">
+                {b.facts.map((f) => (
+                  <div key={f.label} className="flex items-baseline gap-3">
+                    <dt className="text-lg font-extrabold text-[var(--primary)] shrink-0 tabular-nums">
+                      {f.value}
+                    </dt>
+                    <dd className="text-sm text-[var(--muted-foreground)] text-pretty">
+                      {f.label}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
 
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-          className="text-center text-[var(--gray-400)] mt-12 max-w-2xl mx-auto"
+          transition={{ delay: 0.3 }}
+          className="mt-10 text-center text-lg font-semibold text-[var(--foreground)] max-w-3xl mx-auto text-pretty"
         >
-          The industry is at an inflection point—and AccuMax turns it into your
-          biggest opportunity.
+          The only lever left is how much each person can get through — which is
+          exactly what AccuMax changes.
         </motion.p>
       </div>
     </section>

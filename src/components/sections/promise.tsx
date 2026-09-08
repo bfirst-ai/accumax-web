@@ -26,7 +26,7 @@ export function Promise() {
           </span>
           <h2
             id="promise-heading"
-            className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl md:text-5xl leading-tight"
+            className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl md:text-5xl leading-tight text-balance"
           >
             Three levers, and{" "}
             <span className="gradient-text">AccuMax pulls all three</span>

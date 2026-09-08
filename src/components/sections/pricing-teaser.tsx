@@ -14,7 +14,7 @@ const plans = [
     description: "Solo / micro firm",
     features: [
       "Practice OS, InTake, Recognize, Extract, Organize, Profile, Review & Compose — all unlimited",
-      "AccuTax Research, 1040 Preparer & Bridge — 10 accounts each",
+      "AccuTax Research, Prepare & Bridge — 10 accounts each",
       "The on-ramp that already beats incumbents' mid-tier",
     ],
   },
@@ -26,7 +26,7 @@ const plans = [
     features: [
       "Everything in Standard, plus:",
       "AccuTax Defense & AccuTax Plan — 10 accounts each",
-      "AccuTax Research, 1040 Preparer & Bridge — 20 accounts each (2×)",
+      "AccuTax Research, Prepare & Bridge — 20 accounts each (2×)",
     ],
   },
   {
@@ -40,7 +40,7 @@ const plans = [
       "AccuTax Assist — client-portal self-help",
       "AccuTax Defense — unlimited",
       "AccuTax Plan — 20 accounts",
-      "AccuTax Research, 1040 Preparer & Bridge — 40 accounts each (4×)",
+      "AccuTax Research, Prepare & Bridge — 40 accounts each (4×)",
     ],
   },
 ];
@@ -55,7 +55,7 @@ export function PricingTeaser() {
           viewport={{ once: true }}
           className="text-center max-w-3xl mx-auto mb-14"
         >
-          <h2 id="pricing-heading" className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl md:text-5xl">
+          <h2 id="pricing-heading" className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl md:text-5xl text-balance">
             Priced for Land-and-Expand
           </h2>
           <p className="mt-4 text-lg text-[var(--muted-foreground)]">
@@ -93,7 +93,7 @@ export function PricingTeaser() {
                 <p className="text-[11px] font-bold uppercase tracking-widest text-[var(--primary)] mb-1">
                   {plan.tier}
                 </p>
-                <h3 className="text-2xl font-bold text-[var(--gray-900)] mb-2">
+                <h3 className="text-2xl font-bold text-[var(--gray-900)] mb-2 text-balance">
                   {plan.name}
                 </h3>
                 <p className="text-sm text-[var(--muted-foreground)] mb-4">

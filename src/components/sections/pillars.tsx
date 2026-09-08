@@ -81,7 +81,7 @@ export function Pillars() {
           </span>
           <h2
             id="pillars-heading"
-            className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl md:text-5xl"
+            className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl md:text-5xl text-balance"
           >
             The AI-powered practice platform that{" "}
             <span className="gradient-text">elevates the CPA</span>
@@ -117,7 +117,7 @@ export function Pillars() {
                   >
                     <pillar.icon className="h-8 w-8" aria-hidden />
                   </div>
-                  <h3 className="text-2xl font-bold text-[var(--foreground)] mb-1">
+                  <h3 className="text-2xl font-bold text-[var(--foreground)] mb-1 text-balance">
                     {pillar.title}
                   </h3>
                   <p className={`text-sm font-semibold ${pillar.text} mb-5`}>

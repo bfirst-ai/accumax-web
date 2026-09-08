@@ -185,7 +185,7 @@ export function AiAgents() {
                 <div className="flex items-center justify-center w-11 h-11 shrink-0 rounded-xl border border-[var(--accent)]/30 bg-[var(--accent)]/10 text-[var(--accent)] group-hover:scale-110 transition-transform duration-300">
                   <c.icon className="h-5 w-5" aria-hidden />
                 </div>
-                <h3 className="text-base font-bold text-white group-hover:text-[var(--accent)] transition-colors text-pretty">
+                <h3 className="text-base font-bold text-white group-hover:text-[var(--accent)] transition-colors text-pretty text-balance">
                   {c.name}
                 </h3>
               </div>

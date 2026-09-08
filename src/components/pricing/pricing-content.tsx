@@ -277,10 +277,6 @@ const faqs = [
     a: "Both, and they do different jobs. The seat licence is per user, per year and covers the whole platform: practice OS, unlimited Review, Recognize, Extract, Organize, Compose and more. On top of that, the heavier AI agents carry an allowance measured in activated accounts, which scales with your tier. You only pay more when you do more work.",
   },
   {
-    q: "What is AccuTax?",
-    a: "AccuTax is the single tax-domain AI engine every AccuMax agent runs on. Research, planning, preparation, review and audit defense are not separate products stitched together — they are one engine working on one client record. That matters because a firm assembling the same capability from separate tools ends up with a copy of the client's numbers inside each one: the planner works from one version, the preparer from another, and the two quietly stop agreeing. On AccuTax there is only ever one version of the truth, so what you planned is what you file and what you defend.",
-  },
-  {
     q: "What is an activated account?",
     a: "An activated account is a client account for which a particular AI tool has been activated. Activation is per tool, so each tool draws on its own allowance — activating both the AccuTax Prepare and the AccuTax Plan for the same client counts once against each. Accounts you simply store, invoice or communicate with are unlimited on every tier and never metered.",
   },
@@ -397,7 +393,7 @@ export function PricingContent() {
               <p className="text-[11px] font-bold uppercase tracking-widest text-[var(--primary)]">
                 {plan.tier}
               </p>
-              <h3 className="text-xl font-bold text-[var(--foreground)] mt-1">
+              <h3 className="text-xl font-bold text-[var(--foreground)] mt-1 text-balance">
                 {plan.name}
               </h3>
               <p className="mt-1 text-sm text-[var(--muted-foreground)] min-h-[40px]">
@@ -498,7 +494,7 @@ export function PricingContent() {
       {/* Per activated account allowances */}
       <div className="mt-24">
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <h2 className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl">
+          <h2 className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl text-balance">
             AI included with every seat
           </h2>
           <p className="mt-3 text-[var(--muted-foreground)]">
@@ -581,7 +577,7 @@ export function PricingContent() {
           <Badge variant="success" className="mb-4 font-semibold">
             Included on every tier
           </Badge>
-          <h2 className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl">
+          <h2 className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl text-balance">
             The complete practice operating system
           </h2>
           <p className="mt-3 text-[var(--muted-foreground)]">
@@ -625,7 +621,7 @@ export function PricingContent() {
 
       {/* Large-firm / custom quote strip */}
       <div className="mt-16 rounded-2xl border border-[var(--border)] bg-gradient-to-br from-[var(--primary)]/5 to-[var(--accent)]/5 p-8 md:p-10 text-center">
-        <h3 className="text-2xl font-bold text-[var(--foreground)]">
+        <h3 className="text-2xl font-bold text-[var(--foreground)] text-balance">
           25+ seats, offshore delivery, or a PE roll-up?
         </h3>
         <p className="mt-3 text-[var(--muted-foreground)] max-w-2xl mx-auto">
@@ -641,7 +637,7 @@ export function PricingContent() {
       {/* Pricing FAQ */}
       <div className="mt-24 max-w-3xl mx-auto">
         <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl">
+          <h2 className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl text-balance">
             Pricing questions
           </h2>
         </div>
