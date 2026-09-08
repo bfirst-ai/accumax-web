@@ -48,8 +48,8 @@ export default function WhyAccuMaxPage() {
 
       <AccuTaxSection />
       <NoRipAndReplace />
-      <UnitEconomics />
       <CompetitivePosition />
+      <UnitEconomics />
       <Cta />
     </>
   );

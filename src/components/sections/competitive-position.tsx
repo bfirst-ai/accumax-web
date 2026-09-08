@@ -1,12 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  Layers,
-  Star,
-  Check,
-  TrendingUp,
-} from "lucide-react";
+import { Star } from "lucide-react";
 
 const quadrantDots = [
   {
@@ -183,65 +178,6 @@ export function CompetitivePosition() {
           </p>
         </motion.div>
 
-        {/* What consolidation is worth */}
-        <div className="grid sm:grid-cols-3 gap-5 mt-14 max-w-5xl mx-auto">
-          {[
-            {
-              icon: Layers,
-              value: "5 → 1",
-              label: "Separately-licensed tools replaced",
-              sub: "Research, planning, prep, practice management, offshore",
-              highlight: true,
-            },
-            {
-              icon: Check,
-              value: "ZERO",
-              label: "Spent on integration",
-              sub: "Every agent and module works together out of the box",
-            },
-            {
-              icon: TrendingUp,
-              value: ">30%",
-              label: "Gross margin lift",
-              sub: "Less labor per return · cheaper labor mix · more advisory",
-            },
-          ].map((s, i) => (
-            <motion.div
-              key={s.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.08, duration: 0.4 }}
-              className={`rounded-2xl border p-6 text-center ${
-                s.highlight
-                  ? "border-2 border-[var(--primary)] bg-gradient-to-br from-[var(--primary)]/5 to-[var(--accent)]/5 shadow-lg"
-                  : "border-[var(--border)] bg-white shadow-sm"
-              }`}
-            >
-              <s.icon
-                className={`h-5 w-5 mx-auto mb-3 ${
-                  s.highlight
-                    ? "text-[var(--primary)]"
-                    : "text-[var(--muted-foreground)]"
-                }`}
-                aria-hidden
-              />
-              <p
-                className={`text-3xl font-extrabold tracking-tight ${
-                  s.highlight ? "text-[var(--primary)]" : "text-[var(--foreground)]"
-                }`}
-              >
-                {s.value}
-              </p>
-              <p className="mt-1.5 text-sm font-semibold text-[var(--foreground)] text-pretty">
-                {s.label}
-              </p>
-              <p className="mt-1 text-xs text-[var(--muted-foreground)] text-pretty">
-                {s.sub}
-              </p>
-            </motion.div>
-          ))}
-        </div>
       </div>
     </section>
   );

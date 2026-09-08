@@ -10,7 +10,7 @@ import { Cta } from "@/components/sections/cta";
 export const metadata: Metadata = {
   title: "About | AccuMax",
   description:
-    "The AccuMax Promise: higher throughput, increased ARPU and reduced cost to serve—delivering >30% increase in Gross Margins.",
+    "The AccuMax Promise: higher throughput, increased ARPU and reduced cost to serve—delivering >25% increase in Gross Margins.",
 };
 
 
@@ -37,7 +37,7 @@ export default function AboutPage() {
             more from each client, or spend less delivering it. AccuMax moves all
             three at once—compounding into a{" "}
             <strong className="text-[var(--foreground)]">
-              &gt;30% increase in Gross Margins
+              &gt;25% increase in Gross Margins
             </strong>
             .
           </p>

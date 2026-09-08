@@ -63,12 +63,15 @@ export function Explore() {
             <Sparkles className="h-3.5 w-3.5 mr-2" aria-hidden />
             Everything your practice runs on
           </span>
+          {/* clamp, not the step scale: neither line may break mid-phrase. */}
           <h2
             id="explore-heading"
-            className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl md:text-5xl text-balance"
+            className="text-[clamp(1.4rem,5.2vw,3rem)] font-bold tracking-tight text-[var(--foreground)] text-balance"
           >
-            A practice system, and{" "}
-            <span className="gradient-text">a workforce inside it</span>
+            <span className="block">A practice management system,</span>
+            <span className="block gradient-text leading-[1.25] pb-[0.1em]">
+              and a workforce inside it
+            </span>
           </h2>
           <p className="mt-5 text-lg text-[var(--muted-foreground)] leading-relaxed text-pretty">
             You stay in control of every return. The AI is on call the whole

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Layers, Bot, Hand, Plug } from "lucide-react";
+import { Layers, Bot, Check, Hand, Plug } from "lucide-react";
 
 /* How the outcome is produced: a real practice OS, with a workforce of
  * CoPilots inside it — and the CPA in the driver's seat throughout. */
@@ -179,6 +179,68 @@ export function NoRipAndReplace() {
               <p className="mt-2 text-sm text-[var(--muted-foreground)] leading-relaxed text-pretty">
                 {p.body}
               </p>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* What the consolidation is actually worth. Lifted out of the
+         * competitive-position section, where it sat as a third bank of
+         * boxes; it belongs with the no-rip-and-replace promise. */}
+        <div className="mt-6 grid sm:grid-cols-2 gap-5">
+          {[
+            {
+              icon: Layers,
+              value: "5 → 1",
+              label: "Separately-licensed tools replaced",
+              sub: "Research, planning, prep, practice management, offshore",
+              highlight: true,
+            },
+            {
+              icon: Check,
+              value: "ZERO",
+              label: "Spent on integration",
+              sub: "Every agent and module works together out of the box",
+              highlight: false,
+            },
+          ].map((c, i) => (
+            <motion.div
+              key={c.label}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.08, duration: 0.4 }}
+              className={`flex items-start gap-4 rounded-2xl border p-6 ${
+                c.highlight
+                  ? "border-2 border-[var(--primary)] bg-gradient-to-br from-[var(--primary)]/5 to-[var(--accent)]/5 shadow-lg"
+                  : "border-[var(--border)] bg-white shadow-sm"
+              }`}
+            >
+              <span
+                className={`inline-flex items-center justify-center w-11 h-11 shrink-0 rounded-2xl bg-white shadow-sm ${
+                  c.highlight
+                    ? "text-[var(--primary)]"
+                    : "text-[var(--muted-foreground)]"
+                }`}
+              >
+                <c.icon className="h-5 w-5" aria-hidden />
+              </span>
+              <div className="min-w-0">
+                <p
+                  className={`text-2xl font-extrabold tracking-tight ${
+                    c.highlight
+                      ? "text-[var(--primary)]"
+                      : "text-[var(--foreground)]"
+                  }`}
+                >
+                  {c.value}
+                </p>
+                <p className="mt-0.5 text-sm font-bold text-[var(--foreground)] text-pretty">
+                  {c.label}
+                </p>
+                <p className="mt-1 text-xs text-[var(--muted-foreground)] text-pretty">
+                  {c.sub}
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>

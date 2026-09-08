@@ -36,7 +36,7 @@ export function Promise() {
             more from each client, or spend less delivering it. AccuMax moves
             all three at once—compounding into a{" "}
             <strong className="text-[var(--foreground)]">
-              &gt;30% increase in Gross Margins
+              &gt;25% increase in Gross Margins
             </strong>
             .
           </p>
