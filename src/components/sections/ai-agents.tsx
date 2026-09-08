@@ -161,9 +161,14 @@ export function AiAgents() {
             <span className="text-[var(--accent)]">every step of the work</span>
           </h2>
           <p className="mt-5 text-lg text-[var(--gray-400)] leading-relaxed text-pretty">
-            Fourteen CoPilots, one engine, one client record. They sit inside the
-            work you already do — you stay in control, and every answer comes
-            with its reasoning and its source.
+            <span className="block">
+              Fourteen CoPilots, one engine, one client record. They sit inside
+              the work you already do —
+            </span>
+            <span className="block">
+              you stay in control, and every answer comes with its reasoning and
+              its source.
+            </span>
           </p>
         </motion.div>
 

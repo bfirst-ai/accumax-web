@@ -30,8 +30,12 @@ export default function CoPilotsPage() {
           </h1>
           <p className="mt-6 max-w-2xl mx-auto text-lg text-[var(--muted-foreground)] leading-relaxed text-pretty">
             Fourteen CoPilots, from the first intake form to the last client
-            letter. Each one does a real job — and every one of them works from
-            the same client record.
+            <span className="block">
+              letter. Each one does a real job —
+            </span>
+            <span className="block">
+              and every one of them works from the same client record.
+            </span>
           </p>
           <div className="mt-8 flex flex-wrap gap-4 justify-center">
             <ButtonLink href="/contact#demo" variant="primary" size="lg">

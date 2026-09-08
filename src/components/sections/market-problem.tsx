@@ -120,8 +120,10 @@ export function MarketProblem() {
           transition={{ delay: 0.3 }}
           className="mt-10 text-center text-lg font-semibold text-[var(--foreground)] max-w-3xl mx-auto text-pretty"
         >
-          The only lever left is how much each person can get through — which is
-          exactly what AccuMax changes.
+          <span className="block">
+            The only lever left is how much each person can get through —
+          </span>
+          <span className="block">which is exactly what AccuMax changes.</span>
         </motion.p>
       </div>
     </section>

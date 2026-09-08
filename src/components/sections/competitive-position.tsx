@@ -11,21 +11,18 @@ const quadrantDots = [
     tools: ["broad workflow coverage,", "AI bolted on"],
     top: "28%",
     left: "27%",
-    kind: "dot" as const,
   },
   {
     label: "Traditional prep",
     tools: ["return calculation,", "no practice layer"],
-    top: "78%",
+    top: "64%",
     left: "22%",
-    kind: "dot" as const,
   },
   {
     label: "Point AI tools",
     tools: ["deep in one function,", "nothing either side"],
-    top: "70%",
+    top: "80%",
     left: "68%",
-    kind: "box" as const,
   },
 ];
 
@@ -75,9 +72,16 @@ export function CompetitivePosition() {
             <span className="block gradient-text leading-[1.25] pb-[0.1em]">One platform.</span>
           </h2>
           <p className="mt-5 text-lg text-[var(--muted-foreground)] leading-relaxed">
-            Breadth or intelligence—everyone else picks one. AccuMax delivers
-            deep AI across the full platform, plus orchestration. You can
-            upgrade at your own pace, even one tool at a time.
+            <span className="block">
+              Breadth or intelligence—everyone else picks one.
+            </span>
+            <span className="block">
+              AccuMax delivers deep AI across the full platform, plus
+              orchestration.
+            </span>
+            <span className="block">
+              You can upgrade at your own pace, even one tool at a time.
+            </span>
           </p>
         </motion.div>
 
@@ -105,12 +109,6 @@ export function CompetitivePosition() {
                   {/* Quadrant dividers */}
                   <div className="absolute left-1/2 top-0 bottom-0 border-l border-dashed border-[var(--gray-300)]" />
                   <div className="absolute top-1/2 left-0 right-0 border-t border-dashed border-[var(--gray-300)]" />
-
-                  {/* Point AI tools region */}
-                  <div
-                    className="absolute rounded-lg border border-dashed border-[var(--gray-400)]/50 bg-white/70"
-                    style={{ top: "58%", left: "52%", right: "6%", bottom: "6%" }}
-                  />
 
                   {/* AccuMax — top right */}
                   <div

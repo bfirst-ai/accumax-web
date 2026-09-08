@@ -197,8 +197,12 @@ export function Lifecycle() {
             Seven stages. A CoPilot at every one.
           </h2>
           <p className="mt-5 text-lg text-[var(--muted-foreground)] leading-relaxed text-pretty">
-            This is the work a firm actually does, in the order it happens — and
-            what picks up the load at each step.
+            <span className="block">
+              This is the work a firm actually does, in the order it happens —
+            </span>
+            <span className="block">
+              and what picks up the load at each step.
+            </span>
           </p>
         </div>
 

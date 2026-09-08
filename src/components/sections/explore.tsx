@@ -74,8 +74,11 @@ export function Explore() {
             </span>
           </h2>
           <p className="mt-5 text-lg text-[var(--muted-foreground)] leading-relaxed text-pretty">
-            You stay in control of every return. The AI is on call the whole
-            time — ambient, explained and audit-ready.
+            <span className="block">
+              You stay in control of every return. The AI is on call the whole
+              time —
+            </span>
+            <span className="block">ambient, explained and audit-ready.</span>
           </p>
         </div>
 

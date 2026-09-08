@@ -9,7 +9,7 @@ const stats = [
   {
     value: "14",
     unit: "CoPilots",
-    label: "One for every stage",
+    label: "One for every need",
     detail: "Intake → file → defend",
   },
   {

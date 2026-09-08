@@ -103,8 +103,10 @@ export function UnitEconomics() {
             <span className="text-[var(--success-light)]">&gt;30% margin lift</span>
           </h2>
           <p className="mt-5 text-lg text-[var(--gray-400)] leading-relaxed">
-            More throughput, higher ARPU, and a lower cost to serve — the three
-            levers, pulled at once.
+            <span className="block">
+              More throughput, higher ARPU, and a lower cost to serve —
+            </span>
+            <span className="block">the three levers, pulled at once.</span>
           </p>
         </motion.div>
 

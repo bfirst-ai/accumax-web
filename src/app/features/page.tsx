@@ -136,9 +136,13 @@ export default function FeaturesPage() {
             </span>
           </h1>
           <p className="mt-6 text-lg text-[var(--muted-foreground)] leading-relaxed text-pretty">
-            Client intake through approvals, eSignature, invoicing, payments,
-            dashboards and governance — connected to the software your firm
-            already depends on.
+            <span className="block">
+              Client intake through approvals, eSignature, invoicing, payments,
+              dashboards and governance —
+            </span>
+            <span className="block">
+              connected to the software your firm already depends on.
+            </span>
           </p>
           <div className="mt-9 flex flex-wrap gap-4 justify-center">
             <ButtonLink href="/contact#demo" variant="primary" size="lg" className="shadow-lg shadow-[var(--primary)]/20">
