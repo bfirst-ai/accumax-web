@@ -1,91 +1,75 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Boxes, Bot, TrendingUp, CalendarClock, ShieldCheck } from "lucide-react";
+
+/* Four numbers that carry the whole story. Dark band so it lands as a
+ * statement rather than a row of footnotes. */
 
 const stats = [
   {
-    icon: Bot,
-    value: "6 AI",
-    label: "Tax-Domain Agents",
-    description: "Researcher → Preparer → Reviewer",
+    value: "14",
+    unit: "CoPilots",
+    label: "One for every stage",
+    detail: "Intake → file → defend",
   },
   {
-    icon: Boxes,
-    value: "1 OS",
-    label: "Complete Practice Platform",
-    description: "Intake → Bill → Govern",
+    value: "1",
+    unit: "engine",
+    label: "One version of the truth",
+    detail: "AccuTax, under all of them",
   },
   {
-    icon: TrendingUp,
-    value: ">30%",
-    label: "Gross Margin Lift",
-    description: "Less labor, better mix, more advisory",
+    value: ">30",
+    unit: "%",
+    label: "Gross margin lift",
+    detail: "Less labor, cheaper mix, more advisory",
   },
   {
-    icon: CalendarClock,
-    value: "90-Day",
-    label: "Free Trial",
-    description: "Full platform access",
-  },
-  {
-    icon: ShieldCheck,
-    value: "Audit-Ready",
-    label: "Compliance Built In",
-    description: "Traceable & defensible",
+    value: "90",
+    unit: "days",
+    label: "Free trial",
+    detail: "Full platform, no card",
   },
 ];
 
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 },
-};
-
 export function StatsSection() {
   return (
-    <section className="py-16 md:py-20 bg-gray-50 border-y border-[var(--border)]">
-      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="grid grid-cols-2 lg:grid-cols-5 gap-8 md:gap-12"
-        >
-          {stats.map((stat) => (
+    <section
+      className="relative py-20 md:py-24 overflow-hidden bg-[var(--gray-950)]"
+      aria-label="AccuMax at a glance"
+    >
+      <div className="absolute inset-0 bg-gradient-to-b from-[var(--gray-900)] to-[var(--gray-950)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--gray-800)_1px,transparent_1px),linear-gradient(to_bottom,var(--gray-800)_1px,transparent_1px)] bg-[size:48px_48px] opacity-25" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[680px] h-[260px] bg-[var(--primary)]/15 rounded-full blur-3xl" />
+
+      <div className="container relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-8">
+          {stats.map((s, i) => (
             <motion.div
-              key={stat.label}
-              variants={item}
-              className="text-center group"
+              key={s.label}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.08, duration: 0.45 }}
+              className="relative text-center lg:text-left lg:pl-6 lg:border-l lg:border-[var(--gray-800)] first:lg:border-l-0 first:lg:pl-0"
             >
-              <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-[var(--primary)]/10 to-[var(--accent)]/10 mb-4 group-hover:scale-110 transition-transform duration-300">
-                <stat.icon
-                  className="h-7 w-7 text-[var(--primary)]"
-                  aria-hidden
-                />
-              </div>
-              <p className="text-4xl md:text-5xl font-bold text-[var(--foreground)] mb-1">
-                {stat.value}
+              <p className="flex items-baseline justify-center lg:justify-start gap-1.5">
+                <span className="text-5xl md:text-6xl font-extrabold tracking-tight bg-gradient-to-br from-white to-[var(--gray-400)] bg-clip-text text-transparent leading-none pb-[0.06em]">
+                  {s.value}
+                </span>
+                <span className="text-lg md:text-xl font-bold text-[var(--accent)]">
+                  {s.unit}
+                </span>
               </p>
-              <p className="text-base font-semibold text-[var(--foreground)] mb-1">
-                {stat.label}
+              <p className="mt-3 text-base font-bold text-white text-pretty">
+                {s.label}
               </p>
-              <p className="text-sm text-[var(--muted-foreground)]">
-                {stat.description}
+              <p className="mt-1 text-sm text-[var(--gray-400)] text-pretty">
+                {s.detail}
               </p>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

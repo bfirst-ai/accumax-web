@@ -3,10 +3,15 @@
 import { motion } from "framer-motion";
 import {
   ArrowDown,
+  Briefcase,
+  Calculator,
   Check,
   Cpu,
   Database,
+  FileSpreadsheet,
+  Layers,
   Minus,
+  Puzzle,
   Rocket,
   ShieldCheck,
 } from "lucide-react";
@@ -36,11 +41,34 @@ const benefits = [
  * so the story is told identically in both places.
  * ------------------------------------------------------------------ */
 
+/* The stack a firm assembles today. Pulled together from what used to be
+ * two separate before/after graphics on this page. */
 const fragmented = [
-  "Tax research tool",
-  "Tax planning tool",
-  "Return preparation tool",
-  "Practice management",
+  {
+    icon: Briefcase,
+    category: "Tax research",
+    detail: "Separate login · answers live outside the client file",
+  },
+  {
+    icon: Calculator,
+    category: "Tax planning",
+    detail: "Separate login · re-key the client's numbers to model",
+  },
+  {
+    icon: FileSpreadsheet,
+    category: "Return preparation",
+    detail: "Separate login · export, import, then reconcile",
+  },
+  {
+    icon: Layers,
+    category: "Practice management",
+    detail: "Separate login · the system of record, without the AI",
+  },
+  {
+    icon: Puzzle,
+    category: "Offshore coordination",
+    detail: "No system at all · spreadsheets and email threads",
+  },
 ];
 
 /* Module short-names — the "AccuTax" prefix is carried by the engine bar below. */
@@ -123,27 +151,39 @@ export function AccuTaxEngine({ className = "" }: { className?: string }) {
         >
           <div className="px-5 py-3.5 border-b border-[var(--border)] bg-[var(--gray-50)]">
             <p className="text-xs font-bold uppercase tracking-widest text-[var(--muted-foreground)]">
-              Separate tools
+              CPA practice of today
             </p>
           </div>
           <div className="flex-1 p-5 space-y-3">
             {fragmented.map((f) => (
               <div
-                key={f}
-                className="flex items-center justify-between gap-3 rounded-xl border border-[var(--border)] bg-white px-4 py-3"
+                key={f.category}
+                className="flex items-start gap-3 rounded-xl border border-[var(--border)] bg-white px-4 py-3"
               >
-                <span className="text-sm font-semibold text-[var(--foreground)]">{f}</span>
-                <span className="inline-flex items-center gap-1.5 shrink-0 rounded-full bg-[var(--gray-100)] px-2.5 py-1 text-[11px] font-semibold text-[var(--muted-foreground)] whitespace-nowrap">
-                  <Database className="h-3 w-3" aria-hidden />
-                  its own copy
+                <span className="inline-flex items-center justify-center w-8 h-8 shrink-0 rounded-lg bg-[var(--gray-100)] text-[var(--gray-500)]">
+                  <f.icon className="h-4 w-4" aria-hidden />
                 </span>
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-baseline justify-between gap-2">
+                    <span className="text-sm font-semibold text-[var(--foreground)]">
+                      {f.category}
+                    </span>
+                    <span className="inline-flex items-center gap-1 shrink-0 rounded-full bg-[var(--gray-100)] px-2 py-0.5 text-[10px] font-semibold text-[var(--muted-foreground)] whitespace-nowrap">
+                      <Database className="h-2.5 w-2.5" aria-hidden />
+                      its own copy
+                    </span>
+                  </div>
+                  <p className="mt-0.5 text-xs text-[var(--muted-foreground)] text-pretty">
+                    {f.detail}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
           <div className="px-5 py-4 border-t border-[var(--border)] bg-[var(--gray-50)]">
             <p className="text-sm text-[var(--muted-foreground)] text-pretty">
-              Four engines. Four copies of the client&apos;s numbers — re-keyed,
-              re-reconciled, and free to drift apart.
+              Five separately-licensed tools. Five copies of the client&apos;s numbers —
+              re-keyed, re-reconciled, and free to drift apart.
             </p>
           </div>
         </motion.div>
@@ -158,7 +198,7 @@ export function AccuTaxEngine({ className = "" }: { className?: string }) {
         >
           <div className="px-5 py-3.5 border-b border-[var(--primary)]/20">
             <p className="text-xs font-bold uppercase tracking-widest text-[var(--primary)]">
-              AccuMax
+              CPA practice with AccuMax
             </p>
           </div>
 

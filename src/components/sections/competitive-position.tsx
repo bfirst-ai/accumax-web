@@ -1,14 +1,8 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   Layers,
-  Briefcase,
-  Calculator,
-  Puzzle,
-  X,
-  Sparkles,
-  FileSpreadsheet,
   Star,
   Check,
   TrendingUp,
@@ -54,41 +48,7 @@ const takeaways = [
   },
 ];
 
-const comparison = [
-  {
-    icon: Briefcase,
-    title: "Tax research",
-    tools: "Separate login · answers live outside the client file",
-  },
-  {
-    icon: Calculator,
-    title: "Tax planning",
-    tools: "Separate login · re-key the client's numbers to model",
-  },
-  {
-    icon: FileSpreadsheet,
-    title: "Return prep",
-    tools: "Separate login · export, import, then reconcile",
-  },
-  {
-    icon: Layers,
-    title: "Practice management",
-    tools: "Separate login · the system of record, without the AI",
-  },
-  {
-    icon: Puzzle,
-    title: "Offshore coordination",
-    tools: "No system at all · spreadsheets and email threads",
-  },
-];
 
-const container: Variants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.08 },
-  },
-};
 
 export function CompetitivePosition() {
   return (
@@ -204,90 +164,6 @@ export function CompetitivePosition() {
                 </p>
               </div>
             ))}
-          </div>
-        </motion.div>
-
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-40px" }}
-          className="grid md:grid-cols-2 gap-5"
-        >
-          {/* What a firm assembles today */}
-          <div className="rounded-2xl border-2 border-dashed border-[var(--gray-300)] bg-[var(--gray-50)] p-7">
-            <div className="flex items-center justify-between mb-6">
-              <div className="flex items-center gap-3">
-                <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-[var(--gray-200)] text-[var(--gray-600)]">
-                  <X className="h-5 w-5" aria-hidden />
-                </div>
-                <h3 className="text-lg font-bold text-[var(--gray-600)] text-balance">
-                  What a firm assembles today
-                </h3>
-              </div>
-            </div>
-            <div className="space-y-3">
-              {comparison.map((c) => (
-                <div
-                  key={c.title}
-                  className="flex items-center gap-3 rounded-xl border border-[var(--gray-200)] bg-white px-4 py-3"
-                >
-                  <c.icon className="h-5 w-5 text-[var(--gray-500)] shrink-0" aria-hidden />
-                  <div>
-                    <p className="text-sm font-semibold text-[var(--gray-700)]">
-                      {c.title}
-                    </p>
-                    <p className="text-xs text-[var(--gray-500)]">{c.tools}</p>
-                  </div>
-                </div>
-              ))}
-              <p className="text-xs text-[var(--gray-500)] px-1 pt-1">
-                Five separately-licensed tools—plus offshore run on
-                spreadsheets. Four copies of the client’s numbers.
-              </p>
-            </div>
-          </div>
-
-          {/* One platform */}
-          <div className="relative rounded-2xl border-2 border-[var(--primary)] bg-gradient-to-br from-[var(--primary)]/5 to-[var(--accent)]/5 p-7 shadow-xl shadow-[var(--primary)]/10">
-            <div className="absolute -top-3 right-6">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] px-3 py-1 text-xs font-bold text-white shadow-lg">
-                <Sparkles className="h-3 w-3" aria-hidden />
-                ONE PLATFORM
-              </span>
-            </div>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br from-[var(--primary)] to-[var(--accent)] text-white">
-                <Sparkles className="h-5 w-5" aria-hidden />
-              </div>
-              <h3 className="text-lg font-bold text-[var(--foreground)] text-balance">
-                AccuMax
-              </h3>
-            </div>
-            <div className="space-y-3">
-              {[
-                "AccuTax — one AI engine, one client record",
-                "AccuTax Research",
-                "AccuTax Plan (multi-year, what-if)",
-                "AccuTax Prepare",
-                "AccuTax Review",
-                "Full practice OS (intake → bill → govern)",
-                "Offshore-delivery orchestration (roadmap)",
-              ].map((line) => (
-                <div
-                  key={line}
-                  className="flex items-center gap-3 rounded-xl border border-[var(--primary)]/15 bg-white px-4 py-3"
-                >
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gradient-to-r from-[var(--primary)] to-[var(--accent)]" />
-                  <p className="text-sm font-semibold text-[var(--foreground)]">
-                    {line}
-                  </p>
-                </div>
-              ))}
-              <p className="text-xs text-[var(--muted-foreground)] px-1 pt-1">
-                Five tools collapse into one system of record — one copy of the client file, no re-keying between tools, one audit trail.
-              </p>
-            </div>
           </div>
         </motion.div>
 

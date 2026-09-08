@@ -55,7 +55,11 @@ export function MarketProblem() {
             id="problem-heading"
             className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl md:text-5xl text-balance"
           >
-            Fewer people. More work. Less time.
+            <span className="block">Fewer people.</span>
+            <span className="block">
+              <span className="whitespace-nowrap">More work.</span>{" "}
+              <span className="whitespace-nowrap">Less time.</span>
+            </span>
           </h2>
           <p className="mt-5 text-lg text-[var(--muted-foreground)] leading-relaxed text-pretty">
             Three things are happening at once, and they compound. Hiring your

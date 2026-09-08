@@ -170,36 +170,6 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* Built for / integrations strip */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.2, duration: 0.5 }}
-          className="mt-20 md:mt-28"
-        >
-          <div className="rounded-2xl border border-[var(--border)] bg-white/80 backdrop-blur-sm shadow-sm overflow-hidden">
-            <div className="px-6 py-5 md:px-8 md:py-6">
-              <p className="text-center text-base md:text-lg font-semibold text-[var(--foreground)] mb-1">
-                One platform. Every tool your firm already uses.
-              </p>
-              <p className="text-center text-sm text-[var(--muted-foreground)] mb-6 max-w-2xl mx-auto">
-                Deep AI across the full platform, plus orchestration—the best of both worlds.
-              </p>
-              <div className="flex flex-wrap justify-center items-center gap-x-10 gap-y-4 text-[var(--gray-500)]">
-                {["QuickBooks", "DocuSign", "Zoho Sign", "Outlook", "Gmail", "Drake", "UltraTax", "Lacerte"].map(
-                  (name) => (
-                    <span
-                      key={name}
-                      className="text-lg font-semibold hover:text-[var(--primary)] transition-colors cursor-default"
-                    >
-                      {name}
-                    </span>
-                  )
-                )}
-              </div>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
