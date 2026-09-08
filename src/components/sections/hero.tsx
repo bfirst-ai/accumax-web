@@ -87,65 +87,16 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.2, type: "spring" }}
             className="relative perspective-1000"
           >
-            <div className="relative rounded-xl border border-[var(--border)] bg-white shadow-2xl shadow-[var(--gray-900)]/10 overflow-hidden aspect-[4/3] max-w-2xl mx-auto transform rotate-y-12">
-              {/* Mockup Header */}
-              <div className="border-b border-[var(--border)] bg-[var(--gray-50)] p-3 flex items-center gap-2">
-                <div className="flex gap-1.5">
-                  <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-amber-400" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
-                </div>
-                <div className="ml-4 h-5 w-1/3 rounded-md bg-white border border-[var(--border)]" />
-              </div>
-
-              {/* Mockup Body */}
-              <div className="flex h-full bg-[var(--gray-50)]">
-                {/* Sidebar */}
-                <div className="w-16 md:w-48 border-r border-[var(--border)] bg-white p-4 hidden sm:flex flex-col gap-3">
-                  <div className="h-8 w-8 rounded-lg bg-[var(--primary)]/10 mb-4" />
-                  {[1, 2, 3, 4, 5].map((i) => (
-                    <div
-                      key={i}
-                      className="h-6 w-full rounded-md bg-[var(--gray-100)]"
-                    />
-                  ))}
-                </div>
-
-                {/* Main Content */}
-                <div className="flex-1 p-6 overflow-hidden">
-                  <div className="flex justify-between items-center mb-6">
-                    <div className="h-8 w-32 rounded-lg bg-[var(--gray-200)]" />
-                    <div className="h-8 w-40 rounded-lg bg-[var(--primary)]" />
-                  </div>
-
-                  <div className="grid grid-cols-3 gap-4 mb-6">
-                    {["AccuTax Prepare", "AccuTax Research", "AccuTax Plan"].map((agent) => (
-                      <div
-                        key={agent}
-                        className="h-24 rounded-xl border border-[var(--border)] bg-white p-4 shadow-sm"
-                      >
-                        <div className="h-8 w-8 rounded-full bg-[var(--primary)]/10 mb-2" />
-                        <div className="h-2 w-16 rounded bg-[var(--gray-100)]" />
-                        <p className="text-[10px] font-semibold text-[var(--primary)] mt-1.5">
-                          {agent}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="rounded-xl border border-[var(--border)] bg-white h-48 p-4 shadow-sm">
-                    <div className="flex items-end gap-3 h-32 mt-4 px-2">
-                      {[40, 70, 45, 90, 60, 80, 50, 75, 65].map((h, i) => (
-                        <div
-                          key={i}
-                          className="flex-1 rounded-t-sm bg-[var(--primary)]/80"
-                          style={{ height: `${h}%`, opacity: 0.5 + i * 0.05 }}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
+            {/* Product screenshot. 1912x910, so the frame takes the image's own
+             * ratio rather than the 4:3 the wireframe placeholder used. */}
+            <div className="relative overflow-hidden rounded-xl border border-[var(--border)] bg-white shadow-2xl shadow-[var(--gray-900)]/10 max-w-2xl mx-auto">
+              <img
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/hero-product.png`}
+                alt="The AccuMax portal: workflows, deadlines and the AccuTax CoPilots down the left rail."
+                width={1912}
+                height={910}
+                className="block w-full h-auto"
+              />
             </div>
 
             {/* Floating Elements (Glassmorphism Cards) */}
