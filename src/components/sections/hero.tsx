@@ -19,24 +19,36 @@ export function Hero() {
       </div>
 
       <div className="container relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* clamp, not the step scale: the two nowrap phrases must never break,
+            so the type shrinks with the viewport rather than overflowing. */}
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="mb-12 lg:mb-16 text-center text-[clamp(1.65rem,4.6vw,3rem)] font-extrabold tracking-tight text-[var(--foreground)] text-balance"
+        >
+          <span className="block">
+            <span className="whitespace-nowrap">CPA Practice Management</span>{" "}
+            <span className="whitespace-nowrap gradient-text leading-[1.25] pb-[0.1em] inline-block">
+              Reinvented with AI
+            </span>
+          </span>
+        </motion.h1>
+
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
             >
-              <div className="inline-flex items-center rounded-full border border-[var(--primary)]/20 bg-[var(--primary)]/5 px-3 py-1 text-sm font-medium text-[var(--primary)] mb-6">
-                <span className="flex h-2 w-2 rounded-full bg-[var(--primary)] mr-2 animate-pulse"></span>
-                CPA Practice Management Reinvented with AI
-              </div>
-              <h1 className="text-4xl font-bold tracking-tight text-[var(--foreground)] sm:text-5xl md:text-6xl leading-tight text-balance">
+              <p className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl leading-tight text-balance">
                 <span className="block">More throughput.</span>
                 <span className="block">Higher ARPU.</span>
-                <span className="block gradient-text leading-[1.25] pb-[0.1em]">
+                <span className="block text-[var(--primary)]">
                   Lower cost to serve.
                 </span>
-              </h1>
+              </p>
               <p className="mt-6 text-lg md:text-xl text-[var(--muted-foreground)] max-w-xl leading-relaxed text-pretty">
                 A workforce of AI agents inside a complete practice operating
                 system. The same team moves more work, each client is worth

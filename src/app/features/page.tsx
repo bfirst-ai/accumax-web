@@ -127,10 +127,12 @@ export default function FeaturesPage() {
             <span className="flex h-2 w-2 rounded-full bg-[var(--primary)] mr-2 animate-pulse" />
             The platform
           </div>
-          <h1 className="text-4xl font-bold tracking-tight text-[var(--foreground)] sm:text-5xl md:text-6xl text-balance">
-            <span className="block">The system your</span>
+          {/* clamp, not the step scale: "practice management system" is 26
+              characters and must never break across two lines. */}
+          <h1 className="text-[clamp(1.5rem,5.6vw,3rem)] font-bold tracking-tight text-[var(--foreground)] text-balance">
+            <span className="block">A state-of-the-art</span>
             <span className="block gradient-text leading-[1.25] pb-[0.1em]">
-              firm runs on
+              practice management system
             </span>
           </h1>
           <p className="mt-6 text-lg text-[var(--muted-foreground)] leading-relaxed text-pretty">
