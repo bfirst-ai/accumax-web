@@ -45,11 +45,11 @@ const after = [
   },
   {
     icon: ShieldCheck,
-    text: "AI Audit Defense that gathers the right documents, compares the IRS view with the client view, and prepares a defense with evidence — in minutes",
+    text: "AccuTax Defense that gathers the right documents, compares the IRS view with the client view, and prepares a defense with evidence — in minutes",
   },
   {
     icon: CalendarRange,
-    text: "AI Tax Planner for highly customized plans — goals, scenarios, what-ifs, and reports — iterative, engaging, impactful",
+    text: "AccuTax Plan for highly customized plans — goals, scenarios, what-ifs, and reports — iterative, engaging, impactful",
   },
   {
     icon: BadgeCheck,
@@ -93,7 +93,7 @@ export function UnitEconomics() {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <span className="inline-flex items-center rounded-full border border-[var(--success)]/30 bg-[var(--success)]/10 px-4 py-1.5 text-sm font-medium text-[var(--success-light)] mb-6">
-            Unit economics
+            What it does to your P&L
           </span>
           <h2
             id="unit-economics-heading"
@@ -103,8 +103,8 @@ export function UnitEconomics() {
             <span className="text-[var(--success-light)]">&gt;30% margin lift</span>
           </h2>
           <p className="mt-5 text-lg text-[var(--gray-400)] leading-relaxed">
-            Less labor per return, a cheaper labor mix, and high-margin
-            advisory.
+            More throughput, higher ARPU, and a lower cost to serve — the three
+            levers, pulled at once.
           </p>
         </motion.div>
 
@@ -124,7 +124,7 @@ export function UnitEconomics() {
               Before
             </p>
             <h3 className="text-xl font-bold text-white mb-6">
-              System of tasks, fragmented tools
+              Fragmented tools, manual handoffs
             </h3>
             <ul className="space-y-4">
               {before.map((b) => (
@@ -159,7 +159,7 @@ export function UnitEconomics() {
               After
             </p>
             <h3 className="text-xl font-bold text-white mb-6">
-              System of intelligence
+              One platform, one engine
             </h3>
             <ul className="space-y-4">
               {after.map((a) => (
@@ -204,6 +204,30 @@ export function UnitEconomics() {
           <p className="text-[var(--gray-400)] max-w-2xl mx-auto">
             Every lever is measurable per workflow and per account — offshore
             amplifies it, but domestic firms capture it too.
+          </p>
+        </motion.div>
+
+        {/* Valuation angle — matters to anyone building toward a sale */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4 }}
+          className="mt-14 rounded-2xl border border-[var(--gray-800)] bg-[var(--gray-900)]/70 p-7 md:p-9 max-w-4xl mx-auto"
+        >
+          <p className="text-xs font-bold uppercase tracking-widest text-[var(--warning)]">
+            If you are building toward a sale
+          </p>
+          <p className="mt-3 text-xl md:text-2xl font-bold text-white text-balance">
+            Firms trade on EBITDA. Gross margin is where EBITDA comes from.
+          </p>
+          <p className="mt-3 text-[var(--gray-400)] leading-relaxed text-pretty">
+            A ~30% lift in gross margin lands straight in EBITDA — and buyers pay
+            a multiple of it. AccuMax also gives you the numbers to prove it:
+            utilization, realization, throughput per preparer, AR aging and
+            margin by service, all in one place, all traceable. Cleaner metrics
+            and a higher margin are what turn a good practice into a
+            better-valued one.
           </p>
         </motion.div>
       </div>

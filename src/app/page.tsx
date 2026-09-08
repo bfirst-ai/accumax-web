@@ -1,13 +1,9 @@
 import { Hero } from "@/components/sections/hero";
-import { MarketProblem } from "@/components/sections/market-problem";
 import { Promise } from "@/components/sections/promise";
-import { Pillars } from "@/components/sections/pillars";
-import { GoalsSection } from "@/components/sections/goals";
+import { HowItWorks, NoRipAndReplace } from "@/components/sections/how-it-works";
 import { AiAgents } from "@/components/sections/ai-agents";
-import { PracticeOs } from "@/components/sections/practice-os";
-import { CompetitivePosition } from "@/components/sections/competitive-position";
+import { AccuTaxSection } from "@/components/sections/accutax";
 import { UnitEconomics } from "@/components/sections/unit-economics";
-import { Integrations } from "@/components/sections/integrations";
 import { PricingTeaser } from "@/components/sections/pricing-teaser";
 import { FaqSection } from "@/components/sections/faq";
 import { Cta } from "@/components/sections/cta";
@@ -16,15 +12,12 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <MarketProblem />
       <Promise />
-      <Pillars />
-      <GoalsSection />
+      <HowItWorks />
       <AiAgents />
-      <PracticeOs />
-      <CompetitivePosition />
+      <AccuTaxSection />
+      <NoRipAndReplace />
       <UnitEconomics />
-      <Integrations />
       <PricingTeaser />
       <FaqSection />
       <Cta />

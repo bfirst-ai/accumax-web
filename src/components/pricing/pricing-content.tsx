@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Check, Infinity as InfinityIcon, Minus, Plus, Sparkles } from "lucide-react";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Badge } from "@/components/ui/badge";
-import { ValueStory } from "@/components/pricing/value-story";
 
 /* ------------------------------------------------------------------ *
  * Two pricing dimensions:
@@ -38,7 +37,7 @@ type Plan = {
 
 const plans: Plan[] = [
   {
-    name: "Essentials",
+    name: "Standard",
     tier: "Access",
     description: "Solo & micro firms getting off the process treadmill",
     cta: "Start Free Trial",
@@ -48,12 +47,10 @@ const plans: Plan[] = [
     headline: "Everything a solo practice needs, with real AI included",
     features: [
       "Complete Practice OS — unlimited (intake, approvals, eSignatures, invoices, payments & audit logs)",
-      "AI 1040 Reviewer — unlimited",
-      "Forms Recognition — unlimited",
-      "AI Letter Generation — unlimited",
-      "AI Tax Researcher — 10 accounts",
-      "AI 1040 Preparer — 10 accounts",
-      "Transfer to TaxPrep SW — 10 accounts",
+      "Unlimited CoPilots: InTake, Recognize, Extract, Organize, Profile, Review & Compose",
+      "AccuTax Research — 10 accounts",
+      "AccuTax Prepare — 10 accounts",
+      "AccuTax Bridge — 10 accounts",
     ],
   },
   {
@@ -66,17 +63,16 @@ const plans: Plan[] = [
     discount: { "1yr": null, "2yr": "5%", "3yr": "10%" },
     headline: "Double the AI allowances, plus the agents that win advisory work",
     features: [
-      "Everything in Essentials, plus:",
-      "Forms Data eXtraction — unlimited",
-      "AI IRS Audit Defense — 10 accounts",
-      "AI Tax Planner — 10 accounts",
-      "AI Tax Researcher — 20 accounts (up from 10)",
-      "AI 1040 Preparer — 20 accounts (up from 10)",
-      "Transfer to TaxPrep SW — 20 accounts (up from 10)",
+      "Everything in Standard, plus:",
+      "AccuTax Defense — 10 accounts",
+      "AccuTax Plan — 10 accounts",
+      "AccuTax Research — 20 accounts (2×)",
+      "AccuTax Prepare — 20 accounts (2×)",
+      "AccuTax Bridge — 20 accounts (2×)",
     ],
   },
   {
-    name: "Business",
+    name: "Premium",
     tier: "Scale · Hero",
     popular: true,
     description: "Scaling teams and high client volume — the tier most firms buy",
@@ -84,14 +80,15 @@ const plans: Plan[] = [
     href: "/contact",
     price: { "1yr": 1199, "2yr": 1149, "3yr": 1099 },
     discount: { "1yr": null, "2yr": "4.2%", "3yr": "8.3%" },
-    headline: "Unlimited Audit Defense and the deepest allowances we offer",
+    headline: "Unlimited AccuTax Defense, client-portal Assist, and our deepest allowances",
     features: [
       "Everything in Professional, plus:",
-      "AI IRS Audit Defense — unlimited",
-      "AI Tax Planner — 20 accounts (up from 10)",
-      "AI Tax Researcher — 40 accounts (up from 20)",
-      "AI 1040 Preparer — 40 accounts (up from 20)",
-      "Transfer to TaxPrep SW — 40 accounts (up from 20)",
+      "AccuTax Assist — client-portal self-help, all accounts",
+      "AccuTax Defense — unlimited",
+      "AccuTax Plan — 20 accounts (2×)",
+      "AccuTax Research — 40 accounts (4×)",
+      "AccuTax Prepare — 40 accounts (4×)",
+      "AccuTax Bridge — 40 accounts (4×)",
     ],
   },
 ];
@@ -109,20 +106,44 @@ type Allowance = {
 
 const allowances: Allowance[] = [
   {
-    agent: "AI 1040 Reviewer",
-    note: "Reviews returns for gaps — errors, warnings, cross-form validations",
+    agent: "AccuTax InTake",
+    note: "Guided, customizable intake forms that prefill from uploaded documents",
     included: ["unlimited", "unlimited", "unlimited"],
     overage: [null, null, null],
   },
   {
-    agent: "Forms Recognition",
-    note: "Recognizes uploaded forms from zip and composite document inputs",
+    agent: "AccuTax Recognize",
+    note: "Identifies and tags 250+ IRS and non-IRS forms automatically",
     included: ["unlimited", "unlimited", "unlimited"],
     overage: [null, null, null],
   },
   {
-    agent: "Letter Generation",
-    note: "AccuWriter drafts letters wherever input is provided",
+    agent: "AccuTax Extract",
+    note: "High-confidence field extraction from PDFs and images, with a review assistant",
+    included: ["unlimited", "unlimited", "unlimited"],
+    overage: [null, null, null],
+  },
+  {
+    agent: "AccuTax Organize",
+    note: "Consolidates intake, chats, emails and uploads into one organized client file",
+    included: ["unlimited", "unlimited", "unlimited"],
+    overage: [null, null, null],
+  },
+  {
+    agent: "AccuTax Profile",
+    note: "Summarizes every client input and synthesizes the work and forms needed",
+    included: ["unlimited", "unlimited", "unlimited"],
+    overage: [null, null, null],
+  },
+  {
+    agent: "AccuTax Review",
+    note: "Surfaces audit flags, omissions, inconsistencies and missed opportunities",
+    included: ["unlimited", "unlimited", "unlimited"],
+    overage: [null, null, null],
+  },
+  {
+    agent: "AccuTax Compose",
+    note: "Team, client and IRS communications with template, tone and e-signature support",
     included: ["unlimited", "unlimited", "unlimited"],
     overage: [null, null, null],
   },
@@ -133,40 +154,40 @@ const allowances: Allowance[] = [
     overage: [null, null, null],
   },
   {
-    agent: "Forms Data eXtraction",
-    note: "Extracts data from recognized forms, with manual override",
-    included: [null, "unlimited", "unlimited"],
-    overage: [null, null, null],
-  },
-  {
-    agent: "AI Tax Researcher",
-    note: "Contextual answers on prior- and current-year facts",
-    included: [10, 20, 40],
-    overage: [20, 15, 10],
-  },
-  {
-    agent: "AI 1040 Preparer",
-    note: "Prepares federal returns in minutes from source documents",
-    included: [10, 20, 40],
-    overage: [20, 20, 20],
-  },
-  {
-    agent: "Transfer to TaxPrep SW",
-    note: "Bridges extracted data into popular tax prep software",
+    agent: "AccuTax Bridge",
+    note: "Transfers extracted data into the right screens and forms in your tax prep software",
     included: [10, 20, 40],
     overage: [25, 15, 10],
   },
   {
-    agent: "AI IRS Audit Defense",
-    note: "One-click evaluation and response to IRS notices",
-    included: [null, 10, "unlimited"],
-    overage: [null, 25, null],
+    agent: "AccuTax Assist",
+    note: "Client-portal self-help — answers clients' own questions, all accounts",
+    included: [null, null, "unlimited"],
+    overage: [null, null, null],
   },
   {
-    agent: "AI Tax Planner",
-    note: "Multi-year, goal-oriented opportunities & what-if scenarios",
+    agent: "AccuTax Research",
+    note: "IRS.gov + client context + your Knowledge Hub — the deepest corpus we offer",
+    included: [10, 20, 40],
+    overage: [20, 15, 10],
+  },
+  {
+    agent: "AccuTax Prepare",
+    note: "Automated preparation of personal returns, with optional manual iteration",
+    included: [10, 20, 40],
+    overage: [20, 20, 20],
+  },
+  {
+    agent: "AccuTax Plan",
+    note: "Models outcomes, cashflow and tax impact across scenarios",
     included: [null, 10, 20],
     overage: [null, 125, 100],
+  },
+  {
+    agent: "AccuTax Defense",
+    note: "Understands IRS notices, collects evidence and drafts responses",
+    included: [null, 10, "unlimited"],
+    overage: [null, 25, null],
   },
 ];
 
@@ -176,11 +197,13 @@ const allowances: Allowance[] = [
  * AccuMax deck's platform slides.
  * --------------------------------------------- */
 
-type PlatformGroup = { title: string; items: string[] };
+type PlatformGroup = { title: string; summary: string; items: string[] };
 
 const platform: PlatformGroup[] = [
   {
     title: "Client Intake & Engagement",
+    summary:
+      "Onboarding, organizers, document intake, triage and client comms",
     items: [
       "InTakePro customizable onboarding",
       "Tax organizer generation",
@@ -189,13 +212,15 @@ const platform: PlatformGroup[] = [
       "Account summary triage",
       "Doc list templates & bulk account creation",
       "Outlook, Gmail & QuickBooks integration",
-      "Transfer to TaxPrep SW",
+      "AccuTax Bridge",
       "Chat, broadcast & client engagement",
       "Mobile client & lead management",
     ],
   },
   {
     title: "Approvals, Invoicing & Payments",
+    summary:
+      "eSignature, approvals, invoicing, payments and AR",
     items: [
       "DocuSign, Zoho Sign — any eSignature",
       "Letter templates with variable data merge",
@@ -211,6 +236,8 @@ const platform: PlatformGroup[] = [
   },
   {
     title: "Visibility, Control & Governance",
+    summary:
+      "Dashboards, audit logs, provenance and admin controls",
     items: [
       "Firm-wide dashboards on where the business is",
       "Workflow-level view of progress",
@@ -226,11 +253,13 @@ const platform: PlatformGroup[] = [
   },
   {
     title: "Ambient AI & Automation",
+    summary:
+      "Duplicate detection, comparisons, Knowledge Hub and workflow automations",
     items: [
       "Letter and document generation",
       "Forms data extraction with manual override",
       "Duplicate detection & forms comparison",
-      "AI Account Profiler",
+      "AccuTax Profile",
       "AI Tax Organizer",
       "Knowledge Hub — SOPs, training, audio/video/text",
       "Flexible workflow automations before and after each step",
@@ -245,23 +274,27 @@ const faqs = [
   },
   {
     q: "How does pricing work — seats or accounts?",
-    a: "Both, and they do different jobs. The seat licence is per user, per year and covers the whole platform: practice OS, unlimited 1040 Review, forms recognition, letter generation and more. On top of that, the heavier AI agents carry an allowance measured in activated accounts, which scales with your tier. You only pay more when you do more work.",
+    a: "Both, and they do different jobs. The seat licence is per user, per year and covers the whole platform: practice OS, unlimited Review, Recognize, Extract, Organize, Compose and more. On top of that, the heavier AI agents carry an allowance measured in activated accounts, which scales with your tier. You only pay more when you do more work.",
+  },
+  {
+    q: "What is AccuTax?",
+    a: "AccuTax is the single tax-domain AI engine every AccuMax agent runs on. Research, planning, preparation, review and audit defense are not separate products stitched together — they are one engine working on one client record. That matters because a firm assembling the same capability from separate tools ends up with a copy of the client's numbers inside each one: the planner works from one version, the preparer from another, and the two quietly stop agreeing. On AccuTax there is only ever one version of the truth, so what you planned is what you file and what you defend.",
   },
   {
     q: "What is an activated account?",
-    a: "An activated account is a client account for which a particular AI tool has been activated. Activation is per tool, so each tool draws on its own allowance — activating both the 1040 Preparer and the Tax Planner for the same client counts once against each. Accounts you simply store, invoice or communicate with are unlimited on every tier and never metered.",
+    a: "An activated account is a client account for which a particular AI tool has been activated. Activation is per tool, so each tool draws on its own allowance — activating both the AccuTax Prepare and the AccuTax Plan for the same client counts once against each. Accounts you simply store, invoice or communicate with are unlimited on every tier and never metered.",
   },
   {
     q: "What happens when I use up an allowance?",
-    a: "Nothing stops. You continue at a flat per-account rate, and that rate falls as your tier rises — Transfer to TaxPrep SW runs $25 per extra account on Essentials, $15 on Professional and $10 on Business. Revenue grows with the work and margin holds as models get cheaper.",
+    a: "Nothing stops. You continue at a flat per-account rate, and that rate falls as your tier rises — AccuTax Bridge runs $25 per extra account on Standard, $15 on Professional and $10 on Premium. Revenue grows with the work and margin holds as models get cheaper.",
   },
   {
     q: "Why commit to two or three years?",
-    a: "Longer terms carry a lower rate: two-year and three-year commitments save up to 6.25% and 12.5% respectively, with the deepest discount on Essentials. All plans are billed up front for the full term.",
+    a: "Longer terms carry a lower rate: two-year and three-year commitments save up to 6.25% and 12.5% respectively, with the deepest discount on Standard. All plans are billed up front for the full term.",
   },
   {
     q: "Which tier should a firm like mine pick?",
-    a: "Solo and micro firms start with Essentials. Professional doubles every allowance and unlocks Audit Defense, Tax Planner and forms data extraction. Most firms end up on Business — unlimited Audit Defense, 4× allowances and the lowest overage rates across every agent, which is why it is the tier most firms buy.",
+    a: "Solo and micro firms start with Standard. Professional doubles every allowance and unlocks AccuTax Defense and AccuTax Plan. Most firms end up on Premium — unlimited Audit Defense, 4× allowances and the lowest overage rates across every agent, which is why it is the tier most firms buy.",
   },
   {
     q: "Can I add seats or upgrade mid-term?",
@@ -339,7 +372,6 @@ export function PricingContent() {
       <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
         {plans.map((plan, index) => {
           const annual = plan.price[term];
-          const discount = plan.discount[term];
           const monthly = Math.round(annual / 12);
           return (
             <motion.div
@@ -391,13 +423,6 @@ export function PricingContent() {
                 <p className="mt-1.5 text-xs text-[var(--muted-foreground)]">
                   ≈ ${monthly}/user per month · {activeTerm.short} commitment
                 </p>
-                <div className="h-6 mt-1.5">
-                  {discount && (
-                    <Badge variant="success" className="font-semibold">
-                      Save {discount}
-                    </Badge>
-                  )}
-                </div>
               </div>
 
               <ButtonLink
@@ -477,9 +502,9 @@ export function PricingContent() {
             AI included with every seat
           </h2>
           <p className="mt-3 text-[var(--muted-foreground)]">
-            Four capabilities are unlimited on every tier. The heavier agents carry an
+            Eight capabilities are unlimited on every tier. The heavier agents carry an
             allowance in activated accounts that doubles at Professional and doubles
-            again at Business — while the overage rate falls.
+            again at Premium — while the overage rate falls.
           </p>
         </div>
 
@@ -550,9 +575,6 @@ export function PricingContent() {
         </p>
       </div>
 
-      {/* Positioning / value story */}
-      <ValueStory />
-
       {/* Practice OS — included on every tier */}
       <div className="mt-24">
         <div className="text-center max-w-2xl mx-auto mb-10">
@@ -568,7 +590,7 @@ export function PricingContent() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {platform.map((group, index) => (
             <motion.div
               key={group.title}
@@ -576,29 +598,28 @@ export function PricingContent() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.06, duration: 0.4 }}
-              className="rounded-2xl border border-[var(--border)] bg-white shadow-sm overflow-hidden"
+              className="rounded-2xl border border-[var(--border)] bg-white p-5 shadow-sm"
             >
-              <div className="px-5 py-3.5 border-b border-[var(--border)] bg-[var(--gray-50)]">
-                <p className="text-xs font-bold uppercase tracking-widest text-[var(--muted-foreground)]">
-                  {group.title}
-                </p>
-              </div>
-              <ul className="px-5 py-4 space-y-2.5">
-                {group.items.map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-start gap-2.5 text-sm text-[var(--gray-700)]"
-                  >
-                    <Check
-                      className="h-4 w-4 shrink-0 text-[var(--success)] mt-0.5"
-                      aria-hidden
-                    />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+              <span className="inline-flex items-center justify-center w-9 h-9 rounded-xl bg-[var(--success)]/10 text-[var(--success)] mb-3">
+                <Check className="h-4.5 w-4.5" aria-hidden />
+              </span>
+              <p className="text-sm font-bold text-[var(--foreground)] text-pretty">
+                {group.title}
+              </p>
+              <p className="mt-1.5 text-xs text-[var(--muted-foreground)] leading-relaxed text-pretty">
+                {group.summary}
+              </p>
+              <p className="mt-3 text-[11px] font-semibold uppercase tracking-widest text-[var(--primary)]">
+                {group.items.length} capabilities
+              </p>
             </motion.div>
           ))}
+        </div>
+
+        <div className="text-center mt-8">
+          <ButtonLink href="/features" variant="outline">
+            See the full capability list
+          </ButtonLink>
         </div>
       </div>
 

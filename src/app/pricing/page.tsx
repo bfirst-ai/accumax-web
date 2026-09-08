@@ -5,7 +5,7 @@ import { Cta } from "@/components/sections/cta";
 export const metadata: Metadata = {
   title: "Pricing | AccuMax",
   description:
-    "Practice management pricing with an AI workforce included. Essentials $799, Professional $999, Business $1,199 per seat, per year — save up to 12.5% on multi-year terms. Unlimited 1040 review, forms recognition and letter generation on every tier. Start a 90-day free trial.",
+    "Practice management pricing with an AI workforce included. Standard $799, Professional $999, Premium $1,199 per seat, per year — save up to 12.5% on multi-year terms. Nine AccuTax CoPilots are unlimited on every tier Start a 90-day free trial.",
 };
 
 export default function PricingPage() {
@@ -34,8 +34,8 @@ export default function PricingPage() {
             From $699 per seat, per year — at or below what firms already pay for
             practice management alone, with a whole workforce of{" "}
             <span className="whitespace-nowrap">tax-domain</span> AI agents
-            included. Unlimited 1040 review, forms recognition and letter
-            generation on every tier, from day one.
+            included. Seven CoPilots — including Recognize, Extract, Organize and
+            Compose — are unlimited on every tier, from day one.
           </p>
         </div>
       </section>

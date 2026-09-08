@@ -14,11 +14,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "AccuMax | CPA Practice Management Reinvented with AI",
   description:
-    "A workforce of tax-domain AI agents inside a complete practice operating system. Tax Researcher, 1040 Preparer & Reviewer, Tax Planner, IRS Audit Defense. Work smarter. Serve better. Stay compliant.",
+    "More throughput, higher ARPU, lower cost to serve. A workforce of AI agents—AccuTax Research, 1040 Preparer, Review, Plan and Defense—inside a complete practice operating system.",
   openGraph: {
     title: "AccuMax | CPA Practice Management Reinvented with AI",
     description:
-      "Deep AI across the full practice platform, plus orchestration. Deliver >30% gross margin improvement.",
+      "More throughput, higher ARPU, lower cost to serve—a >30% gross margin improvement, from one AI engine over one client record.",
   },
 };
 

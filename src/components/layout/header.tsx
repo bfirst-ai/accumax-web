@@ -9,14 +9,14 @@ import { ButtonLink } from "@/components/ui/button-link";
 import { cn } from "@/lib/utils";
 
 const productItems = [
-  "AI Tax Researcher",
-  "AI 1040 Preparer",
-  "AI 1040 Reviewer",
-  "AI Tax Planner",
-  "AI IRS Audit Defense",
-  "AccuBridge — Forms Data Extraction",
-  "AI Account Profiler & Tax Organizer",
-  "AI AccuWriter & Letter Generation",
+  "AccuTax Research",
+  "AccuTax Prepare",
+  "AccuTax Review",
+  "AccuTax Plan",
+  "AccuTax Defense",
+  "AccuTax Bridge",
+  "AccuTax Profile & Tax Organizer",
+  "AccuTax Compose",
   "Knowledge Hub — SOPs & Training",
   "Client Intake & Engagement",
   "Approvals, Invoicing & Payments",
@@ -36,7 +36,7 @@ const serviceItems = [
   "Offshore Delivery Orchestration",
   "Self-Service Portals",
   "Outlook / Gmail / QuickBooks Integration",
-  "Transfer to TaxPrep SW",
+  "AccuTax Bridge",
   "Migration Support & Training",
 ];
 

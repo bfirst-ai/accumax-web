@@ -30,16 +30,17 @@ export function Hero() {
                 <span className="flex h-2 w-2 rounded-full bg-[var(--primary)] mr-2 animate-pulse"></span>
                 CPA Practice Management Reinvented with AI
               </div>
-              <h1 className="text-4xl font-bold tracking-tight text-[var(--foreground)] sm:text-5xl md:text-6xl leading-tight">
-                From System of Tasks to{" "}
-                <span className="gradient-text">
-                  System of Intelligence
+              <h1 className="text-4xl font-bold tracking-tight text-[var(--foreground)] sm:text-5xl md:text-6xl leading-tight text-balance">
+                <span className="block">More throughput.</span>
+                <span className="block">Higher ARPU.</span>
+                <span className="block gradient-text leading-[1.25] pb-[0.1em]">
+                  Lower cost to serve.
                 </span>
               </h1>
-              <p className="mt-6 text-lg md:text-xl text-[var(--muted-foreground)] max-w-xl leading-relaxed">
-                A workforce of tax-domain AI agents inside a complete practice
-                operating system—intake, approvals, invoicing, payments, and
-                governance. Work smarter. Serve better. Stay compliant.
+              <p className="mt-6 text-lg md:text-xl text-[var(--muted-foreground)] max-w-xl leading-relaxed text-pretty">
+                A workforce of AI agents inside a complete practice operating
+                system. The same team moves more work, each client is worth
+                more, and every hour of it costs you less.
               </p>
               <div className="mt-10 flex flex-wrap gap-4">
                 <ButtonLink
@@ -106,7 +107,7 @@ export function Hero() {
                   </div>
 
                   <div className="grid grid-cols-3 gap-4 mb-6">
-                    {["1040 Preparer", "Tax Researcher", "Tax Planner"].map((agent) => (
+                    {["AccuTax Prepare", "AccuTax Research", "AccuTax Plan"].map((agent) => (
                       <div
                         key={agent}
                         className="h-24 rounded-xl border border-[var(--border)] bg-white p-4 shadow-sm"
@@ -150,7 +151,7 @@ export function Hero() {
                   <p className="text-xs text-[var(--muted-foreground)]">
                     Return prepared in minutes
                   </p>
-                  <p className="font-semibold text-sm">AI 1040 Preparer</p>
+                  <p className="font-semibold text-sm">AccuTax Prepare</p>
                 </div>
               </div>
             </motion.div>

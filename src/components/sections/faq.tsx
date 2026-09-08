@@ -8,7 +8,7 @@ const faqs = [
   {
     question: "What is AccuMax?",
     answer:
-      "AccuMax is an AI-powered practice platform that elevates the CPA. It combines a workforce of tax-domain AI agents—Tax Researcher, 1040 Preparer, 1040 Reviewer, Tax Planner, IRS Audit Defense, and AccuBridge—inside a complete practice operating system covering intake, approvals, invoicing, payments, and governance.",
+      "AccuMax is an AI-powered practice platform that elevates the CPA. It combines a workforce of tax-domain AI agents—AccuTax Research, AccuTax Prepare, AccuTax Review, AccuTax Plan, AccuTax Defense, and AccuTax Bridge—inside a complete practice operating system covering intake, approvals, invoicing, payments, and governance.",
   },
   {
     question: "How is AccuMax different from other practice platforms?",
@@ -16,9 +16,14 @@ const faqs = [
       "Broad practice platforms give breadth but treat AI as a bolt-on. Single-function AI tools go deep in one area—research, planning, or prep—and nothing else. AccuMax is alone top-right: deep AI across the full platform, plus orchestration. Five separately-licensed tools collapse into one system of record.",
   },
   {
+    question: "What is AccuTax?",
+    answer:
+      "AccuTax is the single tax-domain AI engine every AccuMax agent runs on. Research, planning, preparation, review and audit defense are not separate products stitched together—they are one engine working on one client record. A firm assembling the same capability from separate tools ends up with a copy of the client's numbers inside each one: the planner works from one version, the preparer from another, and the two quietly stop agreeing. On AccuTax there is only ever one version of the truth, so what you planned is what you file and what you defend.",
+  },
+  {
     question: "What does the AI agent workforce do?",
     answer:
-      "Agents cover the entire tax pipeline: Tax Researcher answers contextual questions on prior- and current-year facts; the 1040 Preparer drafts federal returns in minutes from source documents; the 1040 Reviewer checks for gaps, errors, and cross-form validations; the Tax Planner runs multi-year what-if scenarios; IRS Audit Defense evaluates and responds to IRS notices in one click; and AccuBridge extracts data from uploaded forms into TaxPrep software—ours or theirs.",
+      "Agents cover the entire tax pipeline: AccuTax Research answers contextual questions on prior- and current-year facts; the AccuTax Prepare drafts federal returns in minutes from source documents; the AccuTax Review checks for gaps, errors, and cross-form validations; the AccuTax Plan runs multi-year what-if scenarios; AccuTax Defense evaluates and responds to IRS notices in one click; and AccuTax Bridge extracts data from uploaded forms into TaxPrep software—ours or theirs. All of them run on AccuTax, so they share one version of the client’s numbers.",
   },
   {
     question: "How does the AI handle compliance?",
@@ -28,7 +33,7 @@ const faqs = [
   {
     question: "How does AccuMax pricing work?",
     answer:
-      "Three per-seat tiers—Essentials at $799, Professional at $999, and Business at $1,199 per seat, per year, with up to 12.5% off on multi-year terms. That's at or below what firms already pay for practice management alone. Unlimited 1040 review, forms recognition and letter generation come with every tier; heavier agents carry an allowance in activated accounts and meter at a flat per-account rate that falls as your tier rises. Revenue grows with the work and margins hold as models get cheaper.",
+      "Three per-seat tiers—Standard at $799, Professional at $999, and Premium at $1,199 per seat, per year, with up to 12.5% off on multi-year terms. That's at or below what firms already pay for practice management alone. Seven AccuTax CoPilots are unlimited on every tier; heavier agents carry an allowance in activated accounts and meter at a flat per-account rate that falls as your tier rises. Revenue grows with the work and margins hold as models get cheaper.",
   },
   {
     question: "Can we try AccuMax before committing?",

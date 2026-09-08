@@ -12,37 +12,37 @@ import {
 const goals = [
   {
     icon: TrendingUp,
-    title: "Scale",
-    short: "Scale to 10X, non-linearly",
-    description: "Grow clients, revenues, and profitability without linear headcount.",
+    title: "Take on more work",
+    short: "Without hiring to match",
+    description: "Add clients and revenue without adding people in the same proportion.",
     accent: "from-blue-500/20 to-blue-600/5",
   },
   {
     icon: Sparkles,
-    title: "Leverage",
-    short: "Reinvent everything with AI",
-    description: "Apply AI across marketing, operations, and customer service.",
+    title: "Get admin off your desk",
+    short: "Billable hours, not busywork",
+    description: "Onboarding, chasing documents and re-keying data stop eating your day.",
     accent: "from-violet-500/20 to-violet-600/5",
   },
   {
     icon: Heart,
-    title: "Increase",
-    short: "Loyalty & ARPU",
-    description: "Boost client satisfaction—longer tenure, higher value per client.",
+    title: "Keep clients longer",
+    short: "And earn more from each",
+    description: "Faster answers and a portal clients actually use—so they stay, and spend more.",
     accent: "from-rose-500/20 to-rose-600/5",
   },
   {
     icon: Layers,
-    title: "Create",
-    short: "New services & delivery",
-    description: "More self-service for clients and new delivery methods.",
+    title: "Bill for advisory",
+    short: "Not just compliance",
+    description: "Planning and audit defense you can offer at scale, to clients you already have.",
     accent: "from-emerald-500/20 to-emerald-600/5",
   },
   {
     icon: Zap,
-    title: "Kindle",
-    short: "Transformation with compliance",
-    description: "A nimble culture backed by strict, audit-ready compliance.",
+    title: "Stay defensible",
+    short: "On every single return",
+    description: "Audit-ready logs and provenance on every return, without anyone remembering to.",
     accent: "from-amber-500/20 to-amber-600/5",
   },
 ];
@@ -81,16 +81,16 @@ export function GoalsSection() {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <span className="inline-flex items-center rounded-full border border-[var(--primary)]/20 bg-[var(--primary)]/5 px-4 py-1.5 text-sm font-medium text-[var(--primary)] mb-6">
-            Where CPA practices want to go
+            What firms tell us they want
           </span>
           <h2
             id="goals-heading"
             className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl md:text-5xl"
           >
-            Towards a Scalable, Smarter, More Client-Centric Firm
+            Grow the firm without growing the headcount
           </h2>
           <p className="mt-5 text-lg text-[var(--muted-foreground)] leading-relaxed">
-            Five strategic imperatives guide how AccuMax helps your firm grow.
+            Five things nearly every firm we talk to is trying to do.
           </p>
         </motion.div>
 

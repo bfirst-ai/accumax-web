@@ -21,57 +21,58 @@ import {
 import Link from "next/link";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Cta } from "@/components/sections/cta";
+import { CompetitivePosition } from "@/components/sections/competitive-position";
 
 export const metadata: Metadata = {
   title: "Features | AccuMax",
   description:
-    "A workforce of tax-domain AI agents—Tax Researcher, 1040 Preparer, 1040 Reviewer, Tax Planner, IRS Audit Defense, AccuBridge—inside a complete practice operating system.",
+    "A workforce of tax-domain AI agents—AccuTax Research, AccuTax Prepare, AccuTax Review, AccuTax Plan, AccuTax Defense, AccuTax Bridge—all running on AccuTax, one AI engine over one client record, inside a complete practice operating system.",
 };
 
 const agents = [
   {
     icon: BookOpenText,
-    title: "Tax Researcher",
+    title: "AccuTax Research",
     description:
       "Contextual, comprehensive answers on prior- and current-year facts.",
   },
   {
     icon: FileSpreadsheet,
-    title: "1040 Preparer",
+    title: "AccuTax Prepare",
     description: "Prepares federal returns in minutes from source documents.",
   },
   {
     icon: SearchCheck,
-    title: "1040 Reviewer",
+    title: "AccuTax Review",
     description:
       "Reviews returns for gaps—errors, warnings, cross-form validations.",
   },
   {
     icon: CalendarRange,
-    title: "Tax Planner",
+    title: "AccuTax Plan",
     description:
       "Multi-year goal-oriented opportunities, what-if scenario planning.",
   },
   {
     icon: ShieldAlert,
-    title: "IRS Audit Defense",
+    title: "AccuTax Defense",
     description: "One-click evaluation and response to IRS notices.",
   },
   {
     icon: ArrowRightLeft,
-    title: "AccuBridge",
+    title: "AccuTax Bridge",
     description:
       "Recognizes uploaded forms, extracts data, and bridges it into TaxPrep software—ours or theirs.",
   },
 ];
 
 const aiFeatures = [
-  "AI AccuWriter—everywhere input is provided",
+  "AccuTax Compose—team, client and IRS communications",
   "Letter and doc generation",
   "Forms data extraction with manual over-ride",
   "Duplicate detection",
   "Forms comparison",
-  "AI Account Profiler",
+  "AccuTax Profile",
   "AI Tax Organizer",
   "Knowledge Hub—your SOPs, training, audio-video-text",
   "Flexible workflow automations—before and after each step",
@@ -92,7 +93,7 @@ const featureAreas = [
       "Doc list templates & bulk account creation",
       "Outlook and Gmail integration",
       "QuickBooks integration",
-      "Transfer to TaxPrep SW",
+      "AccuTax Bridge",
       "Chat and effective client engagement, broadcasts",
     ],
   },
@@ -168,7 +169,7 @@ export default function FeaturesPage() {
         <div className="container relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center rounded-full border border-[var(--primary)]/20 bg-[var(--primary)]/5 px-3 py-1 text-sm font-medium text-[var(--primary)] mb-6">
             <span className="flex h-2 w-2 rounded-full bg-[var(--primary)] mr-2 animate-pulse" />
-            Product depth & breadth
+            Everything AccuMax does
           </div>
           <h1 className="text-4xl font-bold tracking-tight text-[var(--foreground)] sm:text-5xl md:text-6xl">
             Deep AI.{" "}
@@ -176,8 +177,8 @@ export default function FeaturesPage() {
           </h1>
           <p className="mt-6 text-lg text-[var(--muted-foreground)] leading-relaxed">
             A workforce of tax-domain AI agents, not a chatbot bolt-on—inside
-            a complete practice operating system. The only platform that is
-            alone top-right: deep AI plus orchestration.
+            a complete practice operating system. Every agent runs on AccuTax,
+            one AI engine over one client record, so nothing is ever out of sync.
           </p>
           <div className="mt-9 flex flex-wrap gap-4 justify-center">
             <ButtonLink href="/contact#demo" variant="primary" size="lg" className="shadow-lg shadow-[var(--primary)]/20">
@@ -352,7 +353,7 @@ export default function FeaturesPage() {
           </h2>
           <p className="mt-3 text-[var(--muted-foreground)] max-w-2xl mx-auto">
             AccuMax integrates with accounting, email, eSignature and TaxPrep
-            software—with Transfer to TaxPrep SW built in.
+            software—with AccuTax Bridge built in.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4 md:gap-5">
             {integrations.map((name) => (
@@ -372,6 +373,8 @@ export default function FeaturesPage() {
           </div>
         </div>
       </section>
+
+      <CompetitivePosition />
 
       <Cta />
     </>

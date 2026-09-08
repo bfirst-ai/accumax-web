@@ -28,19 +28,53 @@ export function Promise() {
             id="promise-heading"
             className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl md:text-5xl leading-tight"
           >
-            From a system of tasks to a{" "}
-            <span className="gradient-text">system of intelligence</span>
+            Three levers, and{" "}
+            <span className="gradient-text">AccuMax pulls all three</span>
           </h2>
-          <p className="mt-6 text-lg md:text-xl text-[var(--muted-foreground)] leading-relaxed max-w-3xl mx-auto">
-            AccuMax transforms practice management into a system of
-            intelligence, insight, and client value—delivering a{" "}
+          <p className="mt-6 text-lg md:text-xl text-[var(--muted-foreground)] leading-relaxed max-w-3xl mx-auto text-pretty">
+            A firm only grows profit three ways: push more work through, earn
+            more from each client, or spend less delivering it. AccuMax moves
+            all three at once—compounding into a{" "}
             <strong className="text-[var(--foreground)]">
               &gt;30% increase in Gross Margins
-            </strong>{" "}
-            through less labor per return, a cheaper labor mix, and more
-            advisory revenue.
+            </strong>
+            .
           </p>
         </motion.div>
+
+        {/* The three levers */}
+        <div className="grid md:grid-cols-3 gap-5 mt-12 max-w-5xl mx-auto text-left">
+          {[
+            {
+              lever: "Higher throughput",
+              body: "Agents recognize the forms, extract the data, prepare the return and review it. The same team moves more work without another hire.",
+            },
+            {
+              lever: "Increased ARPU",
+              body: "Planning, audit defense and advisory you could never staff at scale — now billable on clients you already have.",
+            },
+            {
+              lever: "Reduced costs",
+              body: "Less labor per engagement, and a cheaper wage mix on the labor that remains. Fewer tools to license, nothing to integrate.",
+            },
+          ].map((l, i) => (
+            <motion.div
+              key={l.lever}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.08, duration: 0.4 }}
+              className="rounded-2xl border border-[var(--border)] bg-white p-6 shadow-sm"
+            >
+              <p className="text-lg font-bold text-[var(--foreground)]">
+                {l.lever}
+              </p>
+              <p className="mt-2 text-sm text-[var(--muted-foreground)] leading-relaxed text-pretty">
+                {l.body}
+              </p>
+            </motion.div>
+          ))}
+        </div>
 
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}

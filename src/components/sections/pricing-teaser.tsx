@@ -8,13 +8,13 @@ import { Badge } from "@/components/ui/badge";
 
 const plans = [
   {
-    name: "Essentials",
+    name: "Standard",
     tier: "Access",
     price: 799,
     description: "Solo / micro firm",
     features: [
-      "Practice OS, 1040 Review, forms recognition & letters — all unlimited",
-      "AI Researcher, 1040 Preparer & TaxPrep transfer — 10 accounts each",
+      "Practice OS, InTake, Recognize, Extract, Organize, Profile, Review & Compose — all unlimited",
+      "AccuTax Research, 1040 Preparer & Bridge — 10 accounts each",
       "The on-ramp that already beats incumbents' mid-tier",
     ],
   },
@@ -24,23 +24,23 @@ const plans = [
     price: 999,
     description: "Everyday working firm",
     features: [
-      "Everything in Essentials, plus:",
-      "Forms Data eXtraction — unlimited",
-      "IRS Audit Defense & AI Tax Planner — 10 accounts each",
-      "Researcher, 1040 Preparer & TaxPrep transfer — 20 accounts each",
+      "Everything in Standard, plus:",
+      "AccuTax Defense & AccuTax Plan — 10 accounts each",
+      "AccuTax Research, 1040 Preparer & Bridge — 20 accounts each (2×)",
     ],
   },
   {
-    name: "Business",
+    name: "Premium",
     tier: "Scale",
     price: 1199,
     popular: true,
     description: "Scaling teams & high volume — the tier most firms buy",
     features: [
       "Everything in Professional, plus:",
-      "IRS Audit Defense — unlimited",
-      "AI Tax Planner — 20 accounts",
-      "Researcher, 1040 Preparer & TaxPrep transfer — 40 accounts each",
+      "AccuTax Assist — client-portal self-help",
+      "AccuTax Defense — unlimited",
+      "AccuTax Plan — 20 accounts",
+      "AccuTax Research, 1040 Preparer & Bridge — 40 accounts each (4×)",
     ],
   },
 ];
@@ -155,8 +155,7 @@ export function PricingTeaser() {
           viewport={{ once: true }}
           className="text-center text-sm text-[var(--muted-foreground)] mt-8"
         >
-          Unlimited 1040 review, forms recognition and letter generation on every
-          tier. Heavier agents carry an account allowance, then meter at a flat
+          Seven AccuTax CoPilots are unlimited on every tier. Heavier agents carry an account allowance, then meter at a flat
           per-account rate that falls as your tier rises.
         </motion.p>
       </div>

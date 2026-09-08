@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { ButtonLink } from "@/components/ui/button-link";
 import { GoalsSection } from "@/components/sections/goals";
+import { MarketProblem } from "@/components/sections/market-problem";
 import { StatsSection } from "@/components/sections/stats";
 import { Pillars } from "@/components/sections/pillars";
 import { Cta } from "@/components/sections/cta";
@@ -17,7 +18,7 @@ import { Cta } from "@/components/sections/cta";
 export const metadata: Metadata = {
   title: "About | AccuMax",
   description:
-    "The AccuMax Promise: transform practice management from a system of tasks into a system of intelligence, insight, and client value—delivering >30% increase in Gross Margins.",
+    "The AccuMax Promise: higher throughput, increased ARPU and reduced cost to serve—delivering >30% increase in Gross Margins.",
 };
 
 const values = [
@@ -25,7 +26,7 @@ const values = [
     icon: TrendingUp,
     title: "The AccuMax Promise",
     description:
-      "A system of intelligence, insight, and client value—delivering >30% increase in Gross Margins.",
+      "Higher throughput, increased ARPU and lower cost to serve—delivering >30% increase in Gross Margins.",
   },
   {
     icon: Sparkles,
@@ -74,17 +75,17 @@ export default function AboutPage() {
             Our mission
           </div>
           <h1 className="text-4xl font-bold tracking-tight text-[var(--foreground)] sm:text-5xl md:text-6xl leading-tight">
-            Elevating the CPA.{" "}
-            <span className="gradient-text">Not the AI, not the process.</span>
+            Built around the CPA.{" "}
+            <span className="gradient-text">Not around the AI.</span>
           </h1>
           <p className="mt-6 text-lg text-[var(--muted-foreground)] leading-relaxed">
-            AccuMax transforms practice management from a system of tasks into
-            a system of intelligence, insight, and client value—delivering a{" "}
+            A firm only grows profit three ways: push more work through, earn
+            more from each client, or spend less delivering it. AccuMax moves all
+            three at once—compounding into a{" "}
             <strong className="text-[var(--foreground)]">
               &gt;30% increase in Gross Margins
-            </strong>{" "}
-            through less labor per return, a cheaper labor mix, and more
-            advisory revenue.
+            </strong>
+            .
           </p>
           <div className="mt-8">
             <ButtonLink href="/contact#demo" variant="primary" size="lg" className="shadow-lg shadow-[var(--primary)]/20">
@@ -94,7 +95,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Strategic goals (reused polished section) */}
+      <MarketProblem />
+
+      {/* What firms are trying to do */}
       <GoalsSection />
 
       {/* Pillars */}
@@ -140,11 +143,11 @@ export default function AboutPage() {
       <section className="py-16 md:py-20 bg-gradient-to-b from-white to-gray-50/50">
         <div className="container max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-[var(--foreground)]">
-            The operating system for the AI-augmented accounting profession
+            The software your firm runs on, with the AI already in it
           </h2>
           <p className="mt-4 text-[var(--muted-foreground)] leading-relaxed">
-            Every firm, everywhere. Work smarter. Serve better. Stay
-            compliant.
+            Every firm, everywhere. One AI engine — AccuTax — over one version
+            of the truth. Work smarter. Serve better. Stay compliant.
           </p>
           <div className="mt-8 flex flex-wrap gap-4 justify-center">
             <ButtonLink href="/features" variant="primary" size="lg">Explore Features</ButtonLink>

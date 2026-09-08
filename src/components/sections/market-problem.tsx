@@ -81,7 +81,7 @@ export function MarketProblem() {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <span className="inline-flex items-center rounded-full border border-[var(--accent)]/30 bg-[var(--accent)]/10 px-4 py-1.5 text-sm font-medium text-[var(--accent)] mb-6">
-            The state of CPA practices
+            Why this is so hard right now
           </span>
           <h2
             id="problem-heading"

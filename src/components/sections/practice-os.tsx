@@ -19,7 +19,7 @@ const areas = [
       "Zip / composite doc inputs + Forms Intelligence",
       "Draft returns & account-summary triage",
       "Outlook / Gmail / QuickBooks integration",
-      "Transfer to TaxPrep SW",
+      "AccuTax Bridge",
     ],
   },
   {
@@ -79,7 +79,7 @@ export function PracticeOs() {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <span className="inline-flex items-center rounded-full border border-[var(--primary)]/20 bg-[var(--primary)]/5 px-4 py-1.5 text-sm font-medium text-[var(--primary)] mb-6">
-            Product breadth · Practice OS
+            Running the practice
           </span>
           <h2
             id="practice-os-heading"
