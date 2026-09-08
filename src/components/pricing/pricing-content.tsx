@@ -148,12 +148,6 @@ const allowances: Allowance[] = [
     overage: [null, null, null],
   },
   {
-    agent: "Practice OS",
-    note: "Intake, approvals, invoicing, payments & governance",
-    included: ["unlimited", "unlimited", "unlimited"],
-    overage: [null, null, null],
-  },
-  {
     agent: "AccuTax Bridge",
     note: "Transfers extracted data into the right screens and forms in your tax prep software",
     included: [10, 20, 40],
@@ -498,7 +492,7 @@ export function PricingContent() {
             AI included with every seat
           </h2>
           <p className="mt-3 text-[var(--muted-foreground)]">
-            Eight capabilities are unlimited on every tier. The heavier agents carry an
+            Seven CoPilots are unlimited on every tier. The heavier agents carry an
             allowance in activated accounts that doubles at Professional and doubles
             again at Premium — while the overage rate falls.
           </p>
@@ -578,7 +572,7 @@ export function PricingContent() {
             Included on every tier
           </Badge>
           <h2 className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl text-balance">
-            The complete practice operating system
+            Practice OS
           </h2>
           <p className="mt-3 text-[var(--muted-foreground)]">
             Not an upsell ladder. The whole practice OS ships with every seat, on

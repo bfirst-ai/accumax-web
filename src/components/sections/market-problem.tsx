@@ -62,8 +62,12 @@ export function MarketProblem() {
             </span>
           </h2>
           <p className="mt-5 text-lg text-[var(--muted-foreground)] leading-relaxed text-pretty">
-            Three things are happening at once, and they compound. Hiring your
-            way out of it is no longer on the table.
+            <span className="block">
+              Three things are happening at once, and they compound.
+            </span>
+            <span className="block">
+              Hiring your way out of it is no longer on the table.
+            </span>
           </p>
         </div>
 

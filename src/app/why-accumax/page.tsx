@@ -24,10 +24,12 @@ export default function WhyAccuMaxPage() {
           <div className="inline-flex items-center rounded-full border border-[var(--primary)]/20 bg-[var(--primary)]/5 px-3 py-1 text-sm font-medium text-[var(--primary)] mb-6">
             Why AccuMax
           </div>
-          <h1 className="text-4xl font-bold tracking-tight text-[var(--foreground)] sm:text-5xl lg:text-6xl text-balance">
+          {/* clamp, not the step scale: at text-6xl the second sentence needs
+              1034px in an 832px column and breaks after "nobody". */}
+          <h1 className="text-[clamp(1.5rem,5.2vw,3.75rem)] font-bold tracking-tight text-[var(--foreground)] text-balance">
             <span className="block">Anyone can bolt on AI.</span>
             <span className="block gradient-text leading-[1.25] pb-[0.1em]">
-              Almost nobody builds on one engine.
+              Few build on one engine.
             </span>
           </h1>
           <p className="mt-6 max-w-2xl mx-auto text-lg text-[var(--muted-foreground)] leading-relaxed text-pretty">

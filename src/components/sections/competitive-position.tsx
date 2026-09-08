@@ -87,56 +87,68 @@ export function CompetitivePosition() {
           transition={{ duration: 0.5 }}
           className="mb-16 grid lg:grid-cols-[1.6fr_1fr] gap-5"
         >
-          <div className="relative rounded-2xl border border-[var(--border)] bg-[var(--gray-950)] p-5 md:p-8 overflow-hidden">
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--gray-800)_1px,transparent_1px),linear-gradient(to_bottom,var(--gray-800)_1px,transparent_1px)] bg-[size:32px_32px] opacity-40" />
-            {/* Plot area */}
-            <div className="relative pl-8 pb-8">
-              {/* Y axis label */}
-              <span className="absolute left-0 top-1/2 -translate-y-1/2 -rotate-90 origin-left text-[10px] md:text-xs font-bold uppercase tracking-widest text-[var(--gray-500)] whitespace-nowrap">
-                Practice-OS breadth →
-              </span>
-              <div className="relative aspect-[4/3] w-full rounded-xl border border-[var(--gray-800)] bg-[var(--gray-900)]/60">
-                {/* Quadrant divider lines */}
-                <div className="absolute left-1/2 top-0 bottom-0 w-px bg-[var(--gray-700)] border-l border-dashed border-[var(--gray-700)]" />
-                <div className="absolute top-1/2 left-0 right-0 h-px bg-[var(--gray-700)] border-t border-dashed border-[var(--gray-700)]" />
+          {/* Light panel: the dark ground made the plotted labels unreadable.
+           * Axis labels sit ON their axes -- the Y label runs up the left edge
+           * in vertical writing mode, the X label is centred under the plot. */}
+          <div className="rounded-2xl border border-[var(--border)] bg-white p-5 md:p-7 shadow-sm">
+            <div className="grid grid-cols-[auto_1fr] gap-x-3">
+              {/* Y axis — row 1, so it centres on the plot alone */}
+              <div className="flex items-center justify-center">
+                <span className="[writing-mode:vertical-rl] rotate-180 text-[10px] md:text-xs font-bold uppercase tracking-widest text-[var(--muted-foreground)] whitespace-nowrap">
+                  Practice-OS breadth &rarr;
+                </span>
+              </div>
 
-                {/* Point AI tools dashed box */}
-                <div className="absolute rounded-lg border border-dashed border-[var(--success)]/30 bg-[var(--success)]/5" style={{ top: "58%", left: "52%", right: "6%", bottom: "6%" }} />
+              <div className="relative aspect-[4/3] w-full min-w-0 rounded-xl border border-[var(--border)] bg-[var(--gray-50)]">
+                  {/* Quadrant dividers */}
+                  <div className="absolute left-1/2 top-0 bottom-0 border-l border-dashed border-[var(--gray-300)]" />
+                  <div className="absolute top-1/2 left-0 right-0 border-t border-dashed border-[var(--gray-300)]" />
 
-                {/* AccuMax — top right, glowing */}
-                <div className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center" style={{ top: "22%", left: "76%" }}>
-                  <span className="relative flex items-center justify-center w-7 h-7 md:w-9 md:h-9 rounded-full bg-[var(--warning)] shadow-[0_0_24px_6px_var(--warning)] ring-4 ring-[var(--warning)]/20">
-                    <Star className="h-3.5 w-3.5 md:h-4 md:w-4 text-[var(--gray-950)] fill-[var(--gray-950)]" aria-hidden />
-                  </span>
-                  <span className="mt-2 text-xs md:text-sm font-bold text-[var(--warning)] whitespace-nowrap">
-                    AccuMax
-                  </span>
-                  <span className="hidden md:block text-[10px] text-[var(--gray-400)] text-center max-w-[9rem] leading-snug mt-0.5">
-                    deep AI across the full platform + orchestration
-                  </span>
-                </div>
-
-                {/* Other dots */}
-                {quadrantDots.map((d) => (
+                  {/* Point AI tools region */}
                   <div
-                    key={d.label}
+                    className="absolute rounded-lg border border-dashed border-[var(--gray-400)]/50 bg-white/70"
+                    style={{ top: "58%", left: "52%", right: "6%", bottom: "6%" }}
+                  />
+
+                  {/* AccuMax — top right */}
+                  <div
                     className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
-                    style={{ top: d.top, left: d.left }}
+                    style={{ top: "22%", left: "76%" }}
                   >
-                    <span className="h-3 w-3 rounded-full bg-[var(--success)] ring-4 ring-[var(--success)]/15" />
-                    <span className="mt-1.5 text-[10px] md:text-xs font-semibold text-white whitespace-nowrap">
-                      {d.label}
+                    <span className="relative flex items-center justify-center w-7 h-7 md:w-9 md:h-9 rounded-full bg-[var(--primary)] shadow-lg shadow-[var(--primary)]/40 ring-4 ring-[var(--primary)]/15">
+                      <Star className="h-3.5 w-3.5 md:h-4 md:w-4 text-white fill-white" aria-hidden />
                     </span>
-                    <span className="hidden sm:block text-[9px] md:text-[10px] text-[var(--gray-500)] text-center max-w-[10rem] leading-snug">
-                      {d.tools}
+                    <span className="mt-2 text-xs md:text-sm font-bold text-[var(--primary)] whitespace-nowrap">
+                      AccuMax
+                    </span>
+                    <span className="hidden md:block text-[10px] text-[var(--muted-foreground)] text-center max-w-[9rem] leading-snug mt-0.5">
+                      deep AI across the full platform + orchestration
                     </span>
                   </div>
-                ))}
+
+                  {/* The rest of the market */}
+                  {quadrantDots.map((d) => (
+                    <div
+                      key={d.label}
+                      className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center"
+                      style={{ top: d.top, left: d.left }}
+                    >
+                      <span className="h-3 w-3 rounded-full bg-[var(--gray-400)] ring-4 ring-[var(--gray-400)]/20" />
+                      <span className="mt-1.5 text-[10px] md:text-xs font-semibold text-[var(--foreground)] whitespace-nowrap">
+                        {d.label}
+                      </span>
+                      <span className="hidden sm:block text-[9px] md:text-[10px] text-[var(--muted-foreground)] text-center max-w-[10rem] leading-snug">
+                        {d.tools}
+                      </span>
+                    </div>
+                  ))}
               </div>
-              {/* X axis label */}
-              <span className="block mt-2 text-right text-[10px] md:text-xs font-bold uppercase tracking-widest text-[var(--gray-500)]">
-                AI tax-domain depth →
-              </span>
+
+              {/* X axis — row 2, second column, so it sits under the plot */}
+              <div aria-hidden />
+              <p className="mt-3 text-center text-[10px] md:text-xs font-bold uppercase tracking-widest text-[var(--muted-foreground)]">
+                AI tax-domain depth &rarr;
+              </p>
             </div>
           </div>
 

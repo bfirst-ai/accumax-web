@@ -136,7 +136,9 @@ export function AccuTaxEngine({ className = "" }: { className?: string }) {
           tax-domain AI engine, reading and writing one client record. Assemble the same
           capability from separate tools and each keeps its own copy of the
           client&apos;s numbers, which is how a plan and the return it was built for
-          quietly stop agreeing.
+          quietly stop agreeing. One engine is also why there is nothing to
+          integrate: every CoPilot and module already works together out of the
+          box, so the integration bill is zero.
         </p>
       </div>
 

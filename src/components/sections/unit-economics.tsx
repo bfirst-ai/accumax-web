@@ -100,7 +100,7 @@ export function UnitEconomics() {
             className="text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl text-balance"
           >
             Delivering{" "}
-            <span className="text-[var(--success-light)]">&gt;25% margin lift</span>
+            <span className="text-[var(--success-light)]">&gt;30% margin lift</span>
           </h2>
           <p className="mt-5 text-lg text-[var(--gray-400)] leading-relaxed">
             More throughput, higher ARPU, and a lower cost to serve — the three
@@ -222,7 +222,7 @@ export function UnitEconomics() {
             Firms trade on EBITDA. Gross margin is where EBITDA comes from.
           </p>
           <p className="mt-3 text-[var(--gray-400)] leading-relaxed text-pretty">
-            A ~25% lift in gross margin lands straight in EBITDA — and buyers pay
+            A ~30% lift in gross margin lands straight in EBITDA — and buyers pay
             a multiple of it. AccuMax also gives you the meters to measure it:
             utilization, realization, throughput per preparer, AR aging and
             margin by service, all in one place, all traceable. Cleaner metrics

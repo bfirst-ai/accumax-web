@@ -66,11 +66,11 @@ export function Explore() {
           {/* clamp, not the step scale: neither line may break mid-phrase. */}
           <h2
             id="explore-heading"
-            className="text-[clamp(1.4rem,5.2vw,3rem)] font-bold tracking-tight text-[var(--foreground)] text-balance"
+            className="text-[clamp(1.5rem,4.8vw,2.5rem)] font-bold tracking-tight text-[var(--foreground)] text-balance"
           >
-            <span className="block">A practice management system,</span>
+            <span className="block">A Modern practice management system,</span>
             <span className="block gradient-text leading-[1.25] pb-[0.1em]">
-              and a workforce inside it
+              and an AI workforce inside it
             </span>
           </h2>
           <p className="mt-5 text-lg text-[var(--muted-foreground)] leading-relaxed text-pretty">

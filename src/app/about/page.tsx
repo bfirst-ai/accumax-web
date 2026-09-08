@@ -10,7 +10,7 @@ import { Cta } from "@/components/sections/cta";
 export const metadata: Metadata = {
   title: "About | AccuMax",
   description:
-    "The AccuMax Promise: higher throughput, increased ARPU and reduced cost to serve—delivering >25% increase in Gross Margins.",
+    "The AccuMax Promise: higher throughput, increased ARPU and reduced cost to serve—delivering >30% increase in Gross Margins.",
 };
 
 
@@ -37,7 +37,7 @@ export default function AboutPage() {
             more from each client, or spend less delivering it. AccuMax moves all
             three at once—compounding into a{" "}
             <strong className="text-[var(--foreground)]">
-              &gt;25% increase in Gross Margins
+              &gt;30% increase in Gross Margins
             </strong>
             .
           </p>
@@ -59,23 +59,6 @@ export default function AboutPage() {
 
       {/* Stats (reused) */}
       <StatsSection />
-
-      {/* Closing band */}
-      <section className="py-16 md:py-20 bg-gradient-to-b from-white to-gray-50/50">
-        <div className="container max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-[var(--foreground)] text-balance">
-            The software your firm runs on, with the AI already in it
-          </h2>
-          <p className="mt-4 text-[var(--muted-foreground)] leading-relaxed">
-            Every firm, everywhere. One AI engine — AccuTax — over one version
-            of the truth. Work smarter. Serve better. Stay compliant.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-4 justify-center">
-            <ButtonLink href="/features" variant="primary" size="lg">Explore Features</ButtonLink>
-            <ButtonLink href="/contact" variant="outline" size="lg">Talk to Us</ButtonLink>
-          </div>
-        </div>
-      </section>
 
       <Cta />
     </>

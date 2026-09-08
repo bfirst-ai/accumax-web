@@ -8,7 +8,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative overflow-hidden bg-gradient-to-b from-white via-blue-50/30 to-white pt-16 md:pt-24 lg:pt-32 pb-24 lg:pb-32"
+      className="relative overflow-hidden bg-gradient-to-b from-white via-blue-50/30 to-white pt-10 md:pt-14 lg:pt-16 pb-20 lg:pb-24"
       aria-label="Hero"
     >
       {/* Background Pattern */}
@@ -25,7 +25,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-12 lg:mb-16 text-center text-[clamp(1.65rem,4.6vw,3rem)] font-extrabold tracking-tight text-[var(--foreground)] text-balance"
+          className="mb-8 lg:mb-10 text-center text-[clamp(1.65rem,4.6vw,3rem)] font-extrabold tracking-tight text-[var(--foreground)] text-balance"
         >
           <span className="block">
             <span className="whitespace-nowrap">CPA Practice Management</span>{" "}
@@ -176,7 +176,7 @@ export function Hero() {
             >
               <div className="flex items-center gap-2">
                 <div className="h-2 w-2 rounded-full bg-[var(--primary)] animate-pulse" />
-                <p className="text-xs font-semibold">{">25% Gross Margin Lift"}</p>
+                <p className="text-xs font-semibold">{">30% Gross Margin Lift"}</p>
               </div>
             </motion.div>
           </motion.div>
