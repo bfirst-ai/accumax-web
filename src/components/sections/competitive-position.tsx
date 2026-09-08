@@ -3,24 +3,26 @@
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 
+/* Captions break at the comma, one clause per line. They are nowrap so the
+ * box can never chop a clause in half. */
 const quadrantDots = [
   {
     label: "Practice platforms",
-    tools: "broad workflow coverage, AI bolted on",
+    tools: ["broad workflow coverage,", "AI bolted on"],
     top: "28%",
     left: "27%",
     kind: "dot" as const,
   },
   {
     label: "Traditional prep",
-    tools: "return calculation, no practice layer",
+    tools: ["return calculation,", "no practice layer"],
     top: "78%",
     left: "22%",
     kind: "dot" as const,
   },
   {
     label: "Point AI tools",
-    tools: "deep in one function, nothing either side",
+    tools: ["deep in one function,", "nothing either side"],
     top: "70%",
     left: "68%",
     kind: "box" as const,
@@ -121,8 +123,13 @@ export function CompetitivePosition() {
                     <span className="mt-2 text-xs md:text-sm font-bold text-[var(--primary)] whitespace-nowrap">
                       AccuMax
                     </span>
-                    <span className="hidden md:block text-[10px] text-[var(--muted-foreground)] text-center max-w-[9rem] leading-snug mt-0.5">
-                      deep AI across the full platform + orchestration
+                    <span className="hidden md:block text-[10px] text-[var(--muted-foreground)] text-center leading-snug mt-0.5">
+                      <span className="block whitespace-nowrap">
+                        deep AI across the full platform
+                      </span>
+                      <span className="block whitespace-nowrap">
+                        + orchestration
+                      </span>
                     </span>
                   </div>
 
@@ -137,8 +144,12 @@ export function CompetitivePosition() {
                       <span className="mt-1.5 text-[10px] md:text-xs font-semibold text-[var(--foreground)] whitespace-nowrap">
                         {d.label}
                       </span>
-                      <span className="hidden sm:block text-[9px] md:text-[10px] text-[var(--muted-foreground)] text-center max-w-[10rem] leading-snug">
-                        {d.tools}
+                      <span className="hidden sm:block text-[9px] md:text-[10px] text-[var(--muted-foreground)] text-center leading-snug">
+                        {d.tools.map((clause) => (
+                          <span key={clause} className="block whitespace-nowrap">
+                            {clause}
+                          </span>
+                        ))}
                       </span>
                     </div>
                   ))}

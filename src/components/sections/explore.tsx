@@ -68,7 +68,7 @@ export function Explore() {
             id="explore-heading"
             className="text-[clamp(1.5rem,4.8vw,2.5rem)] font-bold tracking-tight text-[var(--foreground)] text-balance"
           >
-            <span className="block">A Modern practice management system,</span>
+            <span className="block">A modern practice management system,</span>
             <span className="block gradient-text leading-[1.25] pb-[0.1em]">
               and an AI workforce inside it
             </span>

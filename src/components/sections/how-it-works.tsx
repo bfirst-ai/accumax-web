@@ -159,7 +159,7 @@ export function NoRipAndReplace() {
           </h2>
           <p className="mt-5 text-lg text-[var(--muted-foreground)] leading-relaxed text-pretty">
             Run AccuMax next to your current setup. Start with one CoPilot and
-            grow into the rest as the need shows up.
+            grow into the rest.
           </p>
         </div>
 

@@ -575,8 +575,13 @@ export function PricingContent() {
             Practice OS
           </h2>
           <p className="mt-3 text-[var(--muted-foreground)]">
-            Not an upsell ladder. The whole practice OS ships with every seat, on
-            every plan — the tiers differ only in how much AI you run.
+            <span className="block">
+              Not an upsell ladder. The whole practice OS ships with every seat,
+              on every plan —
+            </span>
+            <span className="block">
+              the tiers differ only in how much AI you run.
+            </span>
           </p>
         </div>
 
