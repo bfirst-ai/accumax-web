@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { MarginAsterisk } from "@/components/ui/margin-claim";
 
 /* Four numbers that carry the whole story. Dark band so it lands as a
  * statement rather than a row of footnotes. */
@@ -22,7 +23,8 @@ const stats = [
     value: ">30",
     unit: "%",
     label: "Gross margin lift",
-    detail: "Less labor, cheaper mix, more advisory",
+    detail: "Illustrative model · less labor, cheaper mix, more advisory",
+    asterisk: true,
   },
   {
     value: "90",
@@ -63,6 +65,7 @@ export function StatsSection() {
               </p>
               <p className="mt-3 text-base font-bold text-white text-pretty">
                 {s.label}
+                {"asterisk" in s && <MarginAsterisk />}
               </p>
               <p className="mt-1 text-sm text-[var(--gray-400)] text-pretty">
                 {s.detail}

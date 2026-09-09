@@ -4,6 +4,7 @@ import { Explore } from "@/components/sections/explore";
 import { FaqSection } from "@/components/sections/faq";
 import { OnePlatform } from "@/components/sections/one-platform";
 import { Cta } from "@/components/sections/cta";
+import { MarginBasisNote } from "@/components/ui/margin-claim";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <Explore />
       <FaqSection />
       <OnePlatform />
+      <MarginBasisNote />
       <Cta />
     </>
   );

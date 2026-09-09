@@ -4,6 +4,7 @@ import { NoRipAndReplace } from "@/components/sections/how-it-works";
 import { CompetitivePosition } from "@/components/sections/competitive-position";
 import { UnitEconomics } from "@/components/sections/unit-economics";
 import { Cta } from "@/components/sections/cta";
+import { MarginBasisNote } from "@/components/ui/margin-claim";
 import { ButtonLink } from "@/components/ui/button-link";
 
 export const metadata: Metadata = {
@@ -52,6 +53,7 @@ export default function WhyAccuMaxPage() {
       <NoRipAndReplace />
       <CompetitivePosition />
       <UnitEconomics />
+      <MarginBasisNote />
       <Cta />
     </>
   );

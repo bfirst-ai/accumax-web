@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { CalendarCheck, Sparkles } from "lucide-react";
 import { ButtonLink } from "@/components/ui/button-link";
+import { MarginAsterisk, MarginQualifier } from "@/components/ui/margin-claim";
 
 export function Hero() {
   return (
@@ -127,8 +128,12 @@ export function Hero() {
             >
               <div className="flex items-center gap-2">
                 <div className="h-2 w-2 rounded-full bg-[var(--primary)] animate-pulse" />
-                <p className="text-xs font-semibold">{">30% Gross Margin Lift"}</p>
+                <p className="text-xs font-semibold">
+                  {">30% Gross Margin Lift"}
+                  <MarginAsterisk />
+                </p>
               </div>
+              <MarginQualifier className="mt-1 pl-4" />
             </motion.div>
           </motion.div>
         </div>

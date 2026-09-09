@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { TrendingUp, Target } from "lucide-react";
+import { MarginAsterisk, MarginQualifier } from "@/components/ui/margin-claim";
 
 export function Promise() {
   return (
@@ -34,9 +35,10 @@ export function Promise() {
           <p className="mt-6 text-lg md:text-xl text-[var(--muted-foreground)] leading-relaxed max-w-3xl mx-auto text-pretty">
             A firm only grows profit three ways: push more work through, earn
             more from each client, or spend less delivering it. AccuMax moves
-            all three at once—compounding into a{" "}
+            all three at once. On an illustrative model that compounds into a{" "}
             <strong className="text-[var(--foreground)]">
-              &gt;30% increase in Gross Margins
+              &gt;30% increase in gross margin
+              <MarginAsterisk />
             </strong>
             .
           </p>
@@ -91,8 +93,10 @@ export function Promise() {
               &gt;30%
             </p>
             <p className="text-sm font-semibold text-[var(--foreground)]">
-              Gross Margin Improvement
+              Gross margin improvement
+              <MarginAsterisk />
             </p>
+            <MarginQualifier />
           </div>
         </motion.div>
       </div>

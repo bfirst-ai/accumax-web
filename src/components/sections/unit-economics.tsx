@@ -14,6 +14,7 @@ import {
   ArrowRight,
   Layers,
 } from "lucide-react";
+import { MarginAsterisk } from "@/components/ui/margin-claim";
 
 const before = [
   {
@@ -93,14 +94,17 @@ export function UnitEconomics() {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <span className="inline-flex items-center rounded-full border border-[var(--success)]/30 bg-[var(--success)]/10 px-4 py-1.5 text-sm font-medium text-[var(--success-light)] mb-6">
-            What it does to your P&L
+            What it can do to your P&L
           </span>
           <h2
             id="unit-economics-heading"
             className="text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl text-balance"
           >
-            Delivering{" "}
-            <span className="text-[var(--success-light)]">&gt;30% margin lift</span>
+            An illustrative{" "}
+            <span className="text-[var(--success-light)]">
+              &gt;30% margin lift
+              <MarginAsterisk />
+            </span>
           </h2>
           <p className="mt-5 text-lg text-[var(--gray-400)] leading-relaxed">
             <span className="block">
@@ -224,8 +228,8 @@ export function UnitEconomics() {
             Firms trade on EBITDA. Gross margin is where EBITDA comes from.
           </p>
           <p className="mt-3 text-[var(--gray-400)] leading-relaxed text-pretty">
-            A ~30% lift in gross margin lands straight in EBITDA — and buyers pay
-            a multiple of it. AccuMax also gives you the meters to measure it:
+            A lift of that size lands straight in EBITDA — and buyers pay a
+            multiple of it. AccuMax also gives you the meters to measure it:
             utilization, realization, throughput per preparer, AR aging and
             margin by service, all in one place, all traceable. Cleaner metrics
             and a higher margin are what turn a good practice into a

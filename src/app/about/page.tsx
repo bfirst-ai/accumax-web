@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { Target } from "lucide-react";
+import { MarginAsterisk, MarginBasisNote } from "@/components/ui/margin-claim";
 import { ButtonLink } from "@/components/ui/button-link";
 import { GoalsSection } from "@/components/sections/goals";
 import { MarketProblem } from "@/components/sections/market-problem";
@@ -10,7 +11,7 @@ import { Cta } from "@/components/sections/cta";
 export const metadata: Metadata = {
   title: "About | AccuMax",
   description:
-    "The AccuMax Promise: higher throughput, increased ARPU and reduced cost to serve—delivering >30% increase in Gross Margins.",
+    "Higher throughput, increased ARPU and reduced cost to serve—an illustrative >30% increase in gross margin. See the site for the assumptions behind the figure.",
 };
 
 
@@ -35,9 +36,10 @@ export default function AboutPage() {
           <p className="mt-6 text-lg text-[var(--muted-foreground)] leading-relaxed">
             A firm only grows profit three ways: push more work through, earn
             more from each client, or spend less delivering it. AccuMax moves all
-            three at once—compounding into a{" "}
+            three at once. On an illustrative model that compounds into a{" "}
             <strong className="text-[var(--foreground)]">
-              &gt;30% increase in Gross Margins
+              &gt;30% increase in gross margin
+              <MarginAsterisk />
             </strong>
             .
           </p>
@@ -60,6 +62,7 @@ export default function AboutPage() {
       {/* Stats (reused) */}
       <StatsSection />
 
+      <MarginBasisNote />
       <Cta />
     </>
   );
