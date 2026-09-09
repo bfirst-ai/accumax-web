@@ -14,7 +14,6 @@ import {
 import Link from "next/link";
 import { ButtonLink } from "@/components/ui/button-link";
 import { integrationGroups } from "@/lib/integrations";
-import { OneSystem } from "@/components/sections/one-system";
 import { Cta } from "@/components/sections/cta";
 
 export const metadata: Metadata = {
@@ -123,7 +122,7 @@ export default function FeaturesPage() {
         <div className="container relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center rounded-full border border-[var(--primary)]/20 bg-[var(--primary)]/5 px-3 py-1 text-sm font-medium text-[var(--primary)] mb-6">
             <span className="flex h-2 w-2 rounded-full bg-[var(--primary)] mr-2 animate-pulse" />
-            The platform — with the CoPilots inside it
+            The platform
           </div>
           {/* One line each, on the full container width -- the page argues for
               breadth, so the hero should look broad. Below lg both wrap. */}
@@ -134,9 +133,8 @@ export default function FeaturesPage() {
             </span>
           </h1>
           <p className="mt-5 text-[clamp(1rem,1.28vw,1.125rem)] text-[var(--muted-foreground)] leading-relaxed text-pretty lg:whitespace-nowrap">
-            Client intake through approvals, eSignature, invoicing, payments,
-            dashboards and governance — connected to the software your firm
-            already depends on.
+            Client intake through approvals, eSignature, invoicing, payments
+            and governance — tightly integrated with the AccuTax CoPilots.
           </p>
           <div className="mt-9 flex flex-wrap gap-4 justify-center">
             <ButtonLink href="/contact#demo" variant="primary" size="lg" className="shadow-lg shadow-[var(--primary)]/20">
@@ -148,8 +146,6 @@ export default function FeaturesPage() {
           </div>
         </div>
       </section>
-
-      <OneSystem current="platform" />
 
       {/* Ambient AI + feature list */}
       <section className="py-16 md:py-24 bg-gradient-to-b from-white to-gray-50/50">

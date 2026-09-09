@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import { Lifecycle } from "@/components/sections/lifecycle";
 import { AiAgents } from "@/components/sections/ai-agents";
-import { OneSystem } from "@/components/sections/one-system";
 import { Cta } from "@/components/sections/cta";
 import { ButtonLink } from "@/components/ui/button-link";
 
@@ -21,7 +20,7 @@ export default function CoPilotsPage() {
         </div>
         <div className="container relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center rounded-full border border-[var(--accent)]/20 bg-[var(--accent)]/5 px-3 py-1 text-sm font-medium text-[var(--accent)] mb-6">
-            AccuTax CoPilots — inside the Practice OS
+            AccuTax CoPilots
           </div>
           <h1 className="text-4xl font-bold tracking-tight text-[var(--foreground)] sm:text-5xl lg:text-6xl text-balance">
             <span className="block">A CoPilot for every</span>
@@ -31,8 +30,8 @@ export default function CoPilotsPage() {
           </h1>
           <p className="mt-6 max-w-2xl mx-auto text-lg text-[var(--muted-foreground)] leading-relaxed text-pretty">
             Fourteen CoPilots, from the first intake form to the last client
-            letter. Each one does a real job, inside the Practice OS your firm
-            already runs on — and every one works from the same client record.
+            letter. Each one does a real job, and all of them are tightly
+            integrated with the Practice OS your firm runs on.
           </p>
           <div className="mt-8 flex flex-wrap gap-4 justify-center">
             <ButtonLink href="/contact#demo" variant="primary" size="lg">
@@ -45,7 +44,6 @@ export default function CoPilotsPage() {
         </div>
       </section>
 
-      <OneSystem current="copilots" />
       <Lifecycle />
       <AiAgents />
       <Cta />
