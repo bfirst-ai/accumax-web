@@ -4,18 +4,10 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
-const integrations = [
-  "QuickBooks",
-  "Outlook",
-  "Gmail",
-  "DocuSign",
-  "Zoho Sign",
-  "Microsoft 365",
-  "SharePoint",
-  "Drake",
-  "UltraTax",
-  "Lacerte",
-];
+/* NOTE: this section is not currently rendered by any page -- the features
+ * page has its own inline Integrations block. Kept in sync via the shared
+ * list so the two cannot disagree if it is ever brought back. */
+import { integrations } from "@/lib/integrations";
 
 export function Integrations() {
   return (

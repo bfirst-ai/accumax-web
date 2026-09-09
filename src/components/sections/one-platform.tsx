@@ -5,16 +5,7 @@ import { motion } from "framer-motion";
 /* Closing reassurance band: it works with what the firm already runs.
  * Lives at the bottom of the page, not inside the hero. */
 
-const tools = [
-  "QuickBooks",
-  "DocuSign",
-  "Zoho Sign",
-  "Outlook",
-  "Gmail",
-  "Drake",
-  "UltraTax",
-  "Lacerte",
-];
+import { integrations } from "@/lib/integrations";
 
 export function OnePlatform() {
   return (
@@ -45,7 +36,7 @@ export function OnePlatform() {
           transition={{ duration: 0.4 }}
           className="mt-10 flex flex-wrap justify-center items-center gap-x-10 gap-y-4 text-[var(--gray-500)]"
         >
-          {tools.map((name) => (
+          {integrations.map((name) => (
             <span
               key={name}
               className="text-lg font-semibold hover:text-[var(--primary)] transition-colors cursor-default"

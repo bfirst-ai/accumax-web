@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { ButtonLink } from "@/components/ui/button-link";
+import { integrationGroups } from "@/lib/integrations";
 import { Cta } from "@/components/sections/cta";
 
 export const metadata: Metadata = {
@@ -109,10 +110,6 @@ const portals = [
   },
 ];
 
-const integrations = [
-  "QuickBooks", "Outlook", "Gmail", "DocuSign", "Zoho Sign", "Microsoft 365", "SharePoint", "Drake", "UltraTax", "Lacerte",
-];
-
 export default function FeaturesPage() {
   return (
     <>
@@ -122,34 +119,30 @@ export default function FeaturesPage() {
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
           <div className="absolute left-1/2 -translate-x-1/2 top-0 -z-10 h-[280px] w-[280px] rounded-full bg-[var(--primary)] opacity-15 blur-[100px]" />
         </div>
-        <div className="container relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="container relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center rounded-full border border-[var(--primary)]/20 bg-[var(--primary)]/5 px-3 py-1 text-sm font-medium text-[var(--primary)] mb-6">
             <span className="flex h-2 w-2 rounded-full bg-[var(--primary)] mr-2 animate-pulse" />
             The platform
           </div>
-          {/* clamp, not the step scale: "practice management system" is 26
-              characters and must never break across two lines. */}
-          <h1 className="text-[clamp(1.5rem,5.6vw,3rem)] font-bold tracking-tight text-[var(--foreground)] text-balance">
-            <span className="block">A state-of-the-art</span>
-            <span className="block gradient-text leading-[1.25] pb-[0.1em]">
+          {/* One line each, on the full container width -- the page argues for
+              breadth, so the hero should look broad. Below lg both wrap. */}
+          <h1 className="text-[clamp(1.5rem,3.4vw,3rem)] font-bold tracking-tight text-[var(--foreground)] text-balance lg:whitespace-nowrap">
+            A state-of-the-art{" "}
+            <span className="gradient-text leading-[1.25] pb-[0.1em]">
               practice management system
             </span>
           </h1>
-          <p className="mt-6 text-lg text-[var(--muted-foreground)] leading-relaxed text-pretty">
-            <span className="block">
-              Client intake through approvals, eSignature, invoicing, payments,
-              dashboards and governance —
-            </span>
-            <span className="block">
-              connected to the software your firm already depends on.
-            </span>
+          <p className="mt-5 text-[clamp(1rem,1.28vw,1.125rem)] text-[var(--muted-foreground)] leading-relaxed text-pretty lg:whitespace-nowrap">
+            Client intake through approvals, eSignature, invoicing, payments,
+            dashboards and governance — connected to the software your firm
+            already depends on.
           </p>
           <div className="mt-9 flex flex-wrap gap-4 justify-center">
             <ButtonLink href="/contact#demo" variant="primary" size="lg" className="shadow-lg shadow-[var(--primary)]/20">
               Book a Demo
             </ButtonLink>
             <ButtonLink href="/copilots" variant="outline" size="lg">
-              See the CoPilots
+              See AccuTax CoPilots
             </ButtonLink>
           </div>
         </div>
@@ -284,13 +277,22 @@ export default function FeaturesPage() {
             AccuMax integrates with accounting, email, eSignature and TaxPrep
             software—with AccuTax Bridge built in.
           </p>
-          <div className="mt-10 flex flex-wrap justify-center gap-4 md:gap-5">
-            {integrations.map((name) => (
-              <div
-                key={name}
-                className="px-6 py-3.5 rounded-xl border border-[var(--border)] bg-[var(--card)] text-[var(--foreground)] font-medium hover:border-[var(--primary)]/30 hover:bg-[var(--primary)]/5 hover:scale-105 transition-all"
-              >
-                {name}
+          <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
+            {integrationGroups.map((group) => (
+              <div key={group.category}>
+                <p className="text-xs font-bold uppercase tracking-widest text-[var(--muted-foreground)] mb-3">
+                  {group.category}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {group.tools.map((name) => (
+                    <div
+                      key={name}
+                      className="px-4 py-2.5 rounded-xl border border-[var(--border)] bg-[var(--card)] text-sm text-[var(--foreground)] font-medium hover:border-[var(--primary)]/30 hover:bg-[var(--primary)]/5 transition-all"
+                    >
+                      {name}
+                    </div>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
