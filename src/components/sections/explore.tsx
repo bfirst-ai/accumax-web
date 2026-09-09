@@ -14,7 +14,7 @@ const doors = [
     title: "The AI that does the work",
     body: "Fourteen CoPilots covering the whole engagement — intake, recognize, extract, bridge, organize, profile, research, prepare, review, plan, defend, compose.",
     href: "/copilots",
-    cta: "See the CoPilots",
+    cta: "See AccuTax CoPilots",
     accent: true,
   },
   {

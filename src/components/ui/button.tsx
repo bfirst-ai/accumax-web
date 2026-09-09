@@ -12,7 +12,7 @@ const buttonVariants = cva(
         secondary:
           "bg-[var(--gray-100)] text-[var(--gray-900)] hover:bg-[var(--gray-200)] active:scale-95 transition-transform",
         outline:
-          "border border-[var(--border)] bg-transparent hover:bg-[var(--gray-50)] hover:border-[var(--gray-300)]",
+          "border-2 border-[var(--primary)] text-[var(--primary)] bg-transparent hover:bg-[var(--primary)]/5 hover:border-[var(--primary-dark)] hover:text-[var(--primary-dark)]",
         ghost: "hover:bg-[var(--gray-100)] hover:text-[var(--gray-900)]",
         link: "text-[var(--primary)] underline-offset-4 hover:underline",
       },

@@ -43,7 +43,7 @@ export default function WhyAccuMaxPage() {
               Book a Demo
             </ButtonLink>
             <ButtonLink href="/copilots" variant="outline" size="lg">
-              See the CoPilots
+              See AccuTax CoPilots
             </ButtonLink>
           </div>
         </div>
