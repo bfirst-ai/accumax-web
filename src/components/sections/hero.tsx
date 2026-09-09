@@ -128,8 +128,8 @@ export function Hero() {
             >
               <div className="flex items-center gap-2">
                 <div className="h-2 w-2 rounded-full bg-[var(--primary)] animate-pulse" />
-                <p className="text-xs font-semibold">
-                  {">30% Gross Margin Lift"}
+                <p className="text-xs font-semibold whitespace-nowrap">
+                  {"30% More Gross Margin Dollars"}
                   <MarginAsterisk />
                 </p>
               </div>

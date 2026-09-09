@@ -20,9 +20,9 @@ const stats = [
     detail: "AccuTax, under all of them",
   },
   {
-    value: ">30",
+    value: "+30",
     unit: "%",
-    label: "Gross margin lift",
+    label: "More gross margin dollars",
     detail: "Illustrative model · less labor, cheaper mix, more advisory",
     asterisk: true,
   },

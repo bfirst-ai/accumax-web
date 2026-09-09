@@ -35,9 +35,9 @@ export function Promise() {
           <p className="mt-6 text-lg md:text-xl text-[var(--muted-foreground)] leading-relaxed max-w-3xl mx-auto text-pretty">
             A firm only grows profit three ways: push more work through, earn
             more from each client, or spend less delivering it. AccuMax moves
-            all three at once. On an illustrative model that compounds into a{" "}
+            all three at once. On an illustrative model that compounds into{" "}
             <strong className="text-[var(--foreground)]">
-              &gt;30% increase in gross margin
+              30% more gross margin dollars
               <MarginAsterisk />
             </strong>
             .
@@ -90,10 +90,10 @@ export function Promise() {
           </div>
           <div className="text-left">
             <p className="text-3xl md:text-4xl font-extrabold gradient-text">
-              &gt;30%
+              +30%
             </p>
             <p className="text-sm font-semibold text-[var(--foreground)]">
-              Gross margin improvement
+              More gross margin dollars
               <MarginAsterisk />
             </p>
             <MarginQualifier />

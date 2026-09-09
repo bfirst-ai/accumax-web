@@ -102,7 +102,7 @@ export function UnitEconomics() {
           >
             An illustrative{" "}
             <span className="text-[var(--success-light)]">
-              &gt;30% margin lift
+              30% more gross margin dollars
               <MarginAsterisk />
             </span>
           </h2>

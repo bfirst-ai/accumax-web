@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "AccuMax | CPA Practice Management Reinvented with AI",
     description:
-      "More throughput, higher ARPU, lower cost to serve—an illustrative >30% gross margin improvement, from one AI engine over one client record.",
+      "More throughput, higher ARPU, lower cost to serve—30% more gross margin dollars on an illustrative model, from one AI engine over one client record.",
   },
 };
 

@@ -13,7 +13,7 @@
  * asterisks link nowhere. Today that is home, about and why-accumax. */
 
 export const MARGIN_BASIS =
-  "Not measured customer results. It shows a firm that moves about 25% more returns through the same team, shifts roughly 20% of preparation hours to automated or lower-cost capacity, and bills advisory work on about 15% of the accounts it already serves. Your own result depends on your service mix, your rates, and how far you adopt the CoPilots. AccuMax does not guarantee a particular margin outcome.";
+  "Not measured customer results. It models a firm of $5M to $30M in revenue where tax preparation is 60% of the book, starting from a 62% gross margin. AccuMax cuts preparation hours on that work by 30%; the freed capacity supports 10% more returns; and the firm adds new advisory revenue equal to 10% of its book at a 70% margin. On those assumptions gross margin dollars rise about 30%, on 17% more revenue. Stated as a percentage rather than dollars, gross margin moves from 62% to 69% — a gain of 7 points, not 30. Your own result depends on your service mix, your rates, and how far you adopt the CoPilots. AccuMax does not guarantee a particular outcome.";
 
 /** Superscript marker pointing at the disclosure. Inherits colour so it stays
  *  legible on the dark bands as well as the light ones. */

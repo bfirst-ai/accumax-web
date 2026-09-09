@@ -11,7 +11,7 @@ import { Cta } from "@/components/sections/cta";
 export const metadata: Metadata = {
   title: "About | AccuMax",
   description:
-    "Higher throughput, increased ARPU and reduced cost to serve—an illustrative >30% increase in gross margin. See the site for the assumptions behind the figure.",
+    "Higher throughput, increased ARPU and reduced cost to serve—30% more gross margin dollars on an illustrative model. See the site for the assumptions behind the figure.",
 };
 
 
@@ -36,9 +36,9 @@ export default function AboutPage() {
           <p className="mt-6 text-lg text-[var(--muted-foreground)] leading-relaxed">
             A firm only grows profit three ways: push more work through, earn
             more from each client, or spend less delivering it. AccuMax moves all
-            three at once. On an illustrative model that compounds into a{" "}
+            three at once. On an illustrative model that compounds into{" "}
             <strong className="text-[var(--foreground)]">
-              &gt;30% increase in gross margin
+              30% more gross margin dollars
               <MarginAsterisk />
             </strong>
             .
