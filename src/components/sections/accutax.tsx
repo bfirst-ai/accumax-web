@@ -125,20 +125,22 @@ export function AccuTaxEngine({ className = "" }: { className?: string }) {
           The <span className="whitespace-nowrap">AccuTax difference</span>
         </div>
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[var(--foreground)] text-balance">
-          <span className="block">One engine.</span>
+          <span className="block">An entire stack of integrated tools.</span>
           <span className="block gradient-text leading-[1.3] pb-[0.12em]">
-            One version of the truth.
+            One platform.
           </span>
         </h2>
         <p className="mt-4 text-lg text-[var(--muted-foreground)] leading-relaxed text-pretty">
-          Every AccuMax agent runs on{" "}
-          <span className="font-semibold text-[var(--foreground)]">AccuTax</span> — one
-          tax-domain AI engine, reading and writing one client record. Assemble the same
-          capability from separate tools and each keeps its own copy of the
-          client&apos;s numbers, which is how a plan and the return it was built for
-          quietly stop agreeing. One engine is also why there is nothing to
-          integrate: every CoPilot and module already works together out of the
-          box, so the integration bill is zero.
+          <span className="block">
+            Breadth or intelligence&mdash;everyone else picks one.
+          </span>
+          <span className="block">
+            AccuMax delivers deep AI across the full platform, plus
+            orchestration.
+          </span>
+          <span className="block">
+            You can upgrade at your own pace, even one tool at a time.
+          </span>
         </p>
       </div>
 
